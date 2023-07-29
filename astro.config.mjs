@@ -22,6 +22,16 @@ export default defineConfig({
           autogenerate: { directory: 'reference' },
         },
       ],
+      head: [
+        {
+          tag: 'script',
+          attrs: {
+            src: 'https://cdn.usefathom.com/script.js',
+            'data-site': 'LBAADTSF',
+            defer: true,
+          },
+        },
+      ]
     }),
   ],
 
