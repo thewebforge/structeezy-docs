@@ -1,0 +1,161 @@
+@import "./props.css";
+
+::selection {
+  background-color: var(--sl-color-accent-high) !important;
+  color: var(--sl-color-black) !important;
+}
+
+:focus-visible {
+  outline-color: var(--sl-color-text-accent);
+  outline-style: solid;
+  outline-width: 2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :focus-visible {
+    transition: outline-offset 145ms ease;
+  }
+
+  :where(:not(:active)):focus-visible {
+    transition-duration: 0.25s;
+  }
+}
+:where(:not(:active)):focus-visible {
+  outline-offset: 5px;
+}
+
+starlight-theme-select select,
+starlight-lang-select select,
+a.site-title,
+body > a[href] {
+  max-inline-size: 200px;
+  border-radius: 5px;
+  font-weight: 700;
+}
+
+header a[rel="me"],
+a.anchor-link {
+  border-radius: 100vmax;
+  outline-offset: 8px;
+}
+
+[data-has-hero] .page {
+  background: linear-gradient(215deg, var(--overlay-blurple), transparent 40%),
+    radial-gradient(var(--overlay-blurple), transparent 40%) no-repeat -60vw -40vh /
+      105vw 200vh,
+    radial-gradient(var(--overlay-blurple), transparent 65%) no-repeat 50%
+      calc(100% + 20rem) / 60rem 30rem;
+}
+
+[data-has-hero] header {
+  border-bottom: 1px solid transparent;
+  background-color: transparent;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+
+[data-has-hero] .hero > img {
+  filter: drop-shadow(0 0 3rem var(--overlay-blurple));
+}
+/* Heading Anchor Links added by rehype-autolink-headings */
+
+.heading-wrapper {
+  --icon-size-x: 1.5rem;
+  --icon-size-y: 1.5rem;
+  margin-inline-end: var(--icon-size-x);
+}
+
+.heading-wrapper > * {
+  display: inline;
+  margin-bottom: 0;
+}
+
+.heading-wrapper > .anchor-link {
+  position: relative;
+  display: inline-flex;
+  margin-inline-end: calc(-1 * var(--icon-size-x));
+  width: var(--icon-size-x);
+  height: var(--icon-size-y);
+  color: var(--theme-text-light);
+  text-decoration: none;
+  justify-content: center;
+  vertical-align: baseline;
+}
+
+.heading-wrapper > .anchor-link > .anchor-icon {
+  display: inline-flex;
+}
+.heading-wrapper > .anchor-link > .anchor-icon > svg {
+  line-height: 1;
+}
+
+/* Float anchor links to the left of headings on larger screens. */
+@media (min-width: 50em) {
+  .heading-wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: baseline;
+    margin-inline-start: calc(-1 * var(--icon-size-x));
+  }
+
+  .heading-wrapper > .anchor-link {
+    margin-inline-end: 0;
+  }
+}
+
+.heading-wrapper > .anchor-link {
+  opacity: 0.5;
+}
+
+@media (hover: hover) {
+  .heading-wrapper > .anchor-link {
+    opacity: 0;
+  }
+}
+
+.heading-wrapper:hover > .anchor-link,
+.anchor-link:focus {
+  opacity: 1;
+}
+
+.external-link-icon {
+  display: inline-block;
+  margin-inline-start: 0.25rem;
+  vertical-align: middle;
+  opacity: 0.7;
+}
+
+.is-terminal .header {
+  background-color: var(--sl-color-gray-5);
+}
+
+:is(.is-terminal, .has-title) .header {
+  border-start-start-radius: 5px;
+  border-start-end-radius: 5px;
+}
+.hero > img {
+  transition: rotate 0.5s ease, scale 0.5s ease;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero > img:hover {
+    rotate: 3deg;
+    scale: 1.05;
+    cursor: cell;
+  }
+}
+
+.content ul ul {
+  margin-block-start: 0;
+  margin-block-end: 1.5rem;
+}
+
+.content :is(h1, h2, h3, h4, h5, h6) {
+  margin-block-start: 2em;
+}
+
+.content :is(table) {
+  inline-size: 100%;
+  word-break: break-word;
+  display: table;
+}

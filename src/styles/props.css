@@ -1,0 +1,32 @@
+:root,
+::backdrop {
+
+	--sl-hue-purple: 270;
+
+    /* DEFINE THE ACCENT COLOR */
+	--sl-hue-accent: var(--sl-hue-purple);
+	
+    
+    --sl-color-accent-low: hsl(var(--sl-hue-accent), 14%, 5%);
+	--sl-color-accent: hsl(var(--sl-hue-accent), 60%, 40%);
+	/* --sl-color-accent-high: hsl(var(--sl-hue-accent), 100%, 87%); */
+	--sl-color-accent-high: hsl(var(--sl-hue-accent),  60%, 65%);
+}
+
+:root[data-theme='light'],
+[data-theme='light'] ::backdrop {
+    /* TWEAKS */
+	--sl-color-accent-high: hsl(var(--sl-hue-accent), 40%, 10%);
+	--sl-color-accent: hsl(var(--sl-hue-accent), 50%, 40%);
+	--sl-color-accent-low: hsl(var(--sl-hue-accent), 48%, 70%);
+}
+
+:root {
+    --purple-hsl: 255, 60%, 60%;
+    --overlay-blurple: hsla(var(--purple-hsl), 0.2);
+    --sl-font: "Atkinson Hyperlegible", sans-serif;
+  }
+  
+  :root[data-theme="light"] {
+    --purple-hsl: 255, 85%, 65%;
+  }

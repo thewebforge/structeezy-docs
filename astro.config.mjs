@@ -1,40 +1,41 @@
-import { defineConfig } from 'astro/config';
-import starlight from '@astrojs/starlight';
+import { defineConfig } from "astro/config";
+import starlight from "@astrojs/starlight";
+
+// Config partials
+import { sidebar } from "./src/config/nav";
+import { head } from "./src/config/head";
+import { locales } from "./src/config/locales";
+import { social } from "./src/config/social";
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [
     starlight({
-      title: 'structeezy docs',
-      social: {
-        github: 'https://github.com/withastro/starlight',
+      title: "Structeezy docs",
+      logo: {
+        light: "~/assets/logos/structeezy-light.svg",
+        dark: "~/assets/logos/structeezy-dark.svg",
+        replacesTitle: true,
       },
-      sidebar: [
-        {
-          label: 'Guides',
-          items: [
-            // Each item here is one entry in the navigation menu.
-            { label: 'Example Guide', link: '/guides/example/' },
-          ],
-        },
-        {
-          label: 'Reference',
-          autogenerate: { directory: 'reference' },
-        },
+      editLink: {
+        baseUrl: "https://github.com/thewebforge/structeezy-docs/edit/main",
+      },
+      social: social,
+      sidebar: sidebar,
+      head: head,
+      defaultLocale: "root",
+      locales: locales,
+      lastUpdated: true,
+      customCss: [
+        "/src/styles/global.css",
+        "@fontsource/atkinson-hyperlegible/400.css",
+        "@fontsource/atkinson-hyperlegible/700.css",
+        "@fontsource/atkinson-hyperlegible/400-italic.css",
+        "@fontsource/atkinson-hyperlegible/700-italic.css",
       ],
-      head: [
-        {
-          tag: 'script',
-          attrs: {
-            src: 'https://cdn.usefathom.com/script.js',
-            'data-site': 'LBAADTSF',
-            defer: true,
-          },
-        },
-      ]
     }),
   ],
 
   // Process images with sharp: https://docs.astro.build/en/guides/assets/#using-sharp
-  image: { service: { entrypoint: 'astro/assets/services/sharp' } },
+  image: { service: { entrypoint: "astro/assets/services/sharp" } },
 });
