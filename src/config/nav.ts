@@ -11,4 +11,8 @@ export const sidebar = [
     label: 'Reference',
     autogenerate: { directory: 'reference' },
   },
+  {
+    label: 'History',
+    autogenerate: { directory: 'history' },
+  },
 ];
