@@ -7,8 +7,11 @@ import { head } from "./src/config/head";
 import { locales } from "./src/config/locales";
 import { social } from "./src/config/social";
 
+const site = "https://docs.structeezy.com/";
+
 // https://astro.build/config
 export default defineConfig({
+  site,
   integrations: [
     starlight({
       title: "Structeezy docs",

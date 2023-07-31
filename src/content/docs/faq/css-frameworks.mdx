@@ -1,0 +1,48 @@
+---
+title: Structeezy & CSS Frameworks
+description: This page lists common questions about using the Structeezy with your favorite CSS Framework.
+sidebar:
+  label: CSS Frameworks
+head:
+  - tag: meta
+    attrs:
+      property: og:image
+      content: https://docs.structeezy.com/open-graph/css-frameworks.png
+  - tag: meta
+    attrs:
+      property: twitter:image
+      content: https://docs.structeezy.com/open-graph/css-frameworks.png
+---
+import { Image } from "astro:assets";
+import dismiss from "~/assets/sez-notice.jpg";
+
+## OxyProps Lite is a required plugin. Do I actualy need it with ACSS or CF?
+OxyProps Lite is not required, it is just recommended for people not using a css framework. Simply dismiss the notice if you use no framework or another framework.
+
+<Image
+  src={dismiss}
+  alt="The Structeezy user account screen showing where to find downloads and license key in the order informations."
+  format="avif"
+  quality="mid"
+  width="900"
+/>
+I will add to my todo list to avoid displaying the notice when a known framework is detected.
+
+[[↑ Back to Top]](#top)
+
+## Semantic, Components, Patterns - how these groups are related to CF or ACSS. (Will these groups use my ccs framework variables?)
+**Yes**, when it needs a css value, Structeezy will use the internally scoped css variables,which are mapped to your framework's variables.
+
+For example, when you insert a `Header Two` structure from the `Patterns` group, it will use :
+
+| item | Automatic.css | CoreFramework | OxyProps |
+| --- | --- | --- | --- |
+| Logo color | `--action` | `--primary` | `--o-brand` |
+| Row 2 bg | `--base` | `--neutral` | `--o-surface-1` |
+| Row 2 Spacing | `--space-m` | `--space-xl` | `--o-size-fluid-5` |
+
+Etc.
+
+The mapping is defined in Structeezy dashboard > Preferences > CSS Frameworks > CSS Defaults.
+
+[[↑ Back to Top]](#top)

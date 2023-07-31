@@ -1,0 +1,41 @@
+---
+title: Structeezy Panel
+description: This page lists common questions about using the Structeezy panel in Bricks editor.
+head:
+  - tag: meta
+    attrs:
+      property: og:image
+      content: https://docs.structeezy.com/open-graph/structeezy-panel.png
+  - tag: meta
+    attrs:
+      property: twitter:image
+      content: https://docs.structeezy.com/open-graph/structeezy-panel.png
+---
+
+import { Image } from "astro:assets";
+import hide from "~/assets/sez-item-hide.jpg";
+import show from "~/assets/sez-item-show.jpg";
+
+## If I hide an element from the panel - there is no unhide button?
+
+Yes there is, expand the panel, hover the hidden element, click the crossed eye icon, and it will be visible again.
+
+**To hide an item, click the eye icon in the panel**
+<Image
+  src={hide}
+  alt="The Structeezy user account screen showing where to find downloads and license key in the order informations."
+  format="avif"
+  quality="mid"
+  width="900"
+/>
+
+**To show an item, expand the panel to show everything (alt + x or ⌥ + x), then click the crossed eye icon in the panel**
+<Image
+  src={show}
+  alt="The Structeezy user account screen showing where to find downloads and license key in the order informations."
+  format="avif"
+  quality="mid"
+  width="900"
+/>
+
+[[↑ Back to Top]](#top)

@@ -5,6 +5,9 @@ description: Getting Started with Structeezy.
 import { Image } from "astro:assets";
 import order from "~/assets/sez-user-order.jpg";
 import menu from "~/assets/sez-admin-menu.jpg";
+import general from "~/assets/sez-general-pref.jpg";
+import structures from "~/assets/sez-structures-pref.jpg";
+import css from "~/assets/sez-css-pref.jpg";
 
 ## Step 1: Installation
 
@@ -32,6 +35,64 @@ import menu from "~/assets/sez-admin-menu.jpg";
     />
 1. Once activated, you'll find the Structeezy dashboard on the left-hand side menu in your WordPress admin panel.
 1. Click on "Structeezy" to access the plugin's main settings and features.
+
+## Step 3: General Preferences
+
+### Appearance
+<Image
+      src={general}
+      alt="The position of the Structeezy menu in the WordPress admin menu."
+      format="avif"
+      quality="mid"
+      width="900"
+    />
+1. **Show structures tooltips** *on by default*  
+    Decide if you want to display tooltips on hover for the structures in the Structeezy panel.
+1. **Show actions tooltips** *on by default*  
+    Decide if you want to display tooltips on hover for the action buttons (show / hide / delete) in the Structeezy panel.
+1. **Expand by default** *off by default*  
+    This option allows to decide if the Structeezy panel is expanded or not by default.
+1. **Default group** *“Native” by default*  
+    Choose which group yoou want to be displayed first when opening Structeezy panel.
+
+### Structures
+<Image
+      src={structures}
+      alt="The position of the Structeezy menu in the WordPress admin menu."
+      format="avif"
+      quality="mid"
+      width="900"
+    />
+1. **Add a “most used structures” group to Structeezy** *on by default*  
+    Structeezy keeps track of the usage of your structures and displays the most used ones in a dedicated group.
+1. **Most used Structures** *Table*  
+    Displays the 20 most used structures in a table sorted in descending order.
+1. **Download all counters**  
+    Download a `.json` file containing all counters.
+1. **Reset counters**  
+    Clear all counters and start from 0.
+
+### CSS Frameworks
+<Image
+      src={css}
+      alt="The position of the Structeezy menu in the WordPress admin menu."
+      format="avif"
+      quality="mid"
+      width="900"
+    />
+1. **CSS Framework integrations** *“None” by default*  
+
+    Structeezy can detect the following CSS frameworks:
+    - Automatic.css
+    - CoreFramework
+    - OxyProps Lite
+    - OxyProps
+
+    If you are using one of these frameworks, you can select it here and Structeezy will automatically use css variables from the framework in your structures.
+
+1. **CSS Defaults** *Vanilla css values by default*  
+    Structeezy will use the values defined here as default values when necessary in your structures.  
+    If you select a CSS framework, Structeezy will suggest default values from the framework.
 
 ## Step 3: Creating Your First Structure
 

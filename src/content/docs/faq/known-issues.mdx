@@ -1,0 +1,80 @@
+---
+title: Known Issues
+description: This page lists common known issues when using Structeezy and the way to solve them.
+head:
+  - tag: meta
+    attrs:
+      property: og:image
+      content: https://docs.structeezy.com/open-graph/known-issues.png
+  - tag: meta
+    attrs:
+      property: twitter:image
+      content: https://docs.structeezy.com/open-graph/known-issues.png
+---
+import { Image } from "astro:assets";
+import ssl from "~/assets/brx-ssl.jpg";
+
+## Structure context menu not working in Bricks
+
+Since version 1.5.1, Bricks uses the Clipboard API to copy and paste elements and styles in the structure tree.
+
+Structeezy uses Bricks native features to inject structures in the structure tree. Therefore, Structeezy will not work if Bricks native copy / paste functions for the structure tree are not working.
+
+This problem is documented in the [Bricks academy](https://academy.bricksbuilder.io/article/known-issues/#copy-paste). 
+
+If you are experiencing this issue, please check if Bricks native copy / paste functions are working. You should be able to copy and paste elements in your structure tree. If not, please check the following:
+
+### Secure context
+
+:::caution[HTTPS]
+Your site must be served over https or localhost to use the Clipboard API.
+:::
+
+For security reasons, the Clipboard API is accessible only in [secure contexts (HTTPS)](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts).
+
+Locally environments using `http://127.0.0.1` URLs, `http://localhost` and `http://*.localhost` URLs (e.g. `http://dev.whatever.localhost/`), are also considered to have been delivered securely.
+
+If you are using Bricks in a local environment serving page on `http://*.test`, `http://*.local` URLs or any other extension, **you will need to use a local HTTPS server to make the Clipboard API work**.
+<Image
+  src={ssl}
+  alt="The Structeezy user account screen showing where to find downloads and license key in the order informations."
+  format="avif"
+  quality="mid"
+  width="900"
+/>
+Since v1.8.4, Bricks displays a notice in the WordPress admin if SSL is not available.
+
+[[↑ Back to Top]](#top)
+
+### Explicit permission
+
+:::caution[Explicit permission]
+The Clipboard API requires explicit permission from the user before a web application can access the clipboard.
+:::
+
+A web application can not read anything from your clipboard without your explicit permission. When you copy something, you will be prompted to allow the web application to access your clipboard.
+
+You only need to allow the web application to access your clipboard once. If you deny the permission, you will need to reload the page to be prompted again. You can manage the permissions in your browser settings. The permission is granted for a specific domain. So, you will have to grant permission for each domain and each browser you are using Bricks on.
+
+[[↑ Back to Top]](#top)
+
+### Firefox users
+
+Firefox is even more restrictive than other browsers and doesn't allow any javascript application to read from your clipboard.
+
+You can still use the structure context menu in Firefox by explicitely activating the feature. To do so, follow these steps :
+
+1. type `about:config` in your address bar and press enter.
+2. search for `dom.events.asyncClipboard.readText` and set it to `true`.
+3. search for `dom.events.testing.asyncClipboard` and set it to `true`.
+4. restart Firefox.
+
+[[↑ Back to Top]](#top)
+
+## I want to know Structeezy compatibility with localwp? Not working on loca dev (Is SSL the problem?)
+Yes, this is actualy Bricks compatibility, not Structeezy, with local dev. Bricks uses the clipboard API for the structure tree. Using this API is security sensitive, so any browser will only allow it in "secure context:
+- if accessed from http://localhost
+- if accessed over https
+For details, see : https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts
+
+[[↑ Back to Top]](#top)
