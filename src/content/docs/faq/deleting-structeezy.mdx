@@ -1,0 +1,62 @@
+---
+title: Deleting Structeezy
+description: This page lists common questions about using the Structeezy with your favorite CSS Framework.
+sidebar:
+  label: Delete plugin
+head:
+  - tag: meta
+    attrs:
+      property: og:image
+      content: https://docs.structeezy.com/open-graph/css-frameworks.png
+  - tag: meta
+    attrs:
+      property: twitter:image
+      content: https://docs.structeezy.com/open-graph/css-frameworks.png
+---
+
+import { Image } from "astro:assets";
+import dismiss from "~/assets/sez-notice.jpg";
+
+## If I build a layout or complete website with Structeezy and then delete the plug-in. Will everything be intact or not?
+
+It will be except for 2 things :
+
+1. Structeezy adds a little inline css to map css variables to your own choices (the ones you set under the css framework preferences). If you delete the plugin, this css will not be inlined anymore and you should do it manually, maybe by xopy. /pasting it to your bricks custom css code.
+2. Structeezy adds 2 lines of javascript to read your html font size, as some people or some css frameworks set it to 62.5% instead of 100%. And then it creates a css variable with this value : --sez-root-fsr (fsr stands dor font size ratio). If you delete the plugin, this calculation won't be made and will default to 1, which may result in dimensions variations. So you should add this value also to your Bricks css.
+
+**CSS to map Structeezy localy scoped varaiables to your framework**
+
+```css
+:where(html) {
+  /* These CSS variables are dynamically pulled from your Structeezy dashboard */
+  --_sez-inner-spacing: calc(2rem / var(--sez-root-fsr, 1));
+  --_sez-outer-spacing: calc(6rem / var(--sez-root-fsr, 1));
+  --_sez-h1-size: calc(clamp(2rem, 4vw, 3.5rem) / var(--sez-root-fsr, 1));
+  --_sez-h2-size: calc(clamp(1.5rem, 3vw, 2.5rem) / var(--sez-root-fsr, 1));
+  --_sez-h3-size: calc(clamp(1rem, 2vw, 1.5rem) / var(--sez-root-fsr, 1));
+  --_sez-h4-size: calc(clamp(0.95rem, 1.9vw, 1.37rem) / var(--sez-root-fsr, 1));
+  --_sez-h5-size: calc(clamp(0.9rem, 1.7vw, 1.23rem) / var(--sez-root-fsr, 1));
+  --_sez-h6-size: calc(clamp(0.8rem, 1.6vw, 1.1rem) / var(--sez-root-fsr, 1));
+  --_sez-text-size: calc(clamp(0.75rem, 1.5vw, 1rem) / var(--sez-root-fsr, 1));
+  --_sez-subtitle-ratio: 0.7;
+  --_sez-heading-line-height: 1.1;
+  --_sez-text-line-height: 1.5;
+  --_sez-accent-color: rebeccapurple;
+  --_sez-neutral-color: whitesmoke;
+  --_sez-ui-border-radius: 5px;
+  --_sez-ui-border-width: 2px;
+  --_sez-buttons-border-radius: 5px;
+  --_sez-buttons-border-width: 2px;
+  --_sez-max-text-width: 60ch;
+}
+```
+
+**Javascript to make the html font size ratio available as a css variable**
+
+```js
+const sezRootFsr =
+  parseFloat(getComputedStyle(document.documentElement).fontSize) / 16;
+document.documentElement.style.setProperty("--sez-root-fsr", sezRootFsr);
+```
+
+[[↑ Back to Top]](#top)
