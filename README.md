@@ -65,9 +65,7 @@ If you can see what the problem is, and you know how to fix it, then you can mak
 
 Speak another language natively? 
 
-Join our i18n gang on Discord or jump into the PRs to help with reviewing existing draft translations!
-
-Check out the dedicated [i18n guide](https://github.com/withastro/docs/blob/main/contributor-guides/translating-astro-docs.md) for more details.
+Join our i18n gang and jump into the PRs to help with reviewing existing draft translations!
 
 ## Next Steps
 
