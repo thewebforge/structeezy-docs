@@ -1,4 +1,4 @@
-# Structeezy Docs <picture><source media="(prefers-color-scheme: dark)" srcset="https://astro.build/assets/press/astro-icon-light.png"><source media="(prefers-color-scheme: light)" srcset="https://astro.build/assets/press/astro-icon-dark.png"><img align="right" valign="center" height="79" width="63" src="https://astro.build/assets/press/astro-icon-dark.png" alt="Astro logo" /></picture>
+# Structeezy Docs <picture><source media="(prefers-color-scheme: dark)" srcset="./gh-assets/sez-icon-white.png"><source media="(prefers-color-scheme: light)" srcset="./gh-assets/sez-icon-black.png"><img align="right" valign="center" height="79" width="63" src="./gh-assets/sez-icon-black.png" alt="Structeezy logo" /></picture>
 
 
 To all who come to this happy place: welcome.
@@ -13,8 +13,7 @@ This repo contains all the source code we use to build our docs site. And if you
 
 ## Structeezy
 
-Astro is an all-in-one web framework for building fast, content-focused websites.
-We want everyone to be successful building sites, and that means helping everyone understand how Astro works.
+Structeezy is a WordPress plugin for Brick builder that provides a powerful structure tree builder and structures manager.
 
 - <strong>[You are Awesome](#you-are-awesome)</strong>
 - <strong>[Chat with Us](#chat-with-us)</strong>
