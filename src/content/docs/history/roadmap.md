@@ -33,12 +33,16 @@ head:
 
 - [x] **Patterns**: Extend the patterns library.
 - [x] **Dashboard**: Automativally dismiss OxyProps Lite suggestion if a known framework is detected.
+- [x] **Dashboard**: Manage and move categories.
 
 [[↑ Back to Top]](#top)
 
 ### Ideas
 
 - [x] **Private Cloud**: Option to save structures to a privtage WP install for sharing them between projects.
+- [x] **Cloud**: Save structures to Google Drive, PCloud, etc.
 - [x] **Placeholder image**: Allow users to choose their own source for placeholder images.
+- [x] **Thumbnails**: Have thumbnails to preview the structure on hover.
+- [x] **Panel**: Structure version management, put different versions of the same structure under one column, so that users don't have to think about many names, and can clean up all versions or select a certain version to save as a new structure.
 
 [[↑ Back to Top]](#top)
