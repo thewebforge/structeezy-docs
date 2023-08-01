@@ -1,4 +1,4 @@
-# Structeezy Docs <picture><source media="(prefers-color-scheme: dark)" srcset="./gh-assets/sez-icon-white.png"><source media="(prefers-color-scheme: light)" srcset="./gh-assets/sez-icon-black.png"><img align="right" valign="center" height="79" width="63" src="./gh-assets/sez-icon-black.png" alt="Structeezy logo" /></picture>
+# Structeezy Docs <picture><source media="(prefers-color-scheme: dark)" srcset="./gh-assets/sez-icon-white.png"><source media="(prefers-color-scheme: light)" srcset="./gh-assets/sez-icon-black.png"><img align="right" valign="center" height="65" width="65" src="./gh-assets/sez-icon-black.png" alt="Structeezy logo" /></picture>
 
 
 To all who come to this happy place: welcome.
