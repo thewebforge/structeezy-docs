@@ -6,17 +6,17 @@ settings:
 
 dependencies:
   '@astrojs/starlight':
-    specifier: ^0.6.0
-    version: 0.6.0(astro@2.9.6)
+    specifier: ^0.6.1
+    version: 0.6.1(astro@2.9.7)
   '@fontsource/atkinson-hyperlegible':
-    specifier: 5.0.5
-    version: 5.0.5
+    specifier: 5.0.6
+    version: 5.0.6
   '@thewebforge/astro-og-images':
     specifier: 1.1.13
-    version: 1.1.13(astro@2.9.6)
+    version: 1.1.13(astro@2.9.7)
   astro:
-    specifier: 2.9.6
-    version: 2.9.6(sharp@0.32.4)
+    specifier: 2.9.7
+    version: 2.9.7(sharp@0.32.4)
   sharp:
     specifier: ^0.32.4
     version: 0.32.4
@@ -58,13 +58,13 @@ packages:
       vscode-uri: 3.0.7
     dev: false
 
-  /@astrojs/markdown-remark@2.2.1(astro@2.9.6):
+  /@astrojs/markdown-remark@2.2.1(astro@2.9.7):
     resolution: {integrity: sha512-VF0HRv4GpC1XEMLnsKf6jth7JSmlt9qpqP0josQgA2eSpCIAC/Et+y94mgdBIZVBYH/yFnMoIxgKVe93xfO2GA==}
     peerDependencies:
       astro: ^2.5.0
     dependencies:
       '@astrojs/prism': 2.1.2
-      astro: 2.9.6(sharp@0.32.4)
+      astro: 2.9.7(sharp@0.32.4)
       github-slugger: 1.5.0
       import-meta-resolve: 2.2.2
       rehype-raw: 6.1.1
@@ -81,11 +81,11 @@ packages:
       - supports-color
     dev: false
 
-  /@astrojs/mdx@0.19.7(astro@2.9.6):
+  /@astrojs/mdx@0.19.7(astro@2.9.7):
     resolution: {integrity: sha512-mfEbBD7oi8yBHhcJucEjnrquREkJ3os+jioURP8BR2B8tOV2rV2j8trvmLUgfS+P/+HevGObxCTjcRYxn6T7eg==}
     engines: {node: '>=16.12.0'}
     dependencies:
-      '@astrojs/markdown-remark': 2.2.1(astro@2.9.6)
+      '@astrojs/markdown-remark': 2.2.1(astro@2.9.7)
       '@astrojs/prism': 2.1.2
       '@mdx-js/mdx': 2.3.0
       acorn: 8.10.0
@@ -141,16 +141,16 @@ packages:
       zod: 3.21.4
     dev: false
 
-  /@astrojs/starlight@0.6.0(astro@2.9.6):
-    resolution: {integrity: sha512-LBxmhNSTNzoiZZE6lK1HEFKz5AgiZVHZ4nhAm7tz7qHSxDChD/zLS917Vi6sneolPy+Eu7AAZY3lGV9lneA/9A==}
+  /@astrojs/starlight@0.6.1(astro@2.9.7):
+    resolution: {integrity: sha512-8BOdtRo32hvnzAfhJtOioy63etlqhAanEg4TJrs/3Xz+p4yKcA1q7dM3/5Dq9BSus36W2nSts9GHq/BkBG5DTg==}
     peerDependencies:
       astro: ^2.5.0
     dependencies:
-      '@astrojs/mdx': 0.19.7(astro@2.9.6)
+      '@astrojs/mdx': 0.19.7(astro@2.9.7)
       '@astrojs/sitemap': 1.3.3
       '@pagefind/default-ui': 1.0.0-alpha.8
       '@types/mdast': 3.0.11
-      astro: 2.9.6(sharp@0.32.4)
+      astro: 2.9.7(sharp@0.32.4)
       bcp-47: 2.1.0
       execa: 7.1.1
       hast-util-select: 5.0.5
@@ -831,8 +831,8 @@ packages:
     dev: false
     optional: true
 
-  /@fontsource/atkinson-hyperlegible@5.0.5:
-    resolution: {integrity: sha512-bilyGBdB2Us/OrSj6luzvHTI16pLuQVOUWARI7o+3NmpW2yUHjF8u7jbgNJgPDQ2//4tAjsWjVeqN9H222OFpg==}
+  /@fontsource/atkinson-hyperlegible@5.0.6:
+    resolution: {integrity: sha512-y7QozitOkC0f8oxt3pr5o1/qwjlvJsS6bmoIDSNxlELc0oIBppDj2fklywi1nhW2dsvfTYUa7y0RwCkPS2yUFA==}
     dev: false
 
   /@gar/promisify@1.1.3:
@@ -1130,7 +1130,7 @@ packages:
       string.prototype.codepointat: 0.2.1
     dev: false
 
-  /@thewebforge/astro-og-images@1.1.13(astro@2.9.6):
+  /@thewebforge/astro-og-images@1.1.13(astro@2.9.7):
     resolution: {integrity: sha512-jaY1jXvtQu/2fpk78UoISBvU3qu9t9A8IVdzSmquJJpsj++rwb6ZD6Nfo3Fv3JO/Tlr7dsvHezZN01EYA5VJnw==}
     peerDependencies:
       astro: '>=2.0.0'
@@ -1140,7 +1140,7 @@ packages:
       '@types/node-fetch-cache': 3.0.0
       '@types/react': 18.2.14
       '@types/react-dom': 18.2.7
-      astro: 2.9.6(sharp@0.32.4)
+      astro: 2.9.7(sharp@0.32.4)
       kleur: 4.1.5
       node-fetch-cache: 3.1.3
       react: 18.2.0
@@ -1410,8 +1410,8 @@ packages:
     hasBin: true
     dev: false
 
-  /astro@2.9.6(sharp@0.32.4):
-    resolution: {integrity: sha512-yvbZQ6YOWYLejyQ4nAcgZLDYQ34enQJ5/LWlXKtUzXzpsUHB75vJMj+XmEq5Q2eVlZOlQrp0lU+nhSRGaOsOUQ==}
+  /astro@2.9.7(sharp@0.32.4):
+    resolution: {integrity: sha512-gEm6SyiF2sh2qn9smPd/Z5yXhSLlsNqM5hsOo2B1ibb5S3BjxE1srmGGW7cUhM0dcxxIwixdevgamS4oxUNa/A==}
     engines: {node: '>=16.12.0', npm: '>=6.14.0'}
     hasBin: true
     peerDependencies:
@@ -1423,7 +1423,7 @@ packages:
       '@astrojs/compiler': 1.6.3
       '@astrojs/internal-helpers': 0.1.1
       '@astrojs/language-server': 1.0.8
-      '@astrojs/markdown-remark': 2.2.1(astro@2.9.6)
+      '@astrojs/markdown-remark': 2.2.1(astro@2.9.7)
       '@astrojs/telemetry': 2.1.1
       '@astrojs/webapi': 2.2.0
       '@babel/core': 7.22.8

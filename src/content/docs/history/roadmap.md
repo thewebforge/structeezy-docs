@@ -44,5 +44,7 @@ head:
 - [x] **Placeholder image**: Allow users to choose their own source for placeholder images.
 - [x] **Thumbnails**: Have thumbnails to preview the structure on hover.
 - [x] **Panel**: Structure version management, put different versions of the same structure under one column, so that users don't have to think about many names, and can clean up all versions or select a certain version to save as a new structure.
+- [x] **Icons set**: Big modal window with 100k+ icons set ( for other framework users )🤓
+- [x] **Template libraries**: Ability to add several template libraries simultaneously (frames and others) Now we have only 1 slot🤷‍♂️.
 
 [[↑ Back to Top]](#top)

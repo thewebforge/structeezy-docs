@@ -1,0 +1,223 @@
+---
+title: Keyboard Shortcuts
+description: This guide lists useful keyboard shortcuts and describes how to customize them to match your needs.
+head:
+  - tag: meta
+    attrs:
+      property: og:image
+      content: https://docs.structeezy.com/open-graph/guides/customize-shortcuts.png
+  - tag: meta
+    attrs:
+      property: og:image:width
+      content: "1200"
+  - tag: meta
+    attrs:
+      property: og:image:height
+      content: "630"
+  - tag: meta
+    attrs:
+      property: twitter:image
+      content: https://docs.structeezy.com/open-graph/guides/customize-shortcuts.png
+---
+
+import { Image } from "astro:assets";
+
+## Keyboard Shortcuts
+
+Structeezy has a set of keyboard shortcuts that you can use to quickly navigate the app. You can customize these shortcuts to match your needs.
+
+## Default Shortcuts
+
+### UI
+
+| Shortcut  | Description                                                                  |
+| :-------- | :--------------------------------------------------------------------------- |
+| `alt + s` | Toggle open or closed the command Structeezy panel                           |
+| `alt + x` | Toggle expanded or collapsed the Structeezy panel                            |
+| `alt + q` | Closes the save custom structre modal                                        |
+| `f1`      | Save the currently selected structure and its children as a custom structure |
+| `f2`      | Save your whole structure tree as a custom structure                         |
+
+### Inject Containers
+
+| Shortcut          | Description                                             |
+| :---------------- | :------------------------------------------------------ |
+| `alt + shift + s` | Add a section element                                   |
+| `alt + d`         | Add a div element                                       |
+| `alt + c`         | Add a Bricks container element with a tag of `<div>`    |
+| `alt + b`         | Add a Bricks block element with a tag of `<div>`        |
+| `alt + shift + c` | Add a Section `<section>` and a child Container `<div>` |
+
+### Inject Text
+
+| Shortcut                  | Description                                                   |
+| :------------------------ | :------------------------------------------------------------ |
+| `alt + p`                 | Add a basic text element with a `<p>` tag                     |
+| `alt + 1` or `alt + num1` | Add a heading element with a `<h1>` tag                       |
+| `alt + 2` or `alt + num2` | Add a heading element with a `<h2>` tag                       |
+| `alt + 3` or `alt + num3` | Add a heading element with a `<h3>` tag                       |
+| `alt + 4` or `alt + num4` | Add a heading element with a `<h4>` tag                       |
+| `alt + 5` or `alt + num5` | Add a heading element with a `<h5>` tag                       |
+| `alt + 6` or `alt + num6` | Add a heading element with a `<h6>` tag                       |
+| `alt + a`                 | Add a basic text element with a `<a>` tag and link attributes |
+
+## Customize Shortcuts
+
+### Single shortcut
+
+You can customize the keyboard shortcuts to match your needs. To do so, click on the **Keyboard Shortcuts** tab at the left of the Preferences dashboard view.
+
+A shortcut is a string representing a combination of keys. The keys are separated by a `+` sign. For example, `alt + s` is a shortcut that represents the combination of the `alt` key and the `s` key.
+
+To customize a shortcut, click on the shortcut you want to change and type the keys combination you want to use. The shortcut will be updated automatically.
+
+:::caution
+You can't use a shortcut that is already used by your browser or by your operating system. Structeezy will **NOT** check or warn you if you try to use a shortcut that is already used by your browser or by your operating system.
+:::
+
+### Multiple shortcuts
+
+If necessary, you can assign multiple shortcuts to the same action. For example, you can assign `alt + s` and `alt + shift + s` to the same action. This way, you can use the shortcut that is the most convenient for you.
+
+To assign multiple shortcuts to the same action, simply separate the shortcuts by a comma. For example, `alt + s, alt + shift + s` will assign `alt + s` and `alt + shift + s` to the same action.
+
+As an example, default shortcut for headings allows you to use `alt + 1` (the 1 key on the main keyboard) or `alt + num1` (the 1 key on the numeric pad) to add a heading element with a `<h1>` tag.
+
+### Keys syntax
+
+The keys are represented by their name. For example, the `alt` key is represented by the `alt` name. The `s` key is represented by the `s` name.
+
+In addition to all text characters that can be used, the following table lists the names of the keys you can use to customize your shortcuts.
+
+#### general
+
+| Name           | Alternate      |
+| :------------- | :------------- |
+| `cancel`       |                |
+| `backspace`    |                |
+| `tab`          |                |
+| `clear`        |                |
+| `enter`        |                |
+| `shift`        |                |
+| `ctrl`         |                |
+| `alt`          | `menu`         |
+| `pause`        | `break`        |
+| `capslock`     |                |
+| `escape`       | `esc`          |
+| `space`        | `spacebar`     |
+| `pageup`       |                |
+| `pagedown`     |                |
+| `end`          |                |
+| `home`         |                |
+| `left`         |                |
+| `up`           |                |
+| `right`        |                |
+| `down`         |                |
+| `select`       |                |
+| `printscreen`  |                |
+| `execute`      |                |
+| `snapshot`     |                |
+| `insert`       | `ins`          |
+| `delete`       | `del`          |
+| `help`         |                |
+| `scrolllock`   | `scroll`       |
+| `comma`        | `,`            |
+| `period`       | `.`            |
+| `slash`        | `forwardslash` `/` |
+| `graveaccent`  | `` ` ``        |
+| `openbracket`  | `[`            |
+| `backslash`    | `\`            |
+| `closebracket` | `]`            |
+| `apostrophe`   | `'`            |
+
+#### 0-9
+
+| Name    | Alternate |
+| :------ | :-------- |
+| `zero`  | `0`       |
+| `one`   | `1`       |
+| `two`   | `2`       |
+| `three` | `3`       |
+| `four`  | `4`       |
+| `five`  | `5`       |
+| `six`   | `6`       |
+| `seven` | `7`       |
+| `eight` | `8`       |
+| `nine`  | `9`       |
+
+#### Numpad
+
+| Name          | Alternate |
+| :------------ | :-------- |
+| `numzero`     | `num0`    |
+| `numone`      | `num1`    |
+| `numtwo`      | `num2`    |
+| `numthree`    | `num3`    |
+| `numfour`     | `num4`    |
+| `numfive`     | `num5`    |
+| `numsix`      | `num6`    |
+| `numseven`    | `num7`    |
+| `numeight`    | `num8`    |
+| `numnine`     | `num9`    |
+| `nummultiply` | `num*`    |
+| `numadd`      | `num+`    |
+| `numenter`    |           |
+| `numsubtract` | `num-`    |
+| `numdecimal`  | `num.`    |
+| `numdivide`   | `num/`    |
+| `numlock`     | `num`     |
+
+#### Function keys
+
+| Name  |
+| :---- |
+| `f1`  |
+| `f2`  |
+| `f3`  |
+| `f4`  |
+| `f5`  |
+| `f6`  |
+| `f7`  |
+| `f8`  |
+| `f9`  |
+| `f10` |
+| `f11` |
+| `f12` |
+| `f13` |
+| `f14` |
+| `f15` |
+| `f16` |
+| `f17` |
+| `f18` |
+| `f19` |
+| `f20` |
+| `f21` |
+| `f22` |
+| `f23` |
+| `f24` |
+
+#### secondary key symbols
+
+| Name                | Alternate                   |
+| :------------------ | :-------------------------- |
+| `tilde`             | `~`                         |
+| `exclamation`       | `exclamationpoint` `!`     |
+| `at`                | `@`                         |
+| `number`            | `#`                         |
+| `dollar`            | `dollars` `dollarsign` `$` |
+| `percent`           | `%`                         |
+| `caret`             | `^`                         |
+| `ampersand`         | `and` `&`                  |
+| `asterisk`          | `*`                         |
+| `openparen`         | `(`                         |
+| `closeparen`        | `)`                         |
+| `underscore`        | `_`                         |
+| `plus`              | `+`                         |
+| `opencurlybrace`    | `opencurlybracket` `{`      |
+| `closecurlybrace`   | `closecurlybracket` `}`     |
+| `verticalbar`       | `\|`                        |
+| `colon`             | `:`                         |
+| `'quotationmark`    | `'`                         |
+| `'openanglebracket` | `<`                         |
+| `closeanglebracket` | `>`                         |
+| `questionmark`      | `?`                         |
