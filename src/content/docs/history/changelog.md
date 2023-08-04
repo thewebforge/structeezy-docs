@@ -22,6 +22,17 @@ head:
       content: https://docs.structeezy.com/open-graph/history/changelog.png
 ---
 
+## v0.4.0 (2023-08-04)
+
+### Feat
+
+- OxyProps (BricksProps) user gget a specific group when OxyProps is active ans set as the dfault Framework to use OP custom elements
+- New structure manager in the plugin dashboard to manage custom structures categories and structures (show, hide, renale, delete, modify tooltip.)
+- Add ability to [modify default UI keyboard shortcuts](/guides/customize-shortcuts/) for opening and expanding panels
+- Add [keyboard shortcuts](/guides/customize-shortcuts/) for saving structures or the whole tree
+- Add [keyboard shortcuts](/guides/customize-shortcuts/) for inserting most common elements (section, container, div, block, paragraph, headings, link.)
+- In semantic group, a section + container combo with associated html tags.
+
 ## v0.3.0 (2023-07-30)
 
 ### Feat
