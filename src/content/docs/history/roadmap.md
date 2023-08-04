@@ -22,18 +22,22 @@ head:
       content: https://docs.structeezy.com/open-graph/history/roadmap.png
 ---
 
+### Done
+- [x] **Keyboard Shortcuts**: Add keyboard shortcuts for instant addition of the most common elements.
+- [x] **Dashboard**: Manage custom structures.
+
+[[↑ Back to Top]](#top)
+
 ### Work in Progress
 
-- [x] **Keyboard Shortcuts**: Add keyboard shortcuts for instant addition of the most common elements.
 - [x] **Docs**: Create documentation.
+- [x] **Dashboard**: Automativally dismiss OxyProps Lite suggestion if a known framework is detected.
 
 [[↑ Back to Top]](#top)
 
 ### Planned
 
 - [x] **Patterns**: Extend the patterns library.
-- [x] **Dashboard**: Automativally dismiss OxyProps Lite suggestion if a known framework is detected.
-- [x] **Dashboard**: Manage and move categories.
 
 [[↑ Back to Top]](#top)
 
