@@ -10,10 +10,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/starlight": "^0.6.1",
-    "@fontsource/atkinson-hyperlegible": "5.0.6",
+    "@astrojs/starlight": "^0.9.1",
+    "@fontsource/atkinson-hyperlegible": "5.0.12",
     "@thewebforge/astro-og-images": "1.1.13",
-    "astro": "2.9.7",
-    "sharp": "^0.32.4"
+    "astro": "3.0.12",
+    "sharp": "^0.32.5"
   }
 }
