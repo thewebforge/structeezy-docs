@@ -31,6 +31,7 @@ export default defineConfig({
       lastUpdated: true,
       customCss: [
         "/src/styles/global.css",
+        "/src/styles/landing.css",
         "@fontsource/atkinson-hyperlegible/400.css",
         "@fontsource/atkinson-hyperlegible/700.css",
         "@fontsource/atkinson-hyperlegible/400-italic.css",

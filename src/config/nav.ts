@@ -12,6 +12,11 @@ export const sidebar = [
     autogenerate: { directory: 'reference' },
   },
   {
+    label: 'Release Notes',
+    badge: 'New',
+    autogenerate: { directory: 'release-notes' },
+  },
+  {
     label: 'History',
     autogenerate: { directory: 'history' },
   },

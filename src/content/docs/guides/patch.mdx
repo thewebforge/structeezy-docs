@@ -1,0 +1,145 @@
+---
+title: Structeezy v1.0 Release Notes
+description: The history of changes to Structeezy.
+sidebar:
+  label: Patch
+  hidden: true
+head:
+  - tag: meta
+    attrs:
+      property: og:image
+      content: https://docs.structeezy.com/open-graph/release-notes/v-1-0-0.png
+  - tag: meta
+    attrs:
+      property: og:image:width
+      content: "1200"
+  - tag: meta
+    attrs:
+      property: og:image:height
+      content: "630"
+  - tag: meta
+    attrs:
+      property: twitter:image
+      content: https://docs.structeezy.com/open-graph/release-notes/v-1-0-0.png
+---
+import { Image } from "astro:assets";
+import release from "~/assets/sez-release-1-0.jpg";
+import attributes from "~/assets/sez-renders-user-attributes.png";
+import patch from "~/assets/sez-patch-setting.png";
+
+<Image
+      src={release}
+      alt=""
+      format="avif"
+      quality="mid"
+      width="900"
+    />
+
+Structeezy 1.0 is out and features a long awaited Bricks editor patch, a full set of features and elements to build inline SVGs right from your structure tree, the first elements and patterns using the new CSS scroll-driven animations API, and more.
+
+- [Bricks Builder patch](#bricks-builder-patch)
+- [SVG Structure Builder](#svg-structure-builder)
+- [CSS Scroll-Driven Animations](#css-scroll-driven-animations)
+- [Quality of Life Improvements](#quality-of-life-improvements)
+
+To take advantage of the latest features, make sure you’re running the latest version of Structeezy. You can upgrade to Structeezy 1.0 by running an automatic plugin update from you WordPress plugins dashboard, of by downloading the `.zip` file from your [user account](https://structeezy.com/my-account/).
+
+## Bricks Builder Patch
+
+One of the most frustrating aspects of the Bricks Editor is that it does not render user defined element attributes on the editor canvas.
+
+This is a problem because it makes it impossible to see the effects of user defined attributes on the editor canvas, even if the attributes are valid and will render correctly on the front-end. This makes it difficult to design and build customized elements.
+
+Requests were made by me and other plugin developers to the Bricks team to fix this issue, for example [here](https://forum.bricksbuilder.io/t/duplicate-custom-attributes-should-be-rendered-in-builder-not-only-on-front-end/6289) and [here](https://forum.bricksbuilder.io/t/wip-data-attributes-not-showing-in-the-dom-structure-of-the-backend/4827), but at the time of writing this note, they are still pending.
+
+Structeezy 1.0 fixes this problem by patching Brick code so it renders user defined attributes on the editor canvas. This makes it possible to see the effects of user defined attributes directly in the editor, and makes it easier to design and build customized elements.
+
+<Image
+      src={attributes}
+      alt=""
+      format="avif"
+      quality="mid"
+      width="900"
+    />
+
+This patch is temporary and will be removed once the Bricks team fixes the issue.
+
+### How to Patch Bricks?
+
+The patch will be applied by default when you update to Structeezy 1.0. You don't need to do annything special to benefit from it.
+
+If you want to remove the patch, read the next section.
+
+### How to remove the Patch?
+
+If for any reason you want to remove the patch, and restore Bricks code to its original state, you can do so from the plugin dashboard.
+
+1. Go to your WordPress Structeezy dashboard.
+2. Click on the "Settings" > "General" tab.
+3. Scroll down to the new "Bricks Editor" section.
+4. Click on the "Patch Bricks Builder" toggle.
+5. Your changes are saved and applied automatically.
+
+<Image
+      src={patch}
+      alt=""
+      format="avif"
+      quality="mid"
+      width="900"
+    />
+
+## SVG Structure Builder
+
+## CSS Scroll-Driven Animations
+
+Scroll-driven animations, linked to scroll position, are common on the web, enabling effects like parallax backgrounds and fading elements as they come into view. The Scroll-driven Animations specification introduces new APIs that work with Web Animations and CSS Animations, allowing smooth, off-main-thread animations with minimal additional code.
+
+Current browser support is 65% and growing. Supported by Chrome, Edge, Opera. Firefox behind flags for now. You can check the current support status [here](https://caniuse.com/mdn-css_properties_view-timeline).
+
+Structeezy 1.0 is the first plugin to use the new CSS Scroll-Driven Animations API. It includes a new set of elements and patterns that use the new API to create scroll-driven animations.
+
+### Progress Indicator
+
+The Progress Indicator element is a simple element that displays a progress bar that fills up as the user scrolls down the page.
+
+It is 100% CSS based and does not require any JavaScript to work. It is also fully customizable, allowing you to change the color, size, and position of the progress bar. The animations are smooth and off-main-thread, so they do not affect the page performance, thanks to the new CSS Scroll-Driven Animations API.
+
+This pen shows the Progress Indicator element in action:
+<div class="not-content">
+<p class="codepen not-content" data-height="480" data-default-tab="result" data-slug-hash="VwgvwNq" data-user="cbontems" style="height: 480px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/cbontems/pen/VwgvwNq">
+  CSS only scroll progress bar</a> by cbontems (<a href="https://codepen.io/cbontems">@cbontems</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+</div>
+
+### Fancy Gallery
+
+<div class="not-content">
+<p class="codepen" data-height="480" data-default-tab="result" data-slug-hash="OJdpdva" data-user="cbontems" style="height: 481.76837158203125px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/cbontems/pen/OJdpdva">
+  Untitled</a> by cbontems (<a href="https://codepen.io/cbontems">@cbontems</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+</div>
+
+## Quality of Life Improvements
+
+### Clipboard Restauration
+
+Bricks uses the clipboard to copy and paste elements to the structure tree. So when Structeezy injects the structure tree into the Bricks editor, it goes through the clipboard, overwritting whatever was stored previously.
+
+This is a sometimes annoying because one could have useful text stored in the clipboard that they intend to use after injecting a structure. But when they do, the structure overwrites the clipboard and the text is lost. When the user tries to paste their text, they get the structure instead.
+
+Structeezy 1.0 fixes this problem by saving the clipboard content to a temporary buffer before injecting the structure, and restoring it after the structure is injected. This way, the structure injection is completely transparent for the user.
+
+### Disable structure injection when in an input field
+
+Structeezy offers keyboard shortcuts to inject structures into the Bricks editor. But when the user is in an input field, for example when editing a text element, the shortcuts are still active and can inject a structure into the editor by mistake.
+
+A good example is when a french user (like me) wants to use the <kbd>Alt</kbd> + <kbd>(</kbd> shortcut to create a curly brace `{` in a custom CSS input field, Structeezy detects the <kbd>Alt</kbd> + <kbd>5</kbd> shortcut as <kbd>(</kbd> and <kbd>5</kbd> are the same key and injects a `<h5>` element.
+
+Structeezy 1.0 fixes this problem by disabling the structure injection shortcuts when the user is in an editable `textarea` or `input` field.
+
+[[↑ Back to Top]](#top)

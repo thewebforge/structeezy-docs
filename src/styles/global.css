@@ -159,3 +159,11 @@ a.anchor-link {
   word-break: break-word;
   display: table;
 }
+
+.content :is(kbd) {
+  border-radius: 2px;
+  border: 1px solid var(--sl-color-gray-4);
+  padding: 0.1em 0.4em;
+  font-family: var(--sl-font-monospace);
+  box-shadow: inset 0 -0.1em 0 var(--sl-color-gray-4);
+}
