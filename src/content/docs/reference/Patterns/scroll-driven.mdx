@@ -1,0 +1,337 @@
+---
+title: Scroll Driven Patterns
+description: A reference for the Structeezy structures available in the Patterns > ScrollDriven category.
+sidebar:
+  label: ScrollDriven
+head:
+  - tag: meta
+    attrs:
+      property: og:image
+      content: https://docs.structeezy.com/open-graph/reference/patterns/scroll-driven.png
+  - tag: meta
+    attrs:
+      property: og:image:width
+      content: "1200"
+  - tag: meta
+    attrs:
+      property: og:image:height
+      content: "630"
+  - tag: meta
+    attrs:
+      property: twitter:image
+      content: https://docs.structeezy.com/open-graph/reference/patterns/scroll-driven.png
+---
+
+import { Image, Picture } from "astro:assets";
+import progress from "~/assets/sez-patterns-scroll-driven-progress.gif";
+import fancy from "~/assets/sez-patterns-scroll-driven-fancy-gallery.gif";
+import hero from "~/assets/sez-patterns-scroll-driven-hero2header.gif";
+import reveal from "~/assets/sez-patterns-scroll-driven-image-reveal.gif";
+
+:::caution[Motion Warning]
+Embedded example animated gifs in this page have movement that may be problematic for some readers. Readers with vestibular motion disorders may wish to enable the reduce motion feature on their device before reading this page.
+:::
+
+These patterns use the CSS scroll-driven API available from june 2023 in Chrome to create effects that are triggered by the user scrolling the page using only CSS.
+
+## Progress
+
+The Progress element is a simple progress bar that fills as the user scrolls down the page. It is useful for showing the user how far they have scrolled through a page.
+
+<figure>
+  <Picture
+    src={progress}
+    alt="an animation shows a horizontal bar growing from left to right as the page scrolls down."
+    width="720"
+  />
+  <figcaption>
+    Demo of the Progress structure, tweaked with highly exagerated bar height to
+    make is obvious
+  </figcaption>
+</figure>
+
+### rendered html
+
+It renders the following html on front-end:
+
+```html
+<div id="progress"></div>
+```
+
+The dummy text which is inserted is there only for the purpose of having a long enough page to scroll and can be safely deleted.
+
+### custom CSS
+
+The element has custom CSS which can be tweaked to style it.
+
+```css
+html {
+  scroll-timeline: --page-scroll block;
+}
+
+@keyframes scroll-progress {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+%root% {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 5px;
+  min-height: initial;
+  background: var(--_sez-accent-color);
+  z-index: 100000;
+
+  transform-origin: 0 50%;
+  animation: scroll-progress auto linear;
+  animation-timeline: --page-scroll;
+}
+```
+
+To customize the element while keeping fuctionnality, I recommend changing only the following properties:
+
+- `height`
+- `background`
+- `z-index`
+
+And if necessary to change its position:
+
+- `left`
+- `top`
+- `width`
+
+[[↑ Back to Top]](#top)
+
+## Fancy Gallery
+
+A central column scrolls with the page, while the left and right columns scroll in the opposite direction. This creates a parallax effect that can be used to display images or other content.
+
+<figure class="motion-ok">
+  <Picture
+    src={fancy}
+    alt="an animation shows a horizontal bar growing from left to right as the page scrolls down."
+    width="720"
+  />
+  <figcaption>
+    Demo of the Progress structure, tweaked with highly exagerated bar height to
+    make is obvious
+  </figcaption>
+</figure>
+
+### rendered html
+
+It renders the following html on front-end:
+
+```html
+<section class="sez-section">
+  <div class="sez-section__body sez-section__body--fancy-gallery">
+    <div
+      class="sez-section__column sez-section__column--fancy-gallery sez-section__column--reverse"
+    >
+      <img
+        class="sez-image--fancy-gallery"
+        src="//picsum.photos/seed/structeezy-kxlppt/640"
+        alt=""
+      />
+      <!-- 10 random images -->
+    </div>
+    <div class="sez-section__column sez-section__column--fancy-gallery">
+      <img
+        class="sez-image--fancy-gallery"
+        src="//picsum.photos/seed/structeezy-kvbopc/640"
+        alt=""
+      />
+      <!-- 10 random images -->
+    </div>
+    <div
+      class="sez-section__column sez-section__column--fancy-gallery sez-section__column--reverse"
+    >
+      <img
+        class="sez-image--fancy-gallery"
+        src="//picsum.photos/seed/structeezy-kmncsq/640"
+        alt=""
+      />
+      <!-- 10 random images -->
+    </div>
+  </div>
+</section>
+```
+
+### custom CSS
+
+The functionality comes from the following class:
+
+```css
+.sez-section__column--reverse {
+  transform: translateY(calc(-100% + 100vh));
+  flex-direction: column-reverse;
+  animation: adjust-position linear forwards;
+  animation-timeline: scroll(root block);
+}
+
+@keyframes adjust-position {
+  from {
+    transform: translateY(calc(-100% + 100vh));
+  }
+  to {
+    transform: translateY(calc(100% - 100vh));
+  }
+}
+```
+
+## Hero2header
+
+A full screen hero section that transitions into a header as the user scrolls down the page.
+
+<figure>
+  <Picture
+    src={hero}
+    alt="a full screen hero section with a big centered heading shrinks to a top header as the page is scrolled down"
+    width="720"
+  />
+  <figcaption>Demo of the Hero2header structure</figcaption>
+</figure>
+
+### rendered html
+
+It renders the following html on front-end:
+
+```html
+<header id="hero-to-header">
+  <h1>I am a h1 heading</h1>
+</header>
+```
+
+The dummy text which is inserted is there only for the purpose of having a long enough page to scroll and can be safely deleted.
+
+### custom CSS
+
+The element has custom CSS which can be tweaked to style it.
+
+```css
+html {
+  scroll-timeline: --page-scroll block;
+}
+
+body{
+  padding-block-start: 100vb;
+}
+
+@keyframes hero-to-header-move-and-size {
+  from {
+    background-position: 50% 0;
+    block-size: 100vb;
+    font-size: calc(10vi + 1em);
+  }
+  to {
+    background-position: 50% 100%;
+    background-color: var(--_sez-accent-color);
+    block-size: 10vb;
+    font-size: 2em;
+  }
+}
+
+%root% {
+  color: white;
+  block-size: 100vb;
+  inline-size: 100%;
+  background-image: url(https://picsum.photos/seed/structeezy-He4f7S/1920/1080);
+  background-size: cover;
+  background-position: 50% 50%;
+  background-blend-mode: soft-light;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+@supports (animation-range: 0vh 90vh){
+  %root% {
+    position: fixed;
+    inset-block-start: 0;
+
+    animation: hero-to-header-move-and-size linear forwards;
+    animation-range: 0vb 90vb;
+    animation-timeline: --page-scroll;
+  }
+}
+```
+
+To customize the element while keeping fuctionnality, I recommend changing only the following properties:
+
+- `color`: the default text color in the element.
+- `background-image`: the image used as background. You can also use a gradient.
+- `background-blend-mode`: the blend mode used for the background image and the overlay color defined in the animation.
+
+And in the animation `@keyframes`:
+
+- `font-size` from and to: font sizes. You will need to adjust to match your design.
+- `background-color` to: defines the overlay color when the hero shrinks to a header
+- `block-size` to: the size of the header when shrinked.
+
+[[↑ Back to Top]](#top)
+
+## ImageReveal
+
+This structure includes images with a custom CSS class that reveals images with a growing circle mask effect when entering the viewport as the page scrolls down.
+
+<figure>
+  <Picture
+    src={reveal}
+    alt="an animation shows images fading in with a growing circle mask effect when entering the viewport as the page scrolls down."
+    width="720"
+  />
+  <figcaption>Demo of the ImageReveal structure</figcaption>
+</figure>
+
+### rendered html
+
+It renders the following html on front-end:
+
+```html
+<img
+  class="sez-reveal-image"
+  src="//picsum.photos/seed/structeezy-qdimzn/640/480"
+  alt=""
+/>
+```
+
+The dummy text which is also inserted is there only for the purpose of having a long enough page to scroll and can be safely deleted.
+
+### custom CSS
+
+The element includes a custom CSS class `sez-reveal-image` which can be tweaked to style it.
+
+```css
+%root% {
+  view-timeline-name: --revealing-image;
+  view-timeline-axis: block;
+  animation: linear sez-reveal-image both;
+  animation-timeline: --revealing-image;
+  animation-range: entry 25% cover 50%;
+}
+
+@keyframes sez-reveal-image {
+  from {
+    opacity: 0;
+    clip-path: circle(10%);
+  }
+  to {
+    opacity: 1;
+    clip-path: circle(100%);
+  }
+}
+```
+
+To customize the element while keeping fuctionnality, I recommend changing only the following properties:
+
+- `animation-range`: defines the start and end of the animation
+
+And of course, you can chage the animation itself by modifying the `@keyframes`rule or choosing your own one.
+
+[[↑ Back to Top]](#top)
