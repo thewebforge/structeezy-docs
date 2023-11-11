@@ -1,9 +1,9 @@
-import { getCollection, CollectionEntry } from "astro:content";
+import { type  CollectionEntry, getCollection } from "astro:content";
 import ogApi from "@thewebforge/astro-og-images";
 
 const entries = await getCollection("docs");
 
-export const { getStaticPaths, get } = ogApi({
+export const { getStaticPaths, GET } = ogApi({
   entries: entries,
   param: "ogimage",
   template: "branded",
