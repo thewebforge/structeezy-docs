@@ -21,6 +21,27 @@ head:
       property: twitter:image
       content: https://docs.structeezy.com/open-graph/history/changelog.png
 ---
+## v1.1.0 (2023-11-14)
+
+### Feat
+
+- **svg**: added svg elements, filters and examples
+- **scrollDriven**: add cover flow pattern
+- **structures**: add option for picture element with random image placeholder
+
+### Fix
+
+- **svg**: move turbulence example to examples category
+- **svg**: optimize default attributes
+- **css**: standardize logical properties
+- **patterns**: typo in structure label
+
+### Refactor
+
+- **svg**: refactor root svg default attributes for better usability
+- **sass**: prepare for future deprecation of / division coming in Dart Sass 2.0.0
+- **structures**: convert to logical properties
+
 ## v1.0.0 (2023-11-09)
 
 ### Feat

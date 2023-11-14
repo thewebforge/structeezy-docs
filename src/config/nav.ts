@@ -13,7 +13,6 @@ export const sidebar = [
   },
   {
     label: 'Release Notes',
-    badge: 'New',
     autogenerate: { directory: 'release-notes' },
   },
   {

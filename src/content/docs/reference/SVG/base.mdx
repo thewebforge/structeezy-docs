@@ -1,0 +1,232 @@
+---
+title: SVG Base Elements
+description: A reference for the Structeezy structures available in the SVG > Base category.
+sidebar:
+  label: Base
+  badge: New
+head:
+  - tag: meta
+    attrs:
+      property: og:image
+      content: https://docs.structeezy.com/open-graph/reference/svg/base.png
+  - tag: meta
+    attrs:
+      property: og:image:width
+      content: "1200"
+  - tag: meta
+    attrs:
+      property: og:image:height
+      content: "630"
+  - tag: meta
+    attrs:
+      property: twitter:image
+      content: https://docs.structeezy.com/open-graph/reference/svg/base.png
+---
+
+import { Image, Picture } from "astro:assets";
+import progress from "~/assets/sez-patterns-scroll-driven-progress.gif";
+import fancy from "~/assets/sez-patterns-scroll-driven-fancy-gallery.gif";
+import hero from "~/assets/sez-patterns-scroll-driven-hero2header.gif";
+import reveal from "~/assets/sez-patterns-scroll-driven-image-reveal.gif";
+
+This category contains the base elements for SVGs. These elements are the building blocks for other SVG elements.
+
+## `<svg>` element
+
+The `<svg>` element is a container that defines a new coordinate system and viewport. It is used as the outermost element of SVG structures, and it can also be used to embed an SVG fragment inside another SVG.
+
+It is created using a Bricks `div` element customized with the `svg` tag and the following attributes:
+
+### attributes
+
+#### `xmlns`
+
+- **type:** `string`
+- **default:** `http://www.w3.org/2000/svg`
+
+The `xmlns` attribute defines the namespace for the SVG document.
+
+#### `width`
+
+- **type:** `string`
+- **default:** `100%`
+
+The `width` attribute defines the _displayed_ width of the rectangular viewport. (Not the width of its coordinate system.).
+
+Structeezy uses the `100%` value by default to ensure the SVG scales to the width of its container. If you want to set a fixed width, you can use any valid CSS value.
+
+
+#### `height`
+
+- **type:** `string`
+- **default:** `auto`
+
+The `height` attribute defines the _displayed_ height of the rectangular viewport. (Not the height of its coordinate system.).
+
+Structeezy uses the `auto` value by default to ensure the SVG scales to maintain the aspect ratio. If you want to set a fixed height, you can use any valid CSS value.
+
+#### `viewBox`
+
+- **type:** `string`
+- **default:** `0 0 500 300`
+
+The `viewBox` attribute defines defines the position and dimension, in user space, of an SVG viewport. The value is a list of four numbers: `min-x`, `min-y`, `width` and `height`.
+
+Structeezy uses the `0 0 500 300` value by default, because why not? But you can use any value. 
+
+#### `x`
+
+- **type:** `string`
+- **default:** `0`
+
+Defines the displayed x coordinate of the svg container. It has no effect on outermost svg elements.
+
+#### `y`
+
+- **type:** `string`
+- **default:** `0`
+
+Defines the displayed x coordinate of the svg container. It has no effect on outermost svg elements.
+
+#### `preserveAspectRatio`
+
+- **type:** `string`
+- **default:** `xMidYMid meet`
+
+Defines how the svg fragment must be deformed if it is displayed with a different aspect ratio.
+
+### Rendered html
+
+```html
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="100%"
+  height="auto"
+  viewBox="0 0 500 300"
+  x="0"
+  y="0"
+  preserveAspectRatio="xMidYMid meet"
+>
+  { SVG structure children }
+</svg>
+```
+
+[[↑ Back to Top]](#top)
+
+## `<desc>` element
+
+The `<desc>` element is a container used to provide an accessible description of the SVG document.
+
+It is created using a Bricks `text-basic` element customized with the `desc` tag.
+
+The text inside the element is not rendered in thee graphic, but it is available to assistive technologies.
+
+If an aria-describedby attribute is present on the SVG element, it will take precedence over the text inside the `<desc>` element.
+
+### Rendered html
+
+```html
+<desc>
+  { SVG description }
+</desc>
+```
+
+[[↑ Back to Top]](#top)
+
+## `<defs>` element
+
+The `<defs>` element is a container used to store graphical objects that will be used at a later time.
+
+It is created using a Bricks `div` element customized with the `defs` tag.
+
+### Rendered html
+
+```html
+<defs>
+  { defs children elements }
+</defs>
+```
+
+[[↑ Back to Top]](#top)
+
+## `<g>` element
+
+The `<g>` element lement is a container used to group other SVG elements.
+
+Transformations applied to the `<g>` element are performed on its child elements, and its attributes are inherited by its children. It can also group multiple elements to be referenced later with the [`<use>`](#use-element) element.
+
+It is created using a Bricks `div` element customized with the `g` tag and the following attributes:
+
+### attributes
+
+#### `transform`
+
+- **type:** `string`
+- **default:** `translate(0 0)`
+
+The `transform` attribute defines a list of transformations that are applied to the `<g>` element children.
+
+### Rendered html
+
+```html
+<g transform="translate(0 0)">
+  { g children elements }
+</g>
+```
+
+[[↑ Back to Top]](#top)
+
+## `<use>` element
+
+The `<use>` element is a container used to reference a group of SVG elements.
+
+It is created using a Bricks `div` element customized with the `use` tag and the following attributes:
+
+### attributes
+
+#### `href`
+
+- **type:** `string`
+- **default:** `url(#element-id)`
+
+The `href` attribute defines the id of the element to be referenced.
+
+#### `x`
+
+- **type:** `string`
+- **default:** `0`
+
+Defines the x offset applied to the use element.
+
+#### `y`
+
+- **type:** `string`
+- **default:** `0`
+
+Defines the y offset applied to the use element.
+
+#### `width`
+
+- **type:** `string`
+- **default:** `0`
+
+Defines the displayed width of the use element.
+
+#### `height`
+
+- **type:** `string`
+- **default:** `0`
+
+Defines the displayed height of the use element.
+
+:::note
+The `width` and `height` attributes have only effect if the referenced element is a `<svg>`or a `<symbol>` element.
+:::
+
+### Rendered html
+
+```html
+<use href="#element-id" x="0" y="0" width="0" height="0" />
+```
+
+[[↑ Back to Top]](#top)
