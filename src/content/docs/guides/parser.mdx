@@ -1,0 +1,331 @@
+---
+title: Structeezy Code Parser
+sidebar:
+  label: Code Parser
+  order: 1
+  badge: v1.2
+description: This guide lists useful keyboard shortcuts and describes how to customize them to match your needs.
+head:
+  - tag: meta
+    attrs:
+      property: og:image
+      content: https://docs.structeezy.com/open-graph/guides/parser.png
+  - tag: meta
+    attrs:
+      property: og:image:width
+      content: "1200"
+  - tag: meta
+    attrs:
+      property: og:image:height
+      content: "630"
+  - tag: meta
+    attrs:
+      property: twitter:image
+      content: https://docs.structeezy.com/open-graph/guides/parser.png
+---
+
+import { Image } from "astro:assets";
+import parser from "~/assets/sez-parser-component.png";
+import parserSimpleCode from "~/assets/sez-parser-simple-code.png";
+import parserCodeClasses from "~/assets/sez-parser-code-classes.png";
+import parserCodeAttributes from "~/assets/sez-parser-code-attributes.png";
+import parserCodeInline from "~/assets/sez-parser-code-inline.png";
+import parserCodeWeb from "~/assets/sez-parser-code-from-the-web.png";
+import parserCodeWebBrx from "~/assets/sez-parser-code-from-the-web-brx.png";
+
+Since version 1.2, Structeezy has a built-in code parser that allows you to easily create your structure skeleton from raw html.
+
+:::note
+The parser is still in experimental, and we are working on improving it. If you have any feedback, please [open an issue](https://github.com/thewebforge/structeezy-docs/issues/new/choose).
+:::
+
+The parser is used by the [Iconify integration](/guides/iconify) to create Structures from the icon's `svg` code.
+
+## Finding the Parser in Structeezy
+
+You will find the Iconify feature at the bottom of the `SVG` Tab, in the Structeezy Panel.
+
+<Image src={parser} alt="" width="900" />
+
+On the Parser component, you will find:
+
+- A `code editor`, powered by Codemirror, to enter `HTML` or `SVG` code.
+- A `Strip Classes` toggle, off by default. This indicated to the parsed if it should register the source code's classes as `Bricks Global Classes`.
+- A `Parse & Inject` button, that will parse the current code and create the corresponding elements in your structure tree.
+
+## Usage
+
+### Write simple code
+
+You can create a simple structure by writing the code in the editor. The parser will convert your code to Bricks elements, and all the elements inside it.
+
+```html title="Simple Code"
+<section>
+  <div>
+    <h1>My Title</h1>
+    <p>My paragraph</p>
+  </div>
+</section>
+```
+
+Write your code in the editor, and click on `Parse & Inject` to create the structure.
+
+<Image src={parserSimpleCode} alt="" width="900" />
+
+### Add classes and an Id to your elements
+
+As a Bricks user, you probably use classes. Wether these are you own one, or from a CSS framework like [o-props](https://oxyprops/com).
+
+Structeezy allows you to add `classes` to your elements, and even an `id` attribute.
+
+```html title="Code with Classes and Ids"
+<section id="my-section" class="section o-height-full o-super-centered">
+  <div id="my-container" class="section__container o-flex-col">
+    <h1 id="my-heading" class="section__heading o-mrg-bl-3">My Title</h1>
+    <p id="my-paragraph" class="section__paragraph o-thin">My paragraph</p>
+  </div>
+</section>
+```
+
+Write your code in the editor, and click on `Parse & Inject` to create the structure.
+
+:::caution
+Don’t forget to toggle the `Strip Classes` option to `off` if you want to keep your classes.
+:::
+
+<Image src={parserCodeClasses} alt="" width="900" />
+
+Structeezy will parse your code, and create the corresponding elements in your structure tree.
+
+It will also register the classes as `Bricks Global Classes` and assign them to the corresponding elements.
+
+Finally, it will add the `id` attribute to the corresponding elements.
+
+### Add custom attributes to your elements
+
+You can also add custom attributes to your elements. These will be registered as Bricks custom attributes to the corresponding elements in your structure tree.
+
+```html title="Code with attributes"
+<section
+  id="my-section"
+  aria-labelledby="my-heading"
+  data-attr="my-section-attr"
+>
+  <div>
+    <h1 id="my-heading">My Title</h1>
+    <p>My paragraph</p>
+  </div>
+</section>
+```
+
+Write your code in the editor, and click on `Parse & Inject` to create the structure.
+
+<Image src={parserCodeAttributes} alt="" width="900" />
+
+Structeezy will parse your code, and create the corresponding elements in your structure tree.
+
+It will also create attributes and assign their name and values to the corresponding elements.
+
+### Add inline tags to your element content
+
+It is not easy to add inline tags in Bricks, like `<br />`, `<sup></sup>`, `<em></em>`, etc.
+
+Structeezy allows you to add inline tags to your element content, and will identify them as inline elements and insert them in your pareent element content, giving the expected result.
+
+```html title="Code with inline tags"
+<p>
+  My paragraph<br />with a line break, and some <mark>marked text</mark> as well
+  as super<sup>script</sup> and sub<sub>script</sub>
+</p>
+```
+
+<Image src={parserCodeInline} alt="" width="900" />
+
+### Paste any code from the web
+
+You can paste any code from the web, and the parser will try to parse it.
+
+:::note
+When copying code from the web, don’t expect the output to look like the original website. The parser will try to parse the code, but it is not perfect, and it will not always work.  
+Moreover, the parser will not import and / or parse the `CSS` code. If you choos to import the classes, there are two options:
+- The classes are from a CSS framework, and the framework is installed on your site: Bingo! This should be pretty nice right away.
+- The classes are custom to the original site, or a framework not installed on your site: imported classes will be empty shells and you will have to add the declarations, or import the stylesheets by yourself.
+:::
+
+<Image src={parserCodeWeb} alt="" width="900" />
+
+for example, here is the hero section from the [Bricks website](https://bricksbuilder.io).
+
+```html title="Code from the web"
+<section class="brxe-section">
+  <div class="brxe-container align-items-center gap-grid">
+    <h1 class="brxe-heading hero_title">
+      The visual site builder that grows with you.
+    </h1>
+    <p
+      id="brxe-ikqogu"
+      class="brxe-text-basic text-align-center text-size-large max-width-content-large"
+    >
+      Meet Bricks. An innovative, community-driven,
+      <strong>visual site builder</strong> for WordPress. Empowering you to
+      design <strong>unique</strong>, <strong>performant</strong>, and
+      <strong>scalable</strong> websites. <strong>Code-free.</strong>
+    </p>
+    <div class="brxe-block button_group justify-content-center">
+      <a
+        class="brxe-button bricks-button lg bricks-background-dark"
+        href="https://bricksbuilder.io/pricing/"
+        title="Get Bricks now"
+        aria-label="Get Bricks now"
+        >Get Bricks</a
+      ><a
+        class="brxe-button bricks-button lg outline bricks-color-dark"
+        href="https://try.bricksbuilder.io/"
+        rel="external"
+        target="_blank"
+        title="Try Bricks for free"
+        aria-label="Try Bricks for free"
+        >Try Bricks</a
+      >
+    </div>
+  </div>
+</section>
+```
+And Structeezy will parse it for you, and get you the `HTML` document Structure.
+
+<Image src={parserCodeWebBrx} alt="" width="900" />
+
+## Advanced Usage - Emmet
+
+The parser code editor integrates [Emmet](https://emmet.io/), and you can use Emmet shortcuts to write your code. Emmet is a plugin for many popular text editors which greatly improves HTML & CSS workflow.
+
+For example, you can write:  
+```html title="Example Emmet Snippet"
+section#my-section>div#my-container>h1#my-heading+div#my-paragraph
+```  
+and Emmet will expand it to:
+
+```html title="Emmet Generated Code"
+<section id="my-section">
+  <div id="my-container">
+    <h1 id="my-heading"></h1>
+    <div id="my-paragraph"></div>
+  </div>
+</section>
+```
+Emmet uses a syntax similar to CSS selectors for describing elements’ positions inside the generated tree and elements’ attributes.
+
+### General Principle
+1. Write an emmet shortcut in the editor. An emmet shortcut is a string of characters that describes the structure you want to create. **It contains no whitespaces**.
+2. Right after writing the shortcut, press the `Tab` key. This will expand the shortcut to the corresponding code.
+3. Repeat the process to create the structure you want.
+
+### Elements
+
+Any name that is not a shortcut is considered an element name. For example, `section` is an element name.
+
+```html title="Example Emmet Snippet"
+section
+```
+
+```html title="Emmet Generated Code"
+<section></section>
+```
+
+### Nesting Operators
+
+| Operator | Description |
+| --- | --- |
+| `>` | Child operator. Creates a child element. |
+| `+` | Sibling operator. Creates a sibling element. |
+| `^` | Climb-up operator. Creates a parent element. |
+| `*` | Multiplication operator. Creates multiple elements. |
+| `()` | Grouping operator. Creates a group of elements. |
+
+```html title="Example Emmet Snippet"
+section>div>h1+div
+```
+
+```html title="Emmet Generated Code"
+<section>
+  <div>
+    <h1></h1>
+    <div></div>
+  </div>
+</section>
+```
+
+### Attribute Operators
+
+| Operator | Description |
+| --- | --- |
+| `#` | ID operator. Creates an ID attribute. |
+| `.` | Class operator. Creates a class attribute. |
+| `[]` | Attribute operator. Creates a custom attribute. |
+
+```html title="Example Emmet Snippet"
+section#my-section>div.section__container>h1.section__heading+div.section__paragraph
+```
+
+```html title="Emmet Generated Code"
+<section id="my-section">
+  <div class="section__container">
+    <h1 class="section__heading"></h1>
+    <div class="section__paragraph"></div>
+  </div>
+</section>
+```
+
+### Numbering Operators
+
+| Operator | Description |
+| --- | --- |
+| `$` | Numbering operator. Creates a numbered element. |
+
+```html title="Example Emmet Snippet"
+section#my-section>div.section__container>h$*3.section__heading+div.section__paragraph
+```
+
+```html title="Emmet Generated Code"
+<section id="my-section">
+  <div class="section__container">
+    <h1 class="section__heading"></h1>
+    <h2 class="section__heading"></h2>
+    <h3 class="section__heading"></h3>
+    <div class="section__paragraph"></div>
+  </div>
+</section>
+```
+
+### Text Operators
+
+| Operator | Description |
+| --- | --- |
+| `{}` | Text operator. Creates text content. |
+
+```html title="Example Emmet Snippet"
+section#my-section>div.section__container>h1.section__heading{My Title}+div.section__paragraph{My paragraph}
+```
+
+```html title="Emmet Generated Code"
+<section id="my-section">
+  <div class="section__container">
+    <h1 class="section__heading">My Title</h1>
+    <div class="section__paragraph">My paragraph</div>
+  </div>
+</section>
+```
+
+### Emmet Cheat Sheet
+
+| Shortcut | Description |
+| --- | --- |
+| `div` | Creates a `div` element. |
+| `div#my-div` | Creates a `div` element with an `id` attribute. |
+| `div.my-div` | Creates a `div` element with a `class` attribute. |
+| `div[my-attr]` | Creates a `div` element with a `my-attr` attribute. |
+| `div#my-div.my-div[my-attr]` | Creates a `div` element with an `id`, a `class` and a `my-attr` attribute. |
+| `div#my-div.my-div[my-attr]{My Text}` | Creates a `div` element with an `id`, a `class`, a `my-attr` attribute and a text content. |
+| `div#my-div.my-div[my-attr]{My Text}+div#my-div.my-div[my-attr]{My Text}` | Creates two `div` elements with an `id`, a `class`, a `my-attr` attribute and a text content. |
+
+For more information about Emmet and Emmet syntax, please refer to the [Emmet documentation](https://docs.emmet.io/abbreviations/syntax/).

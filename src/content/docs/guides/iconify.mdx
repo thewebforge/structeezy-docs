@@ -1,0 +1,144 @@
+---
+title: Iconify Integration
+description: This guide lists useful keyboard shortcuts and describes how to customize them to match your needs.
+sidebar:
+  order: 10
+  badge: v1.2
+head:
+  - tag: meta
+    attrs:
+      property: og:image
+      content: https://docs.structeezy.com/open-graph/guides/iconify.png
+  - tag: meta
+    attrs:
+      property: og:image:width
+      content: "1200"
+  - tag: meta
+    attrs:
+      property: og:image:height
+      content: "630"
+  - tag: meta
+    attrs:
+      property: twitter:image
+      content: https://docs.structeezy.com/open-graph/guides/iconify.png
+---
+
+import { Image } from "astro:assets";
+import component from "~/assets/sez-iconify-component.png";
+import iconAsCode from "~/assets/sez-iconify-icon-as-code.png";
+import iconAsCodeResult from "~/assets/sez-iconify-icon-as-code-result.png";
+import iconParsed from "~/assets/sez-iconify-icon-parse.png";
+import iconParsedResult from "~/assets/sez-iconify-icon-parse-result.png";
+import setSearch from "~/assets/sez-iconify-set-search.png";
+import setSearchEmoji from "~/assets/sez-iconify-set-search-emoji.png";
+import iconSearch from "~/assets/sez-iconify-icon-search.png";
+import iconSearchUnicorn from "~/assets/sez-iconify-icon-search-unicorn.png";
+import iconSearchUnicornResult from "~/assets/sez-iconify-icon-search-unicorn-result.png";
+import unicorn from "~/assets/sez-iconify-unicorn.png";
+import settings from "~/assets/sez-iconify-settings.png";
+
+[Iconify](https://iconify.design) is an open source project, created to make it easy to work with different icon sets in a consistent way.
+
+It includes over 200k icons from more than 150 open source icon sets, all cleaned up, optimised and kept up to date.
+
+Structeezy uses Iconify to provide you with a set of icons that you can use very easily in your structures in several ways.
+
+## Finding Iconify in Structeezy
+
+You will find the Iconify feature at the bottom of the `SVG` Tab, in the Structeezy Panel.
+
+<Image src={component} alt="" width="900" />
+
+On the iconify integration component, you will find, from left to right:
+
+- A `browse icons` link, that will open the Icône website for the current icons set.
+- An `Icon Sets search` input, that will allow you to search for a specific icons set.
+- An `Icon search` input, that will allow you to search for a specific icon in the selected icon set.
+- The current icon, which is also a button. Clicking on it will inject a code element in your structure.
+- A `Parse` button, that will parse the current icon SVG code and create the corresponding elements in your structure tree.
+
+## Usage
+
+### Selecting an icon set
+
+Click the `Icon Sets search` input field displaying the current set name. When clicked, it will display the number of available sets.
+
+<Image src={setSearch} alt="" width="900" />
+
+For example, let’s start typing `emoji` in the input field. Structeezy will display the icon sets matching the search.
+
+<Image src={setSearchEmoji} alt="" width="900" />
+
+The number in the parenthesis besides the set name is the number of icons availbale in the set. Let’s choose `Fluent Emoji` for the example, which offers 2961 icons (at the date of the screenshot).
+
+### Selecting an icon
+
+After selecting an icon set, the firs icon in the set is displayed by default. You can search for a specific icon in the set.
+
+Click the `Icon search` input field displaying the current icon name. When clicked, it will display the number of available icons.
+
+<Image src={iconSearch} alt="" width="900" />
+
+For example, let’s start typing `unic` in the input field. Structeezy will display the icons matching the search.
+
+<Image src={iconSearchUnicorn} alt="" width="900" />
+
+You can then select the icon you want to use. Once it is visible in the preview, it is ready for use.
+<Image src={iconSearchUnicornResult} alt="" width="900" />
+
+Inject it in your structure (read on to understand the 2 injection modes) and enjoy your new SVG!
+
+<Image src={unicorn} alt="" width="900" />
+
+### Inserting an icon as a code element
+
+To insert an icon as a code element, simply click on the icon preview.
+
+<Image src={iconAsCode} alt="" width="900" />
+
+Structeezy will insert a code element in your structure tree and add the icon code to the content field.
+
+<Image src={iconAsCodeResult} alt="" width="900" />
+
+### Inserting an icon as a parsed structure
+
+To insert an icon as a parsed structure, simply click on the `parse` button.
+
+<Image src={iconParsed} alt="" width="900" />
+
+Structeezy will parse the svg source code and create the corresponding structure tree. It will then inject the resulting structure in your structure tree.
+
+<Image src={iconParsedResult} alt="" width="900" />
+
+## Settings
+
+You can access the Iconify settings by selecting the `SVG & Iconify` tab in the plugin dashboard.
+
+<Image src={settings} alt="" width="900" />
+
+### Render with wrapper
+
+Bricks gives the otion to render a code element with or without a `<div>` wrapper element.
+
+This option let you decide of the default behavior when Structeezy injects a `SVG` [as a code element](#inserting-an-icon-as-a-code-element).
+
+It is a question of personal preference, but you can:
+- render without wrapper and set the default size to `1em` so your svg acts and scales like a text element. You will control its dimensions with the `font-size` property.
+- render with wrapper and set the default size to `100%` so your svg acts and scales like a layout element. You will control its dimensions with the `inline-size` and `block-size` properties.
+
+### Apply the “brxe-icon” class
+Bricks applies a `brxe-icon` class to its native icon element.
+
+You can choose to add this class to the wrapper `<div>` element when Structeezy injects a `SVG` [as a code element](#inserting-an-icon-as-a-code-element).
+
+This option is useful if you want to use the `brxe-icon` class to style your icons.
+
+### Default Icon Size
+
+This value will be rendered as the `width` attribute of the root `<svg>` element.
+
+The icon size defaults to 1em, which is iconify default, so it scales easily with your font size. But you can set it to any value you want.
+
+### Default Icon Set
+
+This value will be used as the default icon set when the Iconify integration component is loaded.

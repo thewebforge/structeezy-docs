@@ -21,6 +21,42 @@ head:
       property: twitter:image
       content: https://docs.structeezy.com/open-graph/history/changelog.png
 ---
+## v1.2.1 (2024-01-22)
+
+### Fix
+
+- **frameworks**: fix issue #12 - following 1.2 release - calling get_plugin() was causing a php error in some environments
+- **parser**: extend the list of inline tags to be rendered as element text content
+
+### Refactor
+
+- **tgpm**: modernize php syntax
+
+## v1.2.0 (2024-01-22)
+
+### Feat
+
+- **Iconify Integration**: Integrates with the [Iconify](https://iconify.design/) API to allow searching and inserting icons from a huge list of icon sets.
+- **Iconify Parser**: add abiliStructeezy can parse the `svg` code received from the Iconify API and create a Bricks structure from it.
+- **Structeezy Window**: Refactor of the structure menu window.
+  - **Docking**: Add ability to dock the structure menu at the bottom right angle of the editor.
+  - **Dragging**: The dragging handle is now at the top with a better behavior.
+- **Code Parser**: Structeezy now parses SVG and HTML code and creates a Bricks structure from it you can:
+  - **Write**: write standard html or svg code in the editor, Structeezy will parse it and create a Bricks structure from it.
+  - **Use Emmet**: save even more time by using Emmet to write your html code.
+  - **Paste any html**: if you found an html structure you like somewhere on the internet, copy the source html and paste it in the parser. Structeezy will convert it to a Bricks structure so you can start on good rails.
+
+### Fix
+
+- **structuremenu**: Structure menu dragging now works smoothly even when the cursor escapes the drag handle
+- **injection**: better structure injection management for complex structures.
+- **frameworks**: don’t suggest oxyprops-lite anymore if one of the known frameworks is already installed
+- **styles**: fix some buttons and texts styles
+
+### Refactor
+
+- **codebase**: code cleanup and several performance improvements.
+
 ## v1.1.0 (2023-11-14)
 
 ### Feat

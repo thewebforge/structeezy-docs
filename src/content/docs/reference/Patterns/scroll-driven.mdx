@@ -3,7 +3,6 @@ title: Scroll Driven Patterns
 description: A reference for the Structeezy structures available in the Patterns > ScrollDriven category.
 sidebar:
   label: ScrollDriven
-  badge: New
 head:
   - tag: meta
     attrs:
@@ -51,21 +50,17 @@ The Progress element is a simple progress bar that fills as the user scrolls dow
   </figcaption>
 </figure>
 
-### rendered html
-
 It renders the following html on front-end:
 
-```html
+```html title="rendered html"
 <div id="progress"></div>
 ```
 
 The dummy text which is inserted is there only for the purpose of having a long enough page to scroll and can be safely deleted.
 
-### custom CSS
-
 The element has custom CSS which can be tweaked to style it.
 
-```css
+```css title="custom CSS"
 html {
   scroll-timeline: --page-scroll block;
 }
@@ -125,11 +120,9 @@ A central column scrolls with the page, while the left and right columns scroll 
   </figcaption>
 </figure>
 
-### rendered html
-
 It renders the following html on front-end:
 
-```html
+```html title="rendered html"
 <section class="sez-section">
   <div class="sez-section__body sez-section__body--fancy-gallery">
     <div
@@ -164,11 +157,9 @@ It renders the following html on front-end:
 </section>
 ```
 
-### custom CSS
-
 The functionality comes from the following class:
 
-```css
+```css title="custom CSS"
 .sez-section__column--reverse {
   transform: translateY(calc(-100% + 100vh));
   flex-direction: column-reverse;
@@ -199,11 +190,9 @@ A full screen hero section that transitions into a header as the user scrolls do
   <figcaption>Demo of the Hero2header structure</figcaption>
 </figure>
 
-### rendered html
-
 It renders the following html on front-end:
 
-```html
+```html title="rendered html"
 <header id="hero-to-header">
   <h1>I am a h1 heading</h1>
 </header>
@@ -211,11 +200,9 @@ It renders the following html on front-end:
 
 The dummy text which is inserted is there only for the purpose of having a long enough page to scroll and can be safely deleted.
 
-### custom CSS
-
 The element has custom CSS which can be tweaked to style it.
 
-```css
+```css title="custom CSS"
 html {
   scroll-timeline: --page-scroll block;
 }
@@ -290,11 +277,9 @@ This structure includes images with a custom CSS class that reveals images with 
   <figcaption>Demo of the ImageReveal structure</figcaption>
 </figure>
 
-### rendered html
-
 It renders the following html on front-end:
 
-```html
+```html title="rendered html"
 <img
   class="sez-reveal-image"
   src="//picsum.photos/seed/structeezy-qdimzn/640/480"
@@ -304,11 +289,9 @@ It renders the following html on front-end:
 
 The dummy text which is also inserted is there only for the purpose of having a long enough page to scroll and can be safely deleted.
 
-### custom CSS
-
 The element includes a custom CSS class `sez-reveal-image` which can be tweaked to style it.
 
-```css
+```css title="custom CSS"
 %root% {
   view-timeline-name: --revealing-image;
   view-timeline-axis: block;
