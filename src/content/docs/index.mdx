@@ -22,7 +22,7 @@ banner:
         </svg>
       </span>
       <span class="landing-text">
-        <strong>Structeezy 1.2.0 is here!&nbsp;✨</strong>
+        <strong>Structeezy 1.2 is here!&nbsp;✨</strong>
         <a href="/release-notes/v-1-2-0/">Learn more ›</a>
       </span>
     </span>
@@ -39,19 +39,16 @@ hero:
       link: /start-here/quick-start/
       icon: open-book
 ---
-import { CardGrid } from '@astrojs/starlight/components';
-import Card from '~/components/landing/Card.astro'
-import ListCard from '~/components/landing/ListCard.astro'
-import SplitCard from '~/components/landing/SplitCard.astro'
-import Facebook from '~/components/landing/Facebook.astro'
+
+import { CardGrid } from "@astrojs/starlight/components";
+import Card from "~/components/landing/Card.astro";
+import ListCard from "~/components/landing/ListCard.astro";
+import SplitCard from "~/components/landing/SplitCard.astro";
+import Facebook from "~/components/landing/Facebook.astro";
 
 <CardGrid>
     <Card title="What will you build with Structeezy?" icon="laptop">
     Explore [Structeezy features](https://structeezy.com) for blogs, portfolios, docs, landing pages, marketing, ecommerce sites, and more!
-  </Card>
-
-  <Card title="Take a guided tour" icon="star">
-    Complete our introductory [Tutorial](/en/tutorials/tutorial-test/) to learn the basics and create your first Structeezy site.
   </Card>
 
     <SplitCard title="Start a new project" icon="rocket">
@@ -59,35 +56,10 @@ import Facebook from '~/components/landing/Facebook.astro'
     # create a new project with valet and wp cli
     sh wpcrbr.sh structeezy-training
     ```
-    
+
     Our [installation guide](en/start-here/quick-start-guide/) has step-by-step instructions for installing Structeezy and configure it for your first project.
+
   </SplitCard>
 
-  <ListCard title="Learn" icon="open-book">
-    - [o-props's main features](/en/core-concepts/why-o-props/)
-    - [CSS Custom Properties](/en/core-concepts/css-custom-properties/)
-  </ListCard>
-
-  <ListCard title="Extend" icon="puzzle">
-    - [Be more efficient with Emmet in Oxygen](en/features/better-oxygen-emmet/)
-    - [Customize Components](/en/framework/buttons/modifiers/)
-  </ListCard>
 </CardGrid>
 <Facebook title="Have a question or want to chat?" cta="Join our Facebook Group"/>
-
-## Next steps
-
-<CardGrid stagger>
-  <Card title="Get a license" icon="star">
-    If you don't have a license yet, get if from [structeezy.com](https://structeezy.com/).
-  </Card>
-  <Card title="Get the latest features" icon="laptop">
-    Download the `.zip` file of the latest release from [your user account](https://structeezy.com/my-account/).
-  </Card>
-  <Card title="Configure your plugin" icon="setting">
-    Make it yours, for example by defining custom [keyboard shortcuts](/guides/customize-shortcuts/) for injecting structures.
-  </Card>
-  <Card title="Read the docs" icon="open-book">
-    Learn more in [the Structeezy Docs](/guides/quick-start/).
-  </Card>
-</CardGrid>
