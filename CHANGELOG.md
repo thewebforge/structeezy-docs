@@ -1,3 +1,9 @@
+## v0.3.1 (2024-01-23)
+
+### Fix
+
+- **tutorials**: remove example tutorial page from prod
+
 ## v0.3.0 (2024-01-23)
 
 ### Feat
