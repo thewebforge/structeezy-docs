@@ -1,3 +1,19 @@
+## v0.3.0 (2024-01-23)
+
+### Feat
+
+- **all**: sez v1.2
+- **faq**: add v1.1.0 zip known issue
+- changes for v1.1
+- **structures**: add reference for the scroll driven structures
+
+### Fix
+
+- **release-notes**: fix typos
+- **build**: fix build issue with sharp
+- **open-graph**: update og image to new GET syntax introduced in Astro
+- **faq**: correct typo
+
 ## v0.2.0 (2023-11-09)
 
 ### Feat
