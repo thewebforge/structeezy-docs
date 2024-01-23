@@ -9,6 +9,16 @@ export const sidebar = [
     autogenerate: { directory: 'guides' }
   },
   {
+    label: "Tutorials",
+    translations: {
+      fr: "Tutoriels",
+    },
+    collapsed: false,
+    autogenerate: {
+      directory: "tutorials",
+    },
+  },
+  {
     label: 'Reference',
     autogenerate: { directory: 'reference' },
   },
