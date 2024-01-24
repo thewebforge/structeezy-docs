@@ -1,0 +1,447 @@
+---
+title: Emmet Syntax for Bricks
+sidebar:
+  label: Emmet Syntax
+  order: 1
+  badge: New
+description: This page references Emmet syntax and specific aspects to use it in Bricks Builder with the Structeezy Parser.
+head:
+  - tag: meta
+    attrs:
+      property: og:image
+      content: https://docs.structeezy.com/open-graph/reference/emmet-syntax-for-bricks.png
+  - tag: meta
+    attrs:
+      property: og:image:width
+      content: "1200"
+  - tag: meta
+    attrs:
+      property: og:image:height
+      content: "630"
+  - tag: meta
+    attrs:
+      property: twitter:image
+      content: https://docs.structeezy.com/open-graph/reference/emmet-syntax-for-bricks.png
+---
+
+Structeezy Parser includes [Emmet](https://emmet.io/). Emmet is a toolkit for web-developers that can greatly improve your document creation workflow.
+
+Emmet uses a syntax similar to CSS selectors for describing elements positions inside generated structure trees, and their attributes such as ids, classes and custom attributes.
+
+## Elements
+
+### HTML Elements
+
+You can use standard html elements names like `div` or `p` to _generate_ HTML tags.
+
+- `div` → `<div></div>`,
+- `h1` → `<h1></h1>`,
+- `p` → `<p></p>`,
+- `a` → `<a></a>`,
+- etc.
+
+Structeezy Parser will then convert these HTML tags to Bricks elements with the appropriate settings and add them to your structure tree.
+
+### Bricks Native Elements
+
+You can also use Bricks native elements names like `text` or `image` to _generate_ Bricks elements.
+
+- `block` → `<block></block>`,
+- `heading` → `<heading></heading>`,
+- `text-basic` → `<text-basic></text-basic>`,
+- `pricing-tables` → `<pricing-tables></pricing-tables>`,
+- etc.
+
+Emmet will expand these elements, and Structeezy Parser will inject them with the appropriate settings and add them to your structure tree.
+
+Check the [list](#list-of-native-bricks-elements-by-category) of all Bricks native elements names at the bottom of this page.
+
+### 3rd Party Elements
+
+When you use a 3rd party plugin that adds elements to Bricks, like o-props, BricksExtra, etc., you can use their names to _generate_ these elements.
+
+- `oicon` → `<oicon></oicon>`,
+- `ofaq` → `<ofaq></ofaq>`,
+- etc.
+
+Emmet will expand these elements, and Structeezy Parser will inject them in your structure tree.
+
+It is not possible to list all 3rd party elements names here, but if you are a Bricks Elements Developer, feel free to edit this page with your elements and make a PR.
+
+Check the [list](#list-of-o-props-bricksprops-elements) of all o-props for Bricks elements names at the bottom of this page.
+
+## Nesting operators
+
+Nesting operators are used to position elements inside the generated structure tree.
+
+### Child: `>`
+
+Use the `>` operator to nest elements inside each other:
+
+```html title="Emmet Snippet"
+section>container>div>ul>li
+```
+
+Hit `tab` key and you’ll get:
+
+```html title="Expanded html structure"
+<section>
+  <container>
+    <div>
+      <ul>
+        <li></li>
+      </ul>
+    </div>
+  </container>
+</section>
+```
+
+### Sibling: `+`
+
+Use the `+` operator to place elements besides each other, on the same level:
+
+```html title="Emmet Snippet"
+container>p+bq
+```
+
+Hit `tab` key and you’ll get:
+
+```html title="Expanded html structure"
+<container>
+  <p></p>
+  <blockquote></blockquote>
+</container>
+```
+
+### Climb-up: `^`
+
+With the `^` operator, you can climb one level up the tree and change context where following elements should appear:
+
+```html title="Emmet Snippet"
+section>container>div+div^container>div+div
+```
+
+Hit `tab` key and you’ll get:
+
+```html title="Expanded html structure"
+<section>
+  <container>
+    <div></div>
+    <div></div>
+  </container>
+  <container>
+    <div></div>
+    <div></div>
+  </container>
+</section>
+```
+
+You can use as many `^` operators as you like.
+
+### Multiplication: `*`
+
+With the `*` operator you can define how many times an element should be generated:
+
+```html title="Emmet Snippet"
+section>container>div*3
+```
+
+Hit `tab` key and you’ll get:
+
+```html title="Expanded html structure"
+<section>
+  <container>
+    <div></div>
+    <div></div>
+    <div></div>
+  </container>
+</section>
+```
+
+### Grouping: `()`
+
+Parenthesises are used for grouping subtrees in complex snippets, creating a card structure for example:
+
+```html title="Emmet Snippet"
+div>(header>ul>li*2>a)+footer>p
+```
+
+Hit `tab` key and you’ll get:
+
+```html title="Expanded html structure"
+<div>
+  <header>
+    <ul>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+    </ul>
+  </header>
+  <footer>
+    <p></p>
+  </footer>
+</div>
+```
+
+You can nest groups inside each other and combine them with multiplication `*` operator:
+
+```html title="Emmet Snippet"
+(div>dl>(dt+dd)*3)+footer>p
+```
+
+Hit `tab` key and you’ll get:
+
+```html title="Expanded html structure"
+<div>
+  <dl>
+    <dt></dt>
+    <dd></dd>
+    <dt></dt>
+    <dd></dd>
+    <dt></dt>
+    <dd></dd>
+  </dl>
+</div>
+<footer>
+  <p></p>
+</footer>
+```
+
+## Attribute operators
+
+Attribute operators are used to define attributes of generated elements.
+
+### ID and CLASS
+
+In CSS, you use `elem#id` and `elem.class` notation to reach the elements with specified `id` or `class` attributes.
+
+In Emmet, you can use the very same syntax to _add_ these attributes to specified element:
+
+```html title="Emmet Snippet"
+main>section.hero#home+section#about+section#contact
+```
+
+Hit `tab` key and you’ll get:
+
+```html title="Expanded html structure"
+<main>
+  <section class="hero" id="home"></section>
+  <section id="about"></section>
+  <section id="contact"></section>
+</main>
+```
+
+### Custom attributes
+
+You can use the `[attr]` notation (as in CSS) to add custom attributes to your elements:
+
+```html title="Emmet Snippet"
+section[aria-labelledby="heading"]>h1#heading{Hello world}
+```
+
+Hit `tab` key and you’ll get:
+
+```html title="Expanded html structure"
+<section aria-labelledby="heading">
+  <h1 id="heading">Hello world</h1>
+</section>
+```
+
+### Item numbering: `$`
+
+With `$` you can _number_ your elements. Place the `$` operator inside element’s name, attribute’s name or attribute’s value to output the current index of a repeated element:
+
+```html title="Emmet Snippet"
+ul>li.item$*5
+```
+
+Hit `tab` key and you’ll get:
+
+```html title="Expanded html structure"
+<ul>
+  <li class="item1"></li>
+  <li class="item2"></li>
+  <li class="item3"></li>
+  <li class="item4"></li>
+  <li class="item5"></li>
+</ul>
+```
+
+You can use multiple `$` in a row to pad number with zeroes:
+
+```html title="Emmet Snippet"
+ul>li.item$$$*5
+```
+
+Hit `tab` key and you’ll get:
+
+```html title="Expanded html structure"
+<ul>
+  <li class="item001"></li>
+  <li class="item002"></li>
+  <li class="item003"></li>
+  <li class="item004"></li>
+  <li class="item005"></li>
+</ul>
+```
+
+## Text: `{}`
+
+You can use curly braces to add text to element:
+
+```html title="Emmet Snippet"
+a{click me}
+```
+
+Hit `tab` key and you’ll get:
+
+```html title="Expanded html structure"
+<a href="">click me</a>
+```
+
+Note that `{text}` is used and parsed as a separate element (like, `div`, `p` etc.) but has a special meaning when written right after element. For example, `a{click}` and `a>{click}` will produce the same output, but `a{click}+b{here}` and `a>{click}+b{here}` won’t:
+
+```html title="Expanded html structure"
+<!-- a{click}+b{here} -->
+<a href="">click</a><b>here</b>
+
+<!-- a>{click}+b{here} -->
+<a href="">click<b>here</b></a>
+```
+
+## Dynamic Data: `{{}}` (Structeezy Specific)
+
+One of the most powerful features of Structeezy Parser is the ability to let you use Bricks dynamic data in your Emmet abbreviations.
+
+You can use double curly braces to add dynamic data to element:
+
+```html title="Emmet Snippet"
+section>container>h1{Title: {post_title}}+p{Summary: {post_excerpt}}
+```
+
+Hit `tab` key and you’ll get:
+
+```html title="Expanded html structure"
+<section>
+  <container>
+    <h1>Title: {post_title}</h1>
+    <p>Summary: {post_excerpt}</p>
+  </container>
+</section>
+```
+
+Structeezy Parser will then convert these tags to Bricks elements with dynamic data and add them to your structure tree.
+
+## List of native Bricks elements by category
+
+This is a list of all native Bricks elements that you can use in Emmet abbreviations. This list is based on Bricks v1.9.5.
+
+In Structeezy, the list is updated automatically from the Bricks source code, so you can always use any element available in your Bricks Elements panel.
+
+### Layout
+
+| Element Name | Display Name (what you see in Bricks) |
+| ------------ | ------------------------------------- |
+| `section`    | Section                               |
+| `container`  | Container                             |
+| `block`      | Block                                 |
+| `div`        | Div                                   |
+
+### Basic
+
+| Element Name | Display Name (what you see in Bricks) |
+| ------------ | ------------------------------------- |
+| `heading`    | Heading                               |
+| `text-basic` | Basic Text                            |
+| `text`       | Rich Text                             |
+| `text-link`  | Text link                             |
+| `button`     | Button                                |
+| `icon`       | Icon                                  |
+| `image`      | Image                                 |
+| `video`      | Video                                 |
+
+### General
+
+| Element Name       | Display Name (what you see in Bricks) |
+| ------------------ | ------------------------------------- |
+| `nav-nested`       | Nav (Nestable)                        |
+| `dropdown`         | Dropdown                              |
+| `offcanvas`        | Offcanvas                             |
+| `toggle`           | Toggle                                |
+| `divider`          | Divider                               |
+| `icon-box`         | Icon Box                              |
+| `social-icons`     | Icon List                             |
+| `list`             | List                                  |
+| `accordion`        | Accordion                             |
+| `accordion-nested` | Accordion (Nestable)                  |
+| `tabs`             | Tabs                                  |
+| `tabs-nested`      | Tabs (Nestable)                       |
+| `form`             | Form                                  |
+| `map`              | Map                                   |
+| `alert`            | Alert                                 |
+| `animated-typing`  | Anim. Typing                          |
+| `countdown`        | Countdown                             |
+| `counter`          | Counter                               |
+| `pricing-tables`   | Pricing Tables                        |
+| `progress-bar`     | Progress Bar                          |
+| `pie-chart`        | Pie Chart                             |
+| `team-members`     | Team Members                          |
+| `testimonials`     | Testimonials                          |
+| `code`             | Code                                  |
+| `template`         | Template                              |
+| `logo`             | Logo                                  |
+| `facebook-page`    | Facebook Page                         |
+| `breadcrumbs`      | Breadcrumbs                           |
+
+### Media
+
+| Element Name     | Display Name (what you see in Bricks) |
+| ---------------- | ------------------------------------- |
+| `image-gallery`  | Image Gallery                         |
+| `audio`          | Audio                                 |
+| `carousel`       | Carousel                              |
+| `slider`         | Slider                                |
+| `slider-nested`  | Slider (Nestable)                     |
+| `svg`            | SVG                                   |
+| `instagram-feed` | Instagram feed                        |
+
+### WordPress
+
+| Element Name | Display Name (what you see in Bricks) |
+| ------------ | ------------------------------------- |
+| `wordpress`  | WordPress                             |
+| `posts`      | Posts                                 |
+| `pagination` | Pagination                            |
+| `nav-menu`   | Nav Menu                              |
+| `sidebar`    | Sidebar                               |
+| `search`     | Search                                |
+| `shortcode`  | Shortcode                             |
+
+### Single
+
+| Element Name                | Display Name (what you see in Bricks) |
+| --------------------------- | ------------------------------------- |
+| `post-title`                | Post Title                            |
+| `post-excerpt`              | Excerpt                               |
+| `post-meta`                 | Meta Data                             |
+| `post-content`              | Post Content                          |
+| `post-sharing`              | Social Sharing                        |
+| `related-posts`             | Related Posts                         |
+| `post-author`               | Author                                |
+| `post-comments`             | Comments                              |
+| `post-taxonomy`             | Taxonomy                              |
+| `post-navigation`           | Post Navigation                       |
+| `post-reading-time`         | Reading time                          |
+| `post-reading-progress-bar` | Reading progress bar                  |
+| `post-toc`                  | Table of contents                     |
+
+## List of o-props (BricksProps) Elements
+
+| Element Name                    | Display Name (what you see in Bricks) |
+| ------------------------------- | ------------------------------------- |
+| `bricksprops-light-dark-toggle` | Light/Dark Toggle                     |
+| `oschemesswitcher`              | Schemes Switcher                      |
+| `omenubar`                      | Menu Bar                              |
+| `omenuburger`                   | Menu Burger                           |
+| `omenubutton`                   | Menu Button                           |
+| `ofaq`                          | FAQ                                   |
+| `oicon`                         | Unlimited Icon                        |

@@ -21,6 +21,24 @@ head:
       property: twitter:image
       content: https://docs.structeezy.com/open-graph/history/changelog.png
 ---
+## v1.2.2 (2024-01-24)
+
+### Fix
+
+- **keyboard-shortcuts**: keyboard shortcuts triggering unexpectedly when inside the code editor
+- **parser**: better structure output with various configuration of text content mixed with children elements
+- **parser**: parser now supports all bricks native elements and third party elements
+- **parser**: fix bricks generating a heading inside itself in the editor when using custom tags
+- **parser**: converts img tags to Bricks Image Element
+- **parser**: Persist the initial state of the “Strip Classes” option
+- **parser**: update list of inline tags to be inserted as inline text content instead of creating nodes in the structure tree/
+- **structures**: typo in element tooltip
+- **styles**: small layout shift when entering long text in Parser code editor
+
+### Refactor
+
+- **svg**: improve default state of attributes the svg use element
+
 ## v1.2.1 (2024-01-22)
 
 ### Fix
