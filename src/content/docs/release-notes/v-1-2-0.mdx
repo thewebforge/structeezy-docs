@@ -4,6 +4,7 @@ description: Short note about the main improvements brought by this new version.
 sidebar:
   label: v1.2
   badge: New
+  order: -20
 head:
   - tag: meta
     attrs:
@@ -22,7 +23,7 @@ head:
       property: twitter:image
       content: https://docs.structeezy.com/open-graph/release-notes/v-1-2-0.png
 ---
-
+import Youtube from "~/components/youtube/Youtube.astro";
 import { Image } from "astro:assets";
 import release from "~/assets/sez-release-1-2.jpg";
 import iconify from "~/assets/sez-release-1-2-iconify.png";
@@ -41,6 +42,10 @@ Structeezy 1.2 is available, and brings awesome new features to help you save pl
 - [Structeezy Window](#structeezy-window)
 
 To take advantage of the latest features, make sure you’re running the latest version of Structeezy. You can upgrade to Structeezy 1.2 by running an automatic plugin update from you WordPress plugins dashboard, of by downloading the `.zip` file from your [user account](https://structeezy.com/my-account/).
+
+## Walkthrough Video
+
+<Youtube id="tdSoxo6KLkU" />
 
 ## Iconify Integration
 
@@ -61,6 +66,7 @@ The code parser is a new **big** feature that allows you to write or paste html 
 <Image src={parser} alt="" width="900" />
 
 Structeezy now parses SVG and HTML code and creates a Bricks structure from it you can:
+
 - write standard html or svg code in the editor, Structeezy will parse it and create a Bricks structure from it.
 - copy html or svg code from anywhere on the internet and paste it in the editor, Structeezy will parse it and create a Bricks structure from it.
 
@@ -109,6 +115,7 @@ You can now “dock” Structeezy at the bottom right of your window.
 <Image src={dock} alt="" width="900" />
 
 To dock Structeezy:
+
 - click on the orange “Dock” button at the top left of the window.
 - or use the keyboard shortcut `alt + m` (Windows) or `option + m` (Mac). You can customize the shortcut in the Structeezy settings.
 

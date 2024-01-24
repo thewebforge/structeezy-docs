@@ -5,6 +5,10 @@ export const sidebar = [
     autogenerate: { directory: 'start-here' }
   },
   {
+    label: 'Settings',
+    autogenerate: { directory: 'settings' }
+  },
+  {
     label: 'Guides',
     autogenerate: { directory: 'guides' }
   },

@@ -1,0 +1,146 @@
+---
+title: Keyboard Shortcuts
+description: Reference for the Keyboard Shortcuts Settings.
+sidebar:
+  label: Shortcuts
+  order: 10
+head:
+  - tag: meta
+    attrs:
+      property: og:image
+      content: https://docs.structeezy.com/open-graph/settings/keyboard-shortcuts.png
+  - tag: meta
+    attrs:
+      property: og:image:width
+      content: "1200"
+  - tag: meta
+    attrs:
+      property: og:image:height
+      content: "630"
+  - tag: meta
+    attrs:
+      property: twitter:image
+      content: https://docs.structeezy.com/open-graph/settings/keyboard-shortcuts.png
+---
+
+import { Image } from "astro:assets";
+import ui from "~/assets/sez-settings-shortcuts-ui.png";
+import containers from "~/assets/sez-settings-shortcuts-containers.png";
+import texts from "~/assets/sez-settings-shortcuts-texts.png";
+
+Structeezy comes with a set of keyboard shortcuts to speed up your workflow. You can customize them to your liking in the settings.
+
+## UI Commands
+
+These options allow to customize aspects related to the Structeezy panel interface and workflow.
+
+<Image src={ui} alt="" width="900" />
+
+:::note
+The shortcuts visible on the screenshot are not the default ones, but my personal preference. Customize the shortcuts to fit your work style.
+:::
+
+### Open / Close Structeezy
+
+- default: `alt + s`
+
+This shortcut opens the Structeezy panel if it is closed, and closes it if it is open.
+
+:::tip
+As a developer, I use a Chrome extension called Hoverify to inspect the DOM. It uses the `alt + s` shortcut to open its panel. So I changed my Structeezy shortcut to `e + z` to avoid conflicts. It is very well positionned on my french keyboard, and I find it easier to remember too.  
+On a US keyboard, the same keys would be `w + e`.
+:::
+
+### Dock / Undock Structeezy
+
+- default: `alt + m`
+
+When you need to get rid of the structeezy panel, but don’t want to close it, because you are working on a snippet in the parser for example, this command reduces the Structeezy panel and places it at the bottom right of your screen, until you need it again.
+
+### Expand / Collapse Structeezy
+
+- default: `alt + x`
+
+This expands the Structeezy panel so all structures become visible.
+
+### Close the “Save Structure” Modal
+
+- default: `alt + q`  
+
+This closes the modal that appears when you save a structure.
+
+### Save the Selected Structure
+
+- default: `f1`
+
+This opens the save structure modal to save the currently selected structure and its children as a custom structure.
+
+### Save all Structures
+
+- default: `f2`
+
+This opens the save structure modal to save your whole structure tree as a custom structure.
+
+## Inject Containers
+
+These options allow to inject Bricks containing elements (elements that can nest children like divs or sections) pre-configured to render various `html`elements.
+
+<Image src={containers} alt="" width="900" />
+
+### Section `<section>`
+- default: `alt + shift + s`
+This adds a Bricks Section element with a tag of `<section>` to the structure tree.
+
+### Div `<div>`
+- default: `alt + d`
+This adds a Bricks Div element to the structure tree.
+
+### Container `<div>`
+- default: `alt + c`
+This adds a Bricks Container element with a tag of `<div>` to the structure tree.
+
+### Block `<div>`
+- default: `alt + b`
+This adds a Bricks Block element with a tag of `<div>` to the structure tree.
+
+### Section `<section>` + Container `<div>`
+- default: `alt + shift + c`
+This adds a Section element with a tag of `<section>` and a child Container with a tag of `<div>` to the structure tree.
+
+## Inject Text
+
+These options allow to inject Bricks text elements (elements with a text content like headings or basic text) pre-configured to render various `html`elements.
+
+<Image src={texts} alt="" width="900" />
+
+### Paragraph `<p>`
+- default: `alt + p`
+This adds a basic text element with a `<p>` tag to the structure tree.
+
+### Heading level 1 `<h1>`
+- default: `alt + 1, alt + num1`
+This adds a heading element with a `<h1>` tag to the structure tree.
+
+### Heading level 2 `<h2>`
+- default: `alt + 2, alt + num2`
+This adds a heading element with a `<h2>` tag to the structure tree.
+
+### Heading level 3 `<h3>`
+- default: `alt + 3, alt + num3`
+This adds a heading element with a `<h3>` tag to the structure tree.
+
+### Heading level 4 `<h4>`
+- default: `alt + 4, alt + num4`
+This adds a heading element with a `<h4>` tag to the structure tree.
+
+### Heading level 5 `<h5>`
+- default: `alt + 5, alt + num5`
+This adds a heading element with a `<h5>` tag to the structure tree.
+
+### Heading level 6 `<h6>`
+- default: `alt + 6, alt + num6`
+This adds a heading element with a `<h6>` tag to the structure tree.
+
+### Text Link `<a>`
+- default: `alt + a`
+This adds a basic text element with a `<a>` tag and link attributes to the structure tree.

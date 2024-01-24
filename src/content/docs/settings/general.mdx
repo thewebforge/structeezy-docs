@@ -1,0 +1,66 @@
+---
+title: General Preferences
+description: Getting Started with Structeezy.
+sidebar:
+  label: General
+  order: 1
+head:
+  - tag: meta
+    attrs:
+      property: og:image
+      content: https://docs.structeezy.com/open-graph/settings/general.png
+  - tag: meta
+    attrs:
+      property: og:image:width
+      content: "1200"
+  - tag: meta
+    attrs:
+      property: og:image:height
+      content: "630"
+  - tag: meta
+    attrs:
+      property: twitter:image
+      content: https://docs.structeezy.com/open-graph/settings/general.png
+---
+import { Image } from "astro:assets";
+import appearance from "~/assets/sez-settings-general-appearance.png";
+import bricks from "~/assets/sez-settings-general-bricks.png";
+import group from "~/assets/sez-settings-general-group.png";
+
+## Appearance
+These options allow to customize aspects related to the Structeezy panel interface and workflow.
+
+<Image src={appearance} alt="" width="900" />
+
+### Show structures tooltips
+Most elements in the Structeezy panel have tooltips explainingin a short sentence the purpose of the element. You can choose to reduce visual distractions by hiding the tooltips so you can focus on building.
+
+### Show actions tooltips
+On each element, action buttons allow to hide/show the element, and delete for custom elements. You can decide to reduce visual distractions by hiding these action tooltips.
+
+### Expand by default
+Hidden elements are still present, but not visible in the collapsed state of the panel. You can toggle between collapsed and expanded state at any time. This option allows to choose the initial state, collapsed (default) or expanded.
+
+## Bricks Editor
+These options allow to decide if you want to apply (or not) Structeezy customizations to the Bricks editor.
+
+<Image src={bricks} alt="" width="900" />
+
+### Patch Bricks Builder
+Since v1.0, Structeezy patches Brick code so it renders user defined attributes on the editor canvas. This makes it possible to see the effects of user defined attributes directly in the editor, and makes it easier to design and build customized elements.
+
+Deactivate to restore Bricks code to its original state. But please be aware that your attributes will not be rendered anymore and dependant features will not work properly in the Bricks editor.
+
+### Disable Bricks Outline on empty elements
+Bricks adds a visible outline to elements with no content in the editor. This allows users to locate the element on the canvas.
+
+But when working with Structeezy, and its Bricks patch to render attributes, this outline can be a problem. You can choose to deactivate or reactivate it at any time.
+
+## Default group
+Select the group you want to display first when opening the Structeezy panel.
+
+<Image src={group} alt="" width="900" />
+
+:::note
+The “most used” option is only available if you have activated the feature in the structures section of the settings.
+:::
