@@ -1,0 +1,1258 @@
+---
+title: Tutorial - Airbnbricks
+description: >-
+  Create simple tutorials to help people use o-props.
+sidebar:
+  order: 1
+  label: Airbnbricks
+  badge: new
+---
+
+import BuilderTabs from "~/components/tabs/BuilderTabs.astro";
+import Box from "~/components/tutorial/Box.astro";
+import MultipleChoice from "~/components/tutorial/MultipleChoice.astro";
+import Option from "~/components/tutorial/Option.astro";
+import Spoiler from "~/components/Spoiler.astro";
+import PreCheck from "~/components/tutorial/PreCheck.astro";
+import { Image } from "astro:assets";
+import Figure from "~/components/Figure.astro";
+import airbnbricks from "~/assets/airbnbricks.png";
+import airbnbricksWip from "~/assets/airbnbricks-wip.png";
+
+**Airbnbricks** is an educational Bricks development project. We will recreate the Airbnb homepage UI using Bricks and Structeezy.
+
+<PreCheck>
+  - Learn about Structeezy - Try all the advanced features to generate Bricks
+  Structures - Learn about Components creation - Create a few components and
+  learn how to use them in Bricks
+</PreCheck>
+
+## Target Result
+
+<Figure
+  src={airbnbricks}
+  width="900"
+  formats={["avif", "webp"]}
+  alt=""
+  caption="Screenshot of the project front-end."
+/>
+
+<Figure
+  src={airbnbricksWip}
+  width="900"
+  formats={["avif", "webp"]}
+  alt=""
+  caption="Work in progress in Bricks."
+/>
+
+## Prerequisites
+
+You will need **an existing WordPress website with Bricks installed, and Structeezy latest version installed and activated.**.
+
+If you don’t have a Structeezy license yet, you can follow this tutrial inserting all elements manually in Bricks, or you can [purchase one here](https://structeezy.com/).
+
+<Box icon="question-mark">
+### Test your knowledge
+
+1. Adding Structeezy to my Bricks WordPress site...
+
+   <MultipleChoice>
+     <Option>Requires a lot of code to implement</Option>
+     <Option isCorrect>
+       Gives you out-of-the box powerful tools to create your page layout
+     </Option>
+     <Option>Does not work with Bricks</Option>
+   </MultipleChoice>
+
+2. Which is **not** a benefit of Structeezy?
+
+   <MultipleChoice>
+     <Option isCorrect>
+       Sending a lot of JavaScript and CSS to the browser for client-side
+       rendering
+     </Option>
+     <Option>
+       Supporting by default all Bricks native and 3rd party custom elements.
+     </Option>
+     <Option>Giving you access to all the HTML tag and attributes</Option>
+   </MultipleChoice>
+
+3. Structeezy...
+   <MultipleChoice>
+     <Option>Requires me to learn a lot of code syntax</Option>
+     <Option>Is not ready for production sites</Option>
+     <Option isCorrect>
+       Includes a powerful code parser that can convert virtually any code
+       source to a Bricks Structure Tree.
+     </Option>
+   </MultipleChoice>
+
+</Box>
+
+## Components
+
+Here are the components for this project. You can try to create them yourself, use them as a reference, or simply copy/paste them in your structeezy parser.
+
+## Site Wrapper
+
+Place it at the root of your structure tree
+
+### Styled
+
+```html title="site-wrapper.html"
+<div class="airbnbricks" sez="Site Wrapper | Airbnbricks">
+  <style sez="Root Component Styles">
+    :root {
+      font-size: 100%;
+    }
+    .airbnbricks {
+      /* Theme Variables */
+      --sez-brand-color: #ff385c;
+      --sez-black: black;
+      --sez-white: white;
+      --sez-gray-1: #f7f7f7;
+      --sez-gray-3: #ebebeb;
+      --sez-gray-5: #dddddd;
+      --sez-gray-7: #717171;
+      --sez-gray-9: #222222;
+      --sez-padding-inline: 5rem;
+      --sez-ease-1: cubic-bezier(0.2, 0, 0, 1);
+      --sez-letterspacing: normal;
+      --sez-font-reduced: 0.875rem;
+      --sez-lineheight-reduced: 1.125rem;
+      --sez-bold: 600;
+      --sez-shadow-1: 0 2px 4px rgba(0, 0, 0, 0.18);
+      --sez-radius-md: 0.75rem;
+      --sez-lineheight-reduced: 1.125rem;
+
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: 100%;
+
+      color: var(--sez-gray-9);
+      font-family: system-ui, sans-serif;
+      font-size: 0.875rem;
+      isolation: isolate;
+      line-break: strict;
+      line-height: 1.43;
+      overflow-anchor: none;
+      position: relative;
+    }
+    @media (min-width: 90em) {
+      .airbnbricks {
+        --sez-padding-inline: 5rem;
+      }
+    }
+    @media (min-width: 70em) {
+      .airbnbricks {
+        --sez-padding-inline: 2.5rem;
+      }
+    }
+    @media (min-width: 46em) {
+      .airbnbricks {
+        --sez-padding-inline: 2.5rem;
+        --explore-nav_padding-block-start: 0.75rem;
+      }
+    }
+  </style>
+</div>
+```
+
+### Unstyled
+
+```html title="site-wrapper.html"
+<div class="airbnbricks" sez="Site Wrapper | Airbnbricks" />
+```
+
+## Banner
+
+Insert the banner in first position in the site wrapper.
+
+### Styled
+
+```html title="banner.html"
+<div class="banner" sez="Banner">
+  <div class="banner__layout" sez="Banner Layout">
+    <h1 class="banner__link" href="/" sez="Banner Link">
+      Learn about Guest Favorites, the most loved homes on Airbnbricks
+    </h1>
+  </div>
+  <style>
+    .banner {
+      position: relative;
+      block-size: 4rem;
+      inline-size: 100%;
+      color: var(--sez-gray-9);
+      background-color: var(--sez-gray-1);
+      animation: fade-in 800ms both;
+      transition: all 400ms cubic-bezier(0.2, 0, 0, 1);
+      box-shadow: inset 0 -1px 0 rgb(0, 0, 0, 0.06);
+      overflow: clip;
+      z-index: 11;
+    }
+    .banner__layout {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      block-size: 100%;
+      justify-content: space-between;
+      max-inline-size: none;
+      padding-inline: 1.5rem;
+    }
+
+    .banner__link {
+      -webkit-tap-highlight-color: transparent;
+      animation-play-state: running;
+      animation-timing-function: cubic-bezier(0.4, 0, 0, 1);
+      font-size: 1rem;
+      font-weight: 600;
+      grid-column: 2;
+      letter-spacing: -0.02em;
+      line-height: 1.25rem;
+      position: relative;
+      text-align: center;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0, 1), transform 0.35s
+          cubic-bezier(0.4, 0, 0, 1);
+      white-space: pre-line;
+    }
+    .banner__link > a {
+      padding: 0.5rem;
+      border-radius: var(--sez-radius-md);
+    }
+    .banner__link > a:focus-visible {
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.8), 0 0 0 4px var(--sez-gray-9);
+    }
+    /* Unfortunately, fight Bricks defaults having hight specificity */
+    body.bricks-is-frontend .banner__link > a:focus {
+      outline: none;
+    }
+    @media (min-width: 70em) {
+      .banner__layout {
+        padding-inline: 1.5rem;
+        margin-inline: auto;
+      }
+    }
+    @media (min-width: 90em) {
+      .banner__link {
+        font-size: 1.25rem;
+      }
+    }
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+        transform: translateY(20%);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</div>
+```
+
+#### Unstyled
+
+```html title="banner.html"
+<div class="banner" sez="Banner">
+  <div class="banner__layout" sez="Banner Layout">
+    <h1 class="banner__link" href="/" sez="Banner Link">
+      Learn about Guest Favorites, the most loved homes on Airbnbricks
+    </h1>
+  </div>
+</div>
+```
+
+## Header
+
+Insert the header in second position in the site wrapper.
+
+### Styled
+
+```html title="header.html"
+<div class="header" sez="Header Wrapper">
+  <header class="header__main" sez="Header Element">
+    <div class="header__container" sez="Slot Header Container"></div>
+  </header>
+  <style>
+    .header {
+      position: sticky;
+      z-index: 10;
+      inset-block: 0;
+      inline-size: 100%;
+      background: white;
+      transition: height 250ms cubic-bezier(0.2, 0, 0, 1);
+      box-shadow: rgb(0 0 0/8%) 0 1px 0;
+      contain: size style layout;
+    }
+    @supports (overflow-clip-margin: 1px) and
+      (selector(:has([data-profile-menu]))) {
+      .header {
+        contain: size style layout;
+        overflow-clip-margin: 0.25rem;
+      }
+    }
+    @media (min-width: 59em) {
+      .header {
+        contain-intrinsic-height: 10.5rem;
+        block-size: 10.5rem;
+      }
+    }
+
+    .header__main {
+      --header_brand-color: var(--sez-brand-color, rebeccaPurple);
+      position: relative;
+      block-size: 5rem;
+      inline-size: 100%;
+      inset-inline: 0;
+      z-index: 100;
+    }
+
+    .header__container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      block-size: 100%;
+      inline-size: 100%;
+      margin-inline: auto;
+      max-inline-size: 110rem;
+      padding-inline: var(--sez-padding-inline, 1.5rem);
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</div>
+```
+
+### Unstyled
+
+```html title="header.html"
+<div class="header" sez="Header Wrapper">
+  <header class="header__main" sez="Header Element">
+    <div class="header__container" sez="Slot Header Container"></div>
+  </header>
+</div>
+```
+
+## Logo
+
+Insert the logo in the header container Slot.
+
+### Styled
+
+```html title="logo.html"
+<div class="logo" sez="Logo Block">
+  <a class="logo__link" aria-label="Airbnb homepage" href="/" sez="Logo Link"
+    ><div class="logo__svgtype" sez="Logo with Type">
+      <svg
+        width="149.5"
+        height="32"
+        style="display: block"
+        viewBox="0 0 1000 214"
+        sez="SVG Root"
+      >
+        <path
+          fill="currentcolor"
+          d="M196.5 151.88c-.95-2.7-2.07-5.3-3.14-7.71a718.88 718.88 0 0 0-5.03-11.04l-.13-.28a2459.85 2459.85 0 0 0-47.33-96.81l-.7-1.37c-1.7-3.27-3.44-6.66-5.24-10a64.99 64.99 0 0 0-7.69-11.84A35.8 35.8 0 0 0 99.74.02a35.92 35.92 0 0 0-27.48 12.82 65.34 65.34 0 0 0-7.69 11.84 591.74 591.74 0 0 0-5.28 10.1l-.65 1.26a2469.47 2469.47 0 0 0-47.34 96.8l-.21.47a724.2 724.2 0 0 0-4.94 10.85A112.85 112.85 0 0 0 3 151.88a47.35 47.35 0 0 0-2.55 23.06 45.55 45.55 0 0 0 27.94 35.67A46.4 46.4 0 0 0 45.91 214c1.89 0 3.77-.1 5.65-.33a57.6 57.6 0 0 0 21.54-7.27c8.7-4.88 17.28-12.03 26.65-22.26 9.38 10.23 17.96 17.38 26.66 22.26a57.57 57.57 0 0 0 21.53 7.27c1.88.22 3.76.33 5.65.33a45.72 45.72 0 0 0 36.24-17.52 45.55 45.55 0 0 0 9.23-21.54c1.08-7.78.2-15.7-2.55-23.06Zm-96.75 11.14c-11.6-14.7-19.05-28.37-21.67-39.82a35.17 35.17 0 0 1-.74-13.14 21.4 21.4 0 0 1 3.45-8.97 23.85 23.85 0 0 1 18.97-9.32 24.01 24.01 0 0 1 18.96 9.32c1.8 2.7 3 5.76 3.45 8.98.58 4.39.32 8.84-.75 13.13-2.62 11.46-10.06 25.11-21.67 39.82Zm85.76 9.98a31.9 31.9 0 0 1-19.55 24.94 33.38 33.38 0 0 1-16.43 2.16 43.42 43.42 0 0 1-16.41-5.61c-7.74-4.34-15.57-11.02-24.38-20.8 14.03-17.3 22.79-33.24 26.03-47.44a48.76 48.76 0 0 0 .94-18.25 35.07 35.07 0 0 0-5.7-14.64A37.6 37.6 0 0 0 99.76 78.1 37.67 37.67 0 0 0 69.5 93.36a35 35 0 0 0-5.7 14.63 48.72 48.72 0 0 0 .93 18.24c3.24 14.2 12 30.15 26.03 47.45-8.8 9.8-16.63 16.47-24.37 20.81a43.52 43.52 0 0 1-16.41 5.6 33.41 33.41 0 0 1-16.44-2.15A31.88 31.88 0 0 1 14 173a33.53 33.53 0 0 1 1.9-16.54 98.38 98.38 0 0 1 2.78-6.78c1.56-3.55 3.23-7.15 4.85-10.64l.2-.47A2456.09 2456.09 0 0 1 70.82 42.3l.66-1.27c1.67-3.26 3.41-6.62 5.16-9.88a52.79 52.79 0 0 1 6.05-9.44 22.25 22.25 0 0 1 17.07-8.03 22.21 22.21 0 0 1 17.07 8.03 52.5 52.5 0 0 1 6.05 9.43c1.74 3.23 3.45 6.56 5.12 9.8l.7 1.36a2456.29 2456.29 0 0 1 47.08 96.27l.13.29c1.64 3.55 3.33 7.21 4.93 10.82 1.11 2.52 2 4.63 2.78 6.77a33.64 33.64 0 0 1 1.9 16.55Z"
+          sez="Logo Path"
+        />
+        <path
+          fill="currentcolor"
+          d="M464.32 161c-7.8-.83-14.95-4.57-19.58-10.23-1.79-2.18-2.05-2.13-2.06.45 0 .93-.09 3.03-.2 4.68l-.2 2.98h-19.52V45.18h21.14l.16 43.5 1.45-1.81c.8-1 2.55-2.7 3.89-3.78 12.76-10.3 32.06-8.83 44.05 3.36a36.28 36.28 0 0 1 7.58 10.57 40.9 40.9 0 0 1 4.2 12.88c.57 3.28.63 4.59.49 9.9-.17 6.48-.55 8.9-2.23 14.1-2.18 6.78-7.34 14.59-12.3 18.62a40.1 40.1 0 0 1-12.32 6.95 39.1 39.1 0 0 1-14.55 1.53Zm2.75-19.3a18 18 0 0 0 10.6-5.7c4.37-4.62 6.42-10.13 6.41-17.21 0-4.02-.27-5.74-1.4-9.14-2.93-8.7-10.17-14.2-18.7-14.2-2.7 0-6.37.78-8.33 1.78-5.02 2.57-9.3 7.89-10.94 13.57-1.33 4.67-1.27 11.9.16 16.27a22.64 22.64 0 0 0 9.42 12.33c3.47 2.18 8.44 3.07 12.78 2.3Zm174.2 19.43c-7.57-.56-13.46-3.17-18.57-8.22a44.86 44.86 0 0 1-3.4-3.66l-.63-.9-.2 3.8c-.11 2.1-.28 4.48-.37 5.28l-.17 1.45h-19.56V45.18h21.45v43.34l2.07-2.26c12.5-13.7 34.34-13.36 47.83.75 6.65 6.95 10.22 14.6 11.56 24.74 2.96 22.4-9.47 43.38-28.57 48.23-2.47.63-8.78 1.47-9.75 1.3-.17-.03-.93-.1-1.68-.15Zm2.32-19.55c4.87-.94 9.18-3.95 12.2-8.53 2-3.04 3.05-5.63 3.7-9.13 1.64-8.85-1.04-18.01-6.8-23.3-4-3.65-7.86-5.18-13.04-5.17-5.45.01-9.17 1.6-13.25 5.66a21.2 21.2 0 0 0-6.28 11.5c-1.13 5.5-.57 12.34 1.35 16.65 4.17 9.37 12.7 14.12 22.12 12.32Zm162.56 19.02a38.05 38.05 0 0 1-15.18-6.26c-8.15-5.47-14.38-15.01-16.53-25.34a53.99 53.99 0 0 1-.01-19.46c3.48-16.52 15.8-29.22 31.55-32.53 3.7-.78 11.79-.93 15.5-.28 9.54 1.65 18.01 6.96 23.3 14.6 2.4 3.48 5.2 9.8 4.83 10.9-.09.27-18.43 4.22-19.7 4.24-.17 0-.79-.92-1.37-2.05a19.53 19.53 0 0 0-6.22-6.66 16.66 16.66 0 0 0-21.03 3.43c-3.69 4.2-6.14 11.23-6.16 17.63 0 2.76.78 7.56 1.67 10.11 1.62 4.67 5.48 9.25 9.42 11.17 2.92 1.43 4.35 1.73 8.21 1.73 3.02 0 3.81-.1 5.52-.75a18.03 18.03 0 0 0 9.45-8.2 7.85 7.85 0 0 1 1.22-1.9c.56-.01 19.54 3.82 19.75 4 .39.32-.96 4.24-2.47 7.2-4.53 8.78-13.88 15.59-24.88 18.1-3.03.68-13.95.9-16.87.32Zm152.32-.17a37.5 37.5 0 0 1-13.02-5.45c-2.72-1.74-7.04-6.15-8.67-8.87-1.42-2.37-3.24-6.86-2.9-7.17.13-.11 4.16-1.05 8.97-2.1 4.8-1.03 9-1.95 9.35-2.03.5-.13.76.18 1.49 1.76 1.66 3.58 5.2 6.5 9.36 7.73 2.09.61 7.23.64 9.45.05 2.8-.75 5.39-2.6 6.41-4.57.66-1.28.86-3.89.4-5.3-.58-1.76-1.42-2.82-3.22-3.96-2.24-1.44-4.6-2.16-11.48-3.52-6.95-1.37-10.53-2.36-13.91-3.85-6.9-3.04-11.97-8.18-13.68-13.91a25.19 25.19 0 0 1 .35-15.33c2.95-8.4 11.38-15.07 21.57-17.03 3.96-.77 12.52-.78 16.24-.02 9.43 1.93 17.45 7.54 21.27 14.89 1.23 2.38 2.42 6 2.08 6.34-.1.1-.78.3-1.5.44l-8.8 1.8a186 186 0 0 1-7.99 1.55c-.32 0-.76-.61-1.22-1.71a14.71 14.71 0 0 0-5.43-6.02 13.25 13.25 0 0 0-7.78-1.68c-4.7.3-8.37 2.6-9.33 5.84-.58 1.94-.57 2.7.02 4.12 1.34 3.2 4.57 4.78 13.32 6.5 7.32 1.45 10.05 2.12 12.71 3.12 12.69 4.8 18.46 13.08 17.33 24.91-.9 9.62-7.46 17.6-17.79 21.64-4.68 1.83-8.61 2.43-15.63 2.4-3.96 0-6.04-.16-7.97-.57Zm-622.44-1.55v-80.3h21.15v80.3h-21.15Zm32.25-40.22.08-40.22 19.37-.17.2 2.16c.12 1.2.3 3.81.4 5.83.11 2.02.31 3.67.45 3.67s.48-.45.76-1a27.4 27.4 0 0 1 4.97-6.3c3.5-2.93 6.96-4.38 11.9-5 3.19-.4 6.42-.15 9.38.72 1 .3 1.15.46 1.15 1.25 0 .95-.71 7.84-1.23 11.86-.16 1.26-.38 3.4-.5 4.75-.28 3.47-.33 3.54-2.32 3-2.07-.57-8.54-.33-10.97.4-6.44 1.92-10.02 6.03-11.72 13.46-.6 2.61-.64 3.86-.76 24.28l-.13 21.53h-21.1l.07-40.22Zm145.8.08V78.59h9.65c5.3 0 9.7.11 9.79.25a43 43 0 0 1 .37 4.76c.14 2.94.33 4.48.55 4.47.19 0 1.06-.96 1.94-2.12 2.9-3.78 8.7-7.51 13.57-8.7 8.58-2.09 17.14-.92 23.45 3.2 7.84 5.12 12.5 13.48 13.61 24.45.2 1.95.33 12.98.33 28.58v25.4h-21.12l-.12-24.74c-.13-27.2-.1-26.79-2.04-30.84-1.87-3.93-4.6-6.39-8.24-7.4-1.45-.41-2.66-.5-5.25-.4-3.2.14-3.49.2-5.94 1.42-4.14 2.05-6.97 5.44-8.71 10.43-.44 1.26-.51 4.34-.6 26.48l-.11 25.05h-21.12v-40.14Zm175.7-.08.07-40.22 19.38-.17.2 1.92c.12 1.06.3 3.68.4 5.83.1 2.15.28 3.9.4 3.9.11 0 .84-1 1.63-2.24A21.32 21.32 0 0 1 721.98 79a25.6 25.6 0 0 1 14.45-.87c1.81.47 2.35.85 2.14 1.5-.06.18-.25 1.78-.43 3.55-.17 1.77-.6 5.63-.93 8.58-.35 2.95-.62 5.78-.62 6.3 0 1.43-.4 1.63-2.24 1.13-2.04-.56-8.52-.32-10.94.4-5.2 1.56-8.41 4.47-10.5 9.49-1.85 4.44-2.12 8.6-2.01 31.18l.1 18.61h-21.31l.09-40.22Zm54.47 40.22v-80.3h21.15v80.3h-21.15Zm113.1-56.85V45.18h20.82l.16 65.99L908 78.59h12.37c6.8 0 12.36.07 12.36.16 0 .1-7.45 8.1-16.56 17.78l-16.57 17.6 18.14 21.84 18.6 22.38c.44.5-.2.53-13.05.53h-13.5l-15.74-19.96-15.72-19.95-.16 39.91h-20.83v-56.85ZM342.54 68.2a12.42 12.42 0 0 1-7.1-6.44c-.72-1.53-.8-2.07-.8-5.23 0-3.27.06-3.64.86-5.16a14.1 14.1 0 0 1 4.66-5.13c4.99-2.91 12.07-1.83 15.64 2.4a13.52 13.52 0 0 1 2.8 6.9 12.4 12.4 0 0 1-1.53 7.22c-1.13 2.17-2.77 3.65-5.42 4.9-2.59 1.24-6.56 1.47-9.1.54Zm408.22 0c-5.41-1.99-8.3-6.46-8-12.35.42-8 8.01-13.13 15.81-10.7 4.96 1.54 8.02 5.54 8.29 10.81.27 5.45-2.2 9.53-7.16 11.81-2.43 1.12-6.52 1.31-8.94.43Zm-472.01 93.1a33.8 33.8 0 0 1-14.75-3.2 36.72 36.72 0 0 1-11.76-9 43.76 43.76 0 0 1-7.9-13.28 47.26 47.26 0 0 1-2.78-16.7c0-6 1.06-11.79 2.99-16.93a46.5 46.5 0 0 1 8.12-13.7 36.7 36.7 0 0 1 12.18-9.21 35.7 35.7 0 0 1 15.18-3.22c5.34 0 10.05 1.07 14.32 3.43a27.65 27.65 0 0 1 10.47 9.42l.64-10.5h19.67v80.76h-19.67l-.64-11.78a30.28 30.28 0 0 1-11.11 10.28 30.94 30.94 0 0 1-14.96 3.64Zm5.13-19.27c3.84 0 7.26-1.08 10.47-3 3-2.15 5.34-4.93 7.27-8.36 1.7-3.42 2.56-7.5 2.56-12s-.85-8.56-2.56-11.99a22.9 22.9 0 0 0-7.27-8.35c-3-2.14-6.63-3-10.47-3-3.85 0-7.27 1.07-10.48 3a25.1 25.1 0 0 0-7.26 8.35c-1.71 3.43-2.57 7.5-2.57 12s.86 8.57 2.57 12a22.9 22.9 0 0 0 7.26 8.35c3.2 1.92 6.63 3 10.48 3Z"
+          sez="Logotype Path"
+        />
+      </svg>
+    </div>
+    <div class="logo__svg" sez="Logo Only">
+      <svg width="30" height="32" style="display: block" sez="SVG Root">
+        <path
+          d="M29.3864 22.7101C29.2429 22.3073 29.0752 21.9176 28.9157 21.5565C28.6701 21.0011 28.4129 20.4446 28.1641 19.9067L28.1444 19.864C25.9255 15.0589 23.5439 10.1881 21.0659 5.38701L20.9607 5.18316C20.7079 4.69289 20.4466 4.18596 20.1784 3.68786C19.8604 3.0575 19.4745 2.4636 19.0276 1.91668C18.5245 1.31651 17.8956 0.833822 17.1853 0.502654C16.475 0.171486 15.7005 -9.83959e-05 14.9165 4.23317e-08C14.1325 9.84805e-05 13.3581 0.171877 12.6478 0.503224C11.9376 0.834571 11.3088 1.31742 10.8059 1.91771C10.3595 2.46476 9.97383 3.05853 9.65572 3.68858C9.38521 4.19115 9.12145 4.70278 8.8664 5.19757L8.76872 5.38696C6.29061 10.1884 3.90903 15.0592 1.69015 19.8639L1.65782 19.9338C1.41334 20.463 1.16057 21.0102 0.919073 21.5563C0.75949 21.9171 0.592009 22.3065 0.448355 22.7103C0.0369063 23.8104 -0.094204 24.9953 0.0668098 26.1585C0.237562 27.334 0.713008 28.4447 1.44606 29.3804C2.17911 30.3161 3.14434 31.0444 4.24614 31.4932C5.07835 31.8299 5.96818 32.002 6.86616 32C7.14824 31.9999 7.43008 31.9835 7.71027 31.9509C8.846 31.8062 9.94136 31.4366 10.9321 30.8639C12.2317 30.1338 13.5152 29.0638 14.9173 27.5348C16.3194 29.0638 17.6029 30.1338 18.9025 30.8639C19.8932 31.4367 20.9886 31.8062 22.1243 31.9509C22.4045 31.9835 22.6864 31.9999 22.9685 32C23.8664 32.002 24.7561 31.8299 25.5883 31.4932C26.6901 31.0444 27.6554 30.3161 28.3885 29.3804C29.1216 28.4447 29.5971 27.3341 29.7679 26.1585C29.9287 24.9952 29.7976 23.8103 29.3864 22.7101ZM14.9173 24.377C13.1816 22.1769 12.0678 20.1338 11.677 18.421C11.5169 17.7792 11.4791 17.1131 11.5656 16.4573C11.6339 15.9766 11.8105 15.5176 12.0821 15.1148C12.4163 14.6814 12.8458 14.3304 13.3374 14.0889C13.829 13.8475 14.3696 13.7219 14.9175 13.7219C15.4655 13.722 16.006 13.8476 16.4976 14.0892C16.9892 14.3307 17.4186 14.6817 17.7528 15.1151C18.0244 15.5181 18.201 15.9771 18.2693 16.4579C18.3556 17.114 18.3177 17.7803 18.1573 18.4223C17.7661 20.1349 16.6526 22.1774 14.9173 24.377ZM27.7406 25.8689C27.6212 26.6908 27.2887 27.4674 26.7762 28.1216C26.2636 28.7759 25.5887 29.2852 24.8183 29.599C24.0393 29.9111 23.1939 30.0217 22.3607 29.9205C21.4946 29.8089 20.6599 29.5239 19.9069 29.0824C18.7501 28.4325 17.5791 27.4348 16.2614 25.9712C18.3591 23.3846 19.669 21.0005 20.154 18.877C20.3723 17.984 20.4196 17.0579 20.2935 16.1475C20.1791 15.3632 19.8879 14.615 19.4419 13.9593C18.9194 13.2519 18.2378 12.6768 17.452 12.2805C16.6661 11.8842 15.798 11.6777 14.9175 11.6777C14.0371 11.6777 13.1689 11.8841 12.383 12.2803C11.5971 12.6765 10.9155 13.2515 10.393 13.9589C9.94707 14.6144 9.65591 15.3624 9.5414 16.1465C9.41524 17.0566 9.4623 17.9822 9.68011 18.8749C10.1648 20.9993 11.4748 23.384 13.5732 25.9714C12.2555 27.4348 11.0845 28.4325 9.92769 29.0825C9.17468 29.5239 8.34007 29.809 7.47395 29.9205C6.64065 30.0217 5.79525 29.9111 5.0162 29.599C4.24581 29.2852 3.57092 28.7759 3.05838 28.1217C2.54585 27.4674 2.21345 26.6908 2.09411 25.8689C1.97932 25.0334 2.07701 24.1825 2.37818 23.3946C2.49266 23.0728 2.62663 22.757 2.7926 22.3818C3.0274 21.851 3.27657 21.3115 3.51759 20.7898L3.54996 20.7197C5.75643 15.9419 8.12481 11.0982 10.5894 6.32294L10.6875 6.13283C10.9384 5.64601 11.1979 5.14267 11.4597 4.6563C11.7101 4.15501 12.0132 3.68171 12.3639 3.2444C12.6746 2.86903 13.0646 2.56681 13.5059 2.35934C13.9473 2.15186 14.4291 2.04426 14.9169 2.04422C15.4047 2.04418 15.8866 2.15171 16.3279 2.35911C16.7693 2.56651 17.1593 2.86867 17.4701 3.24399C17.821 3.68097 18.1242 4.15411 18.3744 4.65538C18.6338 5.13742 18.891 5.63623 19.1398 6.11858L19.2452 6.32315C21.7097 11.0979 24.078 15.9415 26.2847 20.7201L26.3046 20.7631C26.5498 21.2936 26.8033 21.8419 27.042 22.382C27.2082 22.7577 27.3424 23.0738 27.4566 23.3944C27.7576 24.1824 27.8553 25.0333 27.7406 25.8689Z"
+          fill="currentcolor"
+          sez="Logo Path"
+        ></path>
+      </svg></div
+  ></a>
+  <style>
+    .logo {
+      flex: 1 0 auto;
+    }
+    @media (min-width: 60em) {
+      .logo {
+        flex: 1 0 8.75rem;
+      }
+    }
+
+    .logo__link {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      vertical-align: middle;
+      font: inherit;
+      font-family: inherit;
+      font-size: 100%;
+      text-decoration: none;
+      color: var(--sez-brand-color);
+      height: 5rem;
+      outline: none;
+      transition: color 250ms var(--sez-ease-1);
+      z-index: 1;
+    }
+    .logo__link::before {
+      content: "";
+      position: absolute;
+      inset-block: 0.5rem;
+      inset-inline: -0.5rem;
+      border-radius: var(--sez-radius-md);
+    }
+    .logo__link:focus-visible::before {
+      box-shadow: 0 0 0 2px var(--sez-gray-9), 0 0 0 4px var(--sez-white);
+      transition: box-shadow 0.2s ease;
+    }
+    /* Unfortunately, fight Bricks defaults having hight specificity */
+    body.bricks-is-frontend .logo__link:focus {
+      outline: none;
+    }
+
+    .logo__svgtype {
+      display: none;
+    }
+    @media (min-width: 70em) {
+      .logo__svgtype {
+        display: block;
+      }
+      .logo__svg {
+        display: none;
+      }
+    }
+  </style>
+</div>
+```
+
+```html title="logo.html"
+<div class="logo" sez="Logo Block">
+  <a class="logo__link" aria-label="Airbnb homepage" href="/" sez="Logo Link"
+    ><div class="logo__svgtype" sez="Logo with Type">
+      <svg
+        width="149.5"
+        height="32"
+        style="display: block"
+        viewBox="0 0 1000 214"
+        sez="SVG Root"
+      >
+        <path
+          fill="currentcolor"
+          d="M196.5 151.88c-.95-2.7-2.07-5.3-3.14-7.71a718.88 718.88 0 0 0-5.03-11.04l-.13-.28a2459.85 2459.85 0 0 0-47.33-96.81l-.7-1.37c-1.7-3.27-3.44-6.66-5.24-10a64.99 64.99 0 0 0-7.69-11.84A35.8 35.8 0 0 0 99.74.02a35.92 35.92 0 0 0-27.48 12.82 65.34 65.34 0 0 0-7.69 11.84 591.74 591.74 0 0 0-5.28 10.1l-.65 1.26a2469.47 2469.47 0 0 0-47.34 96.8l-.21.47a724.2 724.2 0 0 0-4.94 10.85A112.85 112.85 0 0 0 3 151.88a47.35 47.35 0 0 0-2.55 23.06 45.55 45.55 0 0 0 27.94 35.67A46.4 46.4 0 0 0 45.91 214c1.89 0 3.77-.1 5.65-.33a57.6 57.6 0 0 0 21.54-7.27c8.7-4.88 17.28-12.03 26.65-22.26 9.38 10.23 17.96 17.38 26.66 22.26a57.57 57.57 0 0 0 21.53 7.27c1.88.22 3.76.33 5.65.33a45.72 45.72 0 0 0 36.24-17.52 45.55 45.55 0 0 0 9.23-21.54c1.08-7.78.2-15.7-2.55-23.06Zm-96.75 11.14c-11.6-14.7-19.05-28.37-21.67-39.82a35.17 35.17 0 0 1-.74-13.14 21.4 21.4 0 0 1 3.45-8.97 23.85 23.85 0 0 1 18.97-9.32 24.01 24.01 0 0 1 18.96 9.32c1.8 2.7 3 5.76 3.45 8.98.58 4.39.32 8.84-.75 13.13-2.62 11.46-10.06 25.11-21.67 39.82Zm85.76 9.98a31.9 31.9 0 0 1-19.55 24.94 33.38 33.38 0 0 1-16.43 2.16 43.42 43.42 0 0 1-16.41-5.61c-7.74-4.34-15.57-11.02-24.38-20.8 14.03-17.3 22.79-33.24 26.03-47.44a48.76 48.76 0 0 0 .94-18.25 35.07 35.07 0 0 0-5.7-14.64A37.6 37.6 0 0 0 99.76 78.1 37.67 37.67 0 0 0 69.5 93.36a35 35 0 0 0-5.7 14.63 48.72 48.72 0 0 0 .93 18.24c3.24 14.2 12 30.15 26.03 47.45-8.8 9.8-16.63 16.47-24.37 20.81a43.52 43.52 0 0 1-16.41 5.6 33.41 33.41 0 0 1-16.44-2.15A31.88 31.88 0 0 1 14 173a33.53 33.53 0 0 1 1.9-16.54 98.38 98.38 0 0 1 2.78-6.78c1.56-3.55 3.23-7.15 4.85-10.64l.2-.47A2456.09 2456.09 0 0 1 70.82 42.3l.66-1.27c1.67-3.26 3.41-6.62 5.16-9.88a52.79 52.79 0 0 1 6.05-9.44 22.25 22.25 0 0 1 17.07-8.03 22.21 22.21 0 0 1 17.07 8.03 52.5 52.5 0 0 1 6.05 9.43c1.74 3.23 3.45 6.56 5.12 9.8l.7 1.36a2456.29 2456.29 0 0 1 47.08 96.27l.13.29c1.64 3.55 3.33 7.21 4.93 10.82 1.11 2.52 2 4.63 2.78 6.77a33.64 33.64 0 0 1 1.9 16.55Z"
+          sez="Logo Path"
+        />
+        <path
+          fill="currentcolor"
+          d="M464.32 161c-7.8-.83-14.95-4.57-19.58-10.23-1.79-2.18-2.05-2.13-2.06.45 0 .93-.09 3.03-.2 4.68l-.2 2.98h-19.52V45.18h21.14l.16 43.5 1.45-1.81c.8-1 2.55-2.7 3.89-3.78 12.76-10.3 32.06-8.83 44.05 3.36a36.28 36.28 0 0 1 7.58 10.57 40.9 40.9 0 0 1 4.2 12.88c.57 3.28.63 4.59.49 9.9-.17 6.48-.55 8.9-2.23 14.1-2.18 6.78-7.34 14.59-12.3 18.62a40.1 40.1 0 0 1-12.32 6.95 39.1 39.1 0 0 1-14.55 1.53Zm2.75-19.3a18 18 0 0 0 10.6-5.7c4.37-4.62 6.42-10.13 6.41-17.21 0-4.02-.27-5.74-1.4-9.14-2.93-8.7-10.17-14.2-18.7-14.2-2.7 0-6.37.78-8.33 1.78-5.02 2.57-9.3 7.89-10.94 13.57-1.33 4.67-1.27 11.9.16 16.27a22.64 22.64 0 0 0 9.42 12.33c3.47 2.18 8.44 3.07 12.78 2.3Zm174.2 19.43c-7.57-.56-13.46-3.17-18.57-8.22a44.86 44.86 0 0 1-3.4-3.66l-.63-.9-.2 3.8c-.11 2.1-.28 4.48-.37 5.28l-.17 1.45h-19.56V45.18h21.45v43.34l2.07-2.26c12.5-13.7 34.34-13.36 47.83.75 6.65 6.95 10.22 14.6 11.56 24.74 2.96 22.4-9.47 43.38-28.57 48.23-2.47.63-8.78 1.47-9.75 1.3-.17-.03-.93-.1-1.68-.15Zm2.32-19.55c4.87-.94 9.18-3.95 12.2-8.53 2-3.04 3.05-5.63 3.7-9.13 1.64-8.85-1.04-18.01-6.8-23.3-4-3.65-7.86-5.18-13.04-5.17-5.45.01-9.17 1.6-13.25 5.66a21.2 21.2 0 0 0-6.28 11.5c-1.13 5.5-.57 12.34 1.35 16.65 4.17 9.37 12.7 14.12 22.12 12.32Zm162.56 19.02a38.05 38.05 0 0 1-15.18-6.26c-8.15-5.47-14.38-15.01-16.53-25.34a53.99 53.99 0 0 1-.01-19.46c3.48-16.52 15.8-29.22 31.55-32.53 3.7-.78 11.79-.93 15.5-.28 9.54 1.65 18.01 6.96 23.3 14.6 2.4 3.48 5.2 9.8 4.83 10.9-.09.27-18.43 4.22-19.7 4.24-.17 0-.79-.92-1.37-2.05a19.53 19.53 0 0 0-6.22-6.66 16.66 16.66 0 0 0-21.03 3.43c-3.69 4.2-6.14 11.23-6.16 17.63 0 2.76.78 7.56 1.67 10.11 1.62 4.67 5.48 9.25 9.42 11.17 2.92 1.43 4.35 1.73 8.21 1.73 3.02 0 3.81-.1 5.52-.75a18.03 18.03 0 0 0 9.45-8.2 7.85 7.85 0 0 1 1.22-1.9c.56-.01 19.54 3.82 19.75 4 .39.32-.96 4.24-2.47 7.2-4.53 8.78-13.88 15.59-24.88 18.1-3.03.68-13.95.9-16.87.32Zm152.32-.17a37.5 37.5 0 0 1-13.02-5.45c-2.72-1.74-7.04-6.15-8.67-8.87-1.42-2.37-3.24-6.86-2.9-7.17.13-.11 4.16-1.05 8.97-2.1 4.8-1.03 9-1.95 9.35-2.03.5-.13.76.18 1.49 1.76 1.66 3.58 5.2 6.5 9.36 7.73 2.09.61 7.23.64 9.45.05 2.8-.75 5.39-2.6 6.41-4.57.66-1.28.86-3.89.4-5.3-.58-1.76-1.42-2.82-3.22-3.96-2.24-1.44-4.6-2.16-11.48-3.52-6.95-1.37-10.53-2.36-13.91-3.85-6.9-3.04-11.97-8.18-13.68-13.91a25.19 25.19 0 0 1 .35-15.33c2.95-8.4 11.38-15.07 21.57-17.03 3.96-.77 12.52-.78 16.24-.02 9.43 1.93 17.45 7.54 21.27 14.89 1.23 2.38 2.42 6 2.08 6.34-.1.1-.78.3-1.5.44l-8.8 1.8a186 186 0 0 1-7.99 1.55c-.32 0-.76-.61-1.22-1.71a14.71 14.71 0 0 0-5.43-6.02 13.25 13.25 0 0 0-7.78-1.68c-4.7.3-8.37 2.6-9.33 5.84-.58 1.94-.57 2.7.02 4.12 1.34 3.2 4.57 4.78 13.32 6.5 7.32 1.45 10.05 2.12 12.71 3.12 12.69 4.8 18.46 13.08 17.33 24.91-.9 9.62-7.46 17.6-17.79 21.64-4.68 1.83-8.61 2.43-15.63 2.4-3.96 0-6.04-.16-7.97-.57Zm-622.44-1.55v-80.3h21.15v80.3h-21.15Zm32.25-40.22.08-40.22 19.37-.17.2 2.16c.12 1.2.3 3.81.4 5.83.11 2.02.31 3.67.45 3.67s.48-.45.76-1a27.4 27.4 0 0 1 4.97-6.3c3.5-2.93 6.96-4.38 11.9-5 3.19-.4 6.42-.15 9.38.72 1 .3 1.15.46 1.15 1.25 0 .95-.71 7.84-1.23 11.86-.16 1.26-.38 3.4-.5 4.75-.28 3.47-.33 3.54-2.32 3-2.07-.57-8.54-.33-10.97.4-6.44 1.92-10.02 6.03-11.72 13.46-.6 2.61-.64 3.86-.76 24.28l-.13 21.53h-21.1l.07-40.22Zm145.8.08V78.59h9.65c5.3 0 9.7.11 9.79.25a43 43 0 0 1 .37 4.76c.14 2.94.33 4.48.55 4.47.19 0 1.06-.96 1.94-2.12 2.9-3.78 8.7-7.51 13.57-8.7 8.58-2.09 17.14-.92 23.45 3.2 7.84 5.12 12.5 13.48 13.61 24.45.2 1.95.33 12.98.33 28.58v25.4h-21.12l-.12-24.74c-.13-27.2-.1-26.79-2.04-30.84-1.87-3.93-4.6-6.39-8.24-7.4-1.45-.41-2.66-.5-5.25-.4-3.2.14-3.49.2-5.94 1.42-4.14 2.05-6.97 5.44-8.71 10.43-.44 1.26-.51 4.34-.6 26.48l-.11 25.05h-21.12v-40.14Zm175.7-.08.07-40.22 19.38-.17.2 1.92c.12 1.06.3 3.68.4 5.83.1 2.15.28 3.9.4 3.9.11 0 .84-1 1.63-2.24A21.32 21.32 0 0 1 721.98 79a25.6 25.6 0 0 1 14.45-.87c1.81.47 2.35.85 2.14 1.5-.06.18-.25 1.78-.43 3.55-.17 1.77-.6 5.63-.93 8.58-.35 2.95-.62 5.78-.62 6.3 0 1.43-.4 1.63-2.24 1.13-2.04-.56-8.52-.32-10.94.4-5.2 1.56-8.41 4.47-10.5 9.49-1.85 4.44-2.12 8.6-2.01 31.18l.1 18.61h-21.31l.09-40.22Zm54.47 40.22v-80.3h21.15v80.3h-21.15Zm113.1-56.85V45.18h20.82l.16 65.99L908 78.59h12.37c6.8 0 12.36.07 12.36.16 0 .1-7.45 8.1-16.56 17.78l-16.57 17.6 18.14 21.84 18.6 22.38c.44.5-.2.53-13.05.53h-13.5l-15.74-19.96-15.72-19.95-.16 39.91h-20.83v-56.85ZM342.54 68.2a12.42 12.42 0 0 1-7.1-6.44c-.72-1.53-.8-2.07-.8-5.23 0-3.27.06-3.64.86-5.16a14.1 14.1 0 0 1 4.66-5.13c4.99-2.91 12.07-1.83 15.64 2.4a13.52 13.52 0 0 1 2.8 6.9 12.4 12.4 0 0 1-1.53 7.22c-1.13 2.17-2.77 3.65-5.42 4.9-2.59 1.24-6.56 1.47-9.1.54Zm408.22 0c-5.41-1.99-8.3-6.46-8-12.35.42-8 8.01-13.13 15.81-10.7 4.96 1.54 8.02 5.54 8.29 10.81.27 5.45-2.2 9.53-7.16 11.81-2.43 1.12-6.52 1.31-8.94.43Zm-472.01 93.1a33.8 33.8 0 0 1-14.75-3.2 36.72 36.72 0 0 1-11.76-9 43.76 43.76 0 0 1-7.9-13.28 47.26 47.26 0 0 1-2.78-16.7c0-6 1.06-11.79 2.99-16.93a46.5 46.5 0 0 1 8.12-13.7 36.7 36.7 0 0 1 12.18-9.21 35.7 35.7 0 0 1 15.18-3.22c5.34 0 10.05 1.07 14.32 3.43a27.65 27.65 0 0 1 10.47 9.42l.64-10.5h19.67v80.76h-19.67l-.64-11.78a30.28 30.28 0 0 1-11.11 10.28 30.94 30.94 0 0 1-14.96 3.64Zm5.13-19.27c3.84 0 7.26-1.08 10.47-3 3-2.15 5.34-4.93 7.27-8.36 1.7-3.42 2.56-7.5 2.56-12s-.85-8.56-2.56-11.99a22.9 22.9 0 0 0-7.27-8.35c-3-2.14-6.63-3-10.47-3-3.85 0-7.27 1.07-10.48 3a25.1 25.1 0 0 0-7.26 8.35c-1.71 3.43-2.57 7.5-2.57 12s.86 8.57 2.57 12a22.9 22.9 0 0 0 7.26 8.35c3.2 1.92 6.63 3 10.48 3Z"
+          sez="Logotype Path"
+        />
+      </svg>
+    </div>
+    <div class="logo__svg" sez="Logo Only">
+      <svg width="30" height="32" style="display: block" sez="SVG Root">
+        <path
+          d="M29.3864 22.7101C29.2429 22.3073 29.0752 21.9176 28.9157 21.5565C28.6701 21.0011 28.4129 20.4446 28.1641 19.9067L28.1444 19.864C25.9255 15.0589 23.5439 10.1881 21.0659 5.38701L20.9607 5.18316C20.7079 4.69289 20.4466 4.18596 20.1784 3.68786C19.8604 3.0575 19.4745 2.4636 19.0276 1.91668C18.5245 1.31651 17.8956 0.833822 17.1853 0.502654C16.475 0.171486 15.7005 -9.83959e-05 14.9165 4.23317e-08C14.1325 9.84805e-05 13.3581 0.171877 12.6478 0.503224C11.9376 0.834571 11.3088 1.31742 10.8059 1.91771C10.3595 2.46476 9.97383 3.05853 9.65572 3.68858C9.38521 4.19115 9.12145 4.70278 8.8664 5.19757L8.76872 5.38696C6.29061 10.1884 3.90903 15.0592 1.69015 19.8639L1.65782 19.9338C1.41334 20.463 1.16057 21.0102 0.919073 21.5563C0.75949 21.9171 0.592009 22.3065 0.448355 22.7103C0.0369063 23.8104 -0.094204 24.9953 0.0668098 26.1585C0.237562 27.334 0.713008 28.4447 1.44606 29.3804C2.17911 30.3161 3.14434 31.0444 4.24614 31.4932C5.07835 31.8299 5.96818 32.002 6.86616 32C7.14824 31.9999 7.43008 31.9835 7.71027 31.9509C8.846 31.8062 9.94136 31.4366 10.9321 30.8639C12.2317 30.1338 13.5152 29.0638 14.9173 27.5348C16.3194 29.0638 17.6029 30.1338 18.9025 30.8639C19.8932 31.4367 20.9886 31.8062 22.1243 31.9509C22.4045 31.9835 22.6864 31.9999 22.9685 32C23.8664 32.002 24.7561 31.8299 25.5883 31.4932C26.6901 31.0444 27.6554 30.3161 28.3885 29.3804C29.1216 28.4447 29.5971 27.3341 29.7679 26.1585C29.9287 24.9952 29.7976 23.8103 29.3864 22.7101ZM14.9173 24.377C13.1816 22.1769 12.0678 20.1338 11.677 18.421C11.5169 17.7792 11.4791 17.1131 11.5656 16.4573C11.6339 15.9766 11.8105 15.5176 12.0821 15.1148C12.4163 14.6814 12.8458 14.3304 13.3374 14.0889C13.829 13.8475 14.3696 13.7219 14.9175 13.7219C15.4655 13.722 16.006 13.8476 16.4976 14.0892C16.9892 14.3307 17.4186 14.6817 17.7528 15.1151C18.0244 15.5181 18.201 15.9771 18.2693 16.4579C18.3556 17.114 18.3177 17.7803 18.1573 18.4223C17.7661 20.1349 16.6526 22.1774 14.9173 24.377ZM27.7406 25.8689C27.6212 26.6908 27.2887 27.4674 26.7762 28.1216C26.2636 28.7759 25.5887 29.2852 24.8183 29.599C24.0393 29.9111 23.1939 30.0217 22.3607 29.9205C21.4946 29.8089 20.6599 29.5239 19.9069 29.0824C18.7501 28.4325 17.5791 27.4348 16.2614 25.9712C18.3591 23.3846 19.669 21.0005 20.154 18.877C20.3723 17.984 20.4196 17.0579 20.2935 16.1475C20.1791 15.3632 19.8879 14.615 19.4419 13.9593C18.9194 13.2519 18.2378 12.6768 17.452 12.2805C16.6661 11.8842 15.798 11.6777 14.9175 11.6777C14.0371 11.6777 13.1689 11.8841 12.383 12.2803C11.5971 12.6765 10.9155 13.2515 10.393 13.9589C9.94707 14.6144 9.65591 15.3624 9.5414 16.1465C9.41524 17.0566 9.4623 17.9822 9.68011 18.8749C10.1648 20.9993 11.4748 23.384 13.5732 25.9714C12.2555 27.4348 11.0845 28.4325 9.92769 29.0825C9.17468 29.5239 8.34007 29.809 7.47395 29.9205C6.64065 30.0217 5.79525 29.9111 5.0162 29.599C4.24581 29.2852 3.57092 28.7759 3.05838 28.1217C2.54585 27.4674 2.21345 26.6908 2.09411 25.8689C1.97932 25.0334 2.07701 24.1825 2.37818 23.3946C2.49266 23.0728 2.62663 22.757 2.7926 22.3818C3.0274 21.851 3.27657 21.3115 3.51759 20.7898L3.54996 20.7197C5.75643 15.9419 8.12481 11.0982 10.5894 6.32294L10.6875 6.13283C10.9384 5.64601 11.1979 5.14267 11.4597 4.6563C11.7101 4.15501 12.0132 3.68171 12.3639 3.2444C12.6746 2.86903 13.0646 2.56681 13.5059 2.35934C13.9473 2.15186 14.4291 2.04426 14.9169 2.04422C15.4047 2.04418 15.8866 2.15171 16.3279 2.35911C16.7693 2.56651 17.1593 2.86867 17.4701 3.24399C17.821 3.68097 18.1242 4.15411 18.3744 4.65538C18.6338 5.13742 18.891 5.63623 19.1398 6.11858L19.2452 6.32315C21.7097 11.0979 24.078 15.9415 26.2847 20.7201L26.3046 20.7631C26.5498 21.2936 26.8033 21.8419 27.042 22.382C27.2082 22.7577 27.3424 23.0738 27.4566 23.3944C27.7576 24.1824 27.8553 25.0333 27.7406 25.8689Z"
+          fill="currentcolor"
+          sez="Logo Path"
+        ></path>
+      </svg></div
+  ></a>
+</div>
+```
+
+## Search
+
+Insert the search in the header container Slot.
+
+### Styled
+
+```html title="search.html"
+<div class="search" sez="Search">
+  <div class="search__inner" sez="Search Inner">
+    <form
+      class="search__form"
+      action=""
+      method="get"
+      role="search"
+      sez="Search Form"
+    >
+      <div class="search__top" sez="Search Slot 1"></div>
+      <div class="search__bottom" sez="Search Slot 2"></div>
+    </form>
+  </div>
+  <style>
+    .search {
+      min-width: 22rem;
+      flex: 0 1 auto;
+      padding: 0 1.5rem;
+      text-align: center;
+    }
+    .search__inner {
+      position: absolute;
+      inset-inline-start: 0;
+      inset-block-start: 0;
+      inline-size: 100%;
+      padding-inline: 1.5rem;
+      padding-block-end: 1rem;
+      text-align: left;
+      z-index: 2;
+    }
+    .search__form {
+      text-align: left;
+      --big-search-form_background: var(--sez-white);
+      --big-search-button_background_hover: var(--sez-gray-3);
+      --query-input_flex: 1 0 0%;
+      --input-with-search-button_flex: 1 0 0%;
+      --split-date-input_flex: 1 0 0%;
+      max-width: 55rem;
+      margin: 0 auto;
+    }
+    .search__top {
+      height: 5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .search__bottom {
+      --big-search-input-button_color: var(--sez-brand-color);
+      position: relative;
+      display: flex;
+      flex: 1 1 0%;
+      justify-content: center;
+      align-items: center;
+      block-size: 4.125rem;
+      inline-size: 100%;
+      color: var(--sez-gray-9);
+      outline: none;
+      border: 1px solid var(--sez-gray-5);
+      border-radius: 1e5px;
+      box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.08);
+    }
+    @media (min-width: 70em) {
+      .search__inner {
+        padding-inline: 5rem;
+      }
+    }
+    @media (min-width: 46em) {
+      .search__inner {
+        padding-inline: 2.5rem;
+      }
+    }
+  </style>
+</div>
+```
+
+### Unstyled
+
+```html title="search.html"
+<div class="search" sez="Search">
+  <div class="search__inner" sez="Search Inner">
+    <form
+      class="search__form"
+      action=""
+      method="get"
+      role="search"
+      sez="Search Form"
+    >
+      <div class="search__top" sez="Search Slot 1"></div>
+      <div class="search__bottom" sez="Search Slot 2"></div>
+    </form>
+  </div>
+</div>
+```
+
+## Search input
+
+Insert the search input in the search Slot 2.
+
+TODO (for Cédric, or for you): Break this component into smaller ones.
+
+### Styled
+
+```html title="search-input.html"<div class="search-input">
+  <div class="search-input__item" sez="Search Input">
+    <label class="search-input__label" for="bigsearch-query-location-input"
+     sez="Where"
+      ><div class="search-input__inner" sez="Inner">
+        <div class="search-input__title" sez="Title">Where</div>
+        <input
+          class="search-input__input"
+          aria-autocomplete="none"
+          autocomplete="off"
+          autocorrect="off"
+          spellcheck="false"
+          id="bigsearch-query-location-input"
+          name="query"
+          type="search"
+          aria-describedby="bigsearch-query-location-description"
+          placeholder="Search destinations"
+          value=""
+           sez="Where Input"
+        /></div
+    ></label>
+  </div>
+  <div class="search-input__separator" sez="Separator"></div>
+  <div class="search-input__item" sez="Dates Group">
+    <div class="search-input__item" sez="Check In">
+      <div
+        class="search-input__label sez="Label""
+        role="button"
+        tabindex="0"
+        aria-expanded="false"
+      >
+        <div class="search-input__inner" sez="Inner">
+          <div class="search-input__title" sez="Title">Check in</div>
+          <div class="search-input__input" sez="Input">Add dates</div>
+        </div>
+      </div>
+    </div>
+    <div class="search-input__separator" sez="Separator"></div>
+    <div class="search-input__item" sez="Check Out">
+      <div
+        class="search-input__label sez="Label""
+        role="button"
+        tabindex="0"
+        aria-expanded="false"
+      >
+        <div class="search-input__inner" sez="Inner">
+          <div class="search-input__title" sez="Title">Check out</div>
+          <div class="search-input__input" sez="Input">Add dates</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="search-input__separator" sez="Separator"></div>
+  <div class="search-input__item" sez="Who">
+    <div class="search-input__item" sez="Group">
+      <div
+        class="search-input__label sez="Label""
+        role="button"
+        tabindex="0"
+        aria-expanded="false"
+      >
+        <div class="search-input__inner" sez="Inner">
+          <div class="search-input__title" sez="Title">Who</div>
+          <div class="search-input__input" sez="Input">Add guests</div>
+        </div>
+      </div>
+      <div class="search-input__action" sez="Action">
+        <button class="search-input__trigger" type="button" sez="Trigger">
+          <div class="search-input__icon" sez="Icon Wrapper">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 32 32"
+              aria-hidden="true"
+              role="presentation"
+              focusable="false"
+              style="
+                display: block;
+                fill: none;
+                height: 16px;
+                width: 16px;
+                stroke: currentcolor;
+                stroke-width: 4;
+                overflow: visible;
+              "
+               sez="Icon"
+            >
+              <path
+                fill="none"
+                d="M13 24a11 11 0 1 0 0-22 11 11 0 0 0 0 22zm8-3 9 9"
+                 sez="Magnifier"
+              ></path>
+            </svg>
+            <div class="search-input__search" sez="Label">Search</div>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+  <style>
+    .search-input {
+      flex: 1 1 0%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .search-input__item {
+      flex: 1 0 0%;
+      min-width: 0;
+      position: relative;
+      display: flex;
+      margin: -1px;
+      align-items: center;
+    }
+    .search-input__label {
+      flex: 1 0 0%;
+      min-width: 0;
+      display: block;
+      padding: 0.875rem 2rem;
+      border: 1px solid transparent;
+      border-radius: 1e5px;
+      cursor: pointer;
+      background-clip: padding-box;
+    }
+    .search-input__label::after {
+      content: "";
+      position: absolute;
+      background-clip: padding-box;
+      inset: 0;
+      border: 1px solid transparent;
+      border-radius: 1e5px;
+      z-index: 0;
+    }
+    .search-input__label:hover::after {
+      background-color: var(--big-search-button_background_hover);
+      margin-right: 2px;
+    }
+    .search-input__inner {
+      position: relative;
+      cursor: pointer;
+      z-index: 1;
+    }
+    .search-input__title {
+      cursor: pointer;
+      letter-spacing: var(--sez-letterspacing);
+      font-size: 0.75rem;
+      line-height: 1rem;
+      font-weight: var(--sez-bold);
+      padding-bottom: 2px;
+      color: var(--sez-gray-9);
+    }
+    :is(.search-input__input, #dumb-id-forced-by-bricks) {
+      font: inherit;
+      font-family: inherit;
+      text-overflow: ellipsis;
+      display: block;
+      letter-spacing: var(--sez-letterspacing);
+      color: var(--sez-gray-7);
+      width: 100%;
+      background: none;
+      border: 0;
+      font-size: var(--sez-font-reduced);
+      line-height: var(--sez-lineheight-reduced);
+      padding: 0;
+      margin: 0;
+      font-weight: var(--sez-bold);
+    }
+    :is(.search-input__input, #dumb-id-forced-by-bricks):focus {
+      outline: none;
+    }
+    .search-input__separator {
+      flex: 0 0 0;
+      height: 2rem;
+      align-self: center;
+      border-right: 1px solid var(--sez-gray-5);
+    }
+    .search-input__action {
+      position: relative;
+      flex: 0 0 auto;
+      z-index: 5;
+      margin-inline-start: -6px;
+      padding-inline-end: 9px;
+    }
+    .search-input__trigger {
+      max-inline-size: 3rem;
+      block-size: 3rem;
+      user-select: auto;
+      z-index: 0;
+      appearance: none;
+      overflow: hidden;
+      vertical-align: middle;
+      display: inline-block;
+      text-decoration: none;
+      outline: none;
+      color: var(--sez-white);
+      position: relative;
+      transition: 0.2s max-width var(--sez-ease-1);
+      line-height: 1rem;
+      border-radius: 1e5px;
+      border: 0;
+      text-align: inherit;
+      background: transparent;
+      padding: 0;
+      margin: 0;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: var(--sez-bold);
+      cursor: pointer;
+      background-color: var(--sez-brand-color);
+    }
+    .search-input__trigger:hover {
+      background-color: oklch(from var(--sez-brand-color) calc(l - 5) c h);
+    }
+    .search-input__icon {
+      display: inline-flex;
+      z-index: 1;
+      position: relative;
+      padding: 16px;
+    }
+    .search-input__search {
+      opacity: 0;
+      transition: 0.1s opacity var(--itr-yy-z);
+      transition-delay: 0.1s;
+      padding-left: 8px;
+      padding-right: 4px;
+    }
+  </style>
+</div>
+```
+
+### Unstyled
+
+```html title="search-input.html"
+<div class="search-input">
+  <div class="search-input__item">
+    <label class="search-input__label" for="bigsearch-query-location-input"
+      ><div class="search-input__inner">
+        <div class="search-input__title">Where</div>
+        <input
+          class="search-input__input"
+          aria-autocomplete="none"
+          autocomplete="off"
+          autocorrect="off"
+          spellcheck="false"
+          id="bigsearch-query-location-input"
+          name="query"
+          type="search"
+          aria-describedby="bigsearch-query-location-description"
+          placeholder="Search destinations"
+          value=""
+        /></div
+    ></label>
+  </div>
+  <div class="search-input__separator"></div>
+  <div class="search-input__item">
+    <div class="search-input__item">
+      <div
+        class="search-input__label"
+        role="button"
+        tabindex="0"
+        aria-expanded="false"
+      >
+        <div class="search-input__inner">
+          <div class="search-input__title">Check in</div>
+          <div class="search-input__input">Add dates</div>
+        </div>
+      </div>
+    </div>
+    <div class="search-input__separator"></div>
+    <div class="search-input__item">
+      <div
+        class="search-input__label"
+        role="button"
+        tabindex="0"
+        aria-expanded="false"
+      >
+        <div class="search-input__inner">
+          <div class="search-input__title">Check out</div>
+          <div class="search-input__input">Add dates</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="search-input__separator"></div>
+  <div class="search-input__item">
+    <div class="search-input__item">
+      <div
+        class="search-input__label"
+        role="button"
+        tabindex="0"
+        aria-expanded="false"
+      >
+        <div class="search-input__inner">
+          <div class="search-input__title">Who</div>
+          <div class="search-input__input">Add guests</div>
+        </div>
+      </div>
+      <div class="search-input__action">
+        <button class="search-input__trigger" type="button">
+          <div class="search-input__icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 32 32"
+              aria-hidden="true"
+              role="presentation"
+              focusable="false"
+              style="
+                display: block;
+                fill: none;
+                height: 16px;
+                width: 16px;
+                stroke: currentcolor;
+                stroke-width: 4;
+                overflow: visible;
+              "
+            >
+              <path
+                fill="none"
+                d="M13 24a11 11 0 1 0 0-22 11 11 0 0 0 0 22zm8-3 9 9"
+              ></path>
+            </svg>
+            <div class="search-input__search">Search</div>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+## Text button
+
+Insert the text button in the Search Slot 1 and the Nav Slot Left.
+
+### Styled
+
+```html title="text-button.html"
+<div sez="Text Button Component Wrapper">
+  <a class="text-btn text-btn--emphasis" href="#" sez="Text Button"
+    >Button Link</a
+  >
+  <style>
+    .text-btn {
+      display: inline-block;
+      font: inherit;
+      user-select: auto;
+      overflow: visible;
+      appearance: none;
+      white-space: nowrap;
+      letter-spacing: var(--sez-letterspacing);
+      color: var(--sez-gray-7, black);
+      z-index: 1;
+      text-decoration: none;
+      outline: none;
+      position: relative;
+      padding: 0.75rem;
+      transition: color 250ms var(--sez-ease-1, ease);
+      border: 0;
+      text-align: inherit;
+      background: transparent;
+      font-size: var(--sez-font-reduced, 80%);
+      line-height: var(--sez-lineheight-reduced);
+      margin: 0;
+      font-family: inherit;
+      cursor: pointer;
+      isolation: isolate;
+    }
+    .text-btn--emphasis {
+      font-weight: var(--sez-bold);
+      color: var(--sez-gray-9);
+    }
+    .text-btn:hover {
+      color: var(--sez-gray-9);
+    }
+    .text-btn::before {
+      content: "";
+      inset-block: 0;
+      inset-inline: -3px;
+      border-radius: 1e5px;
+      position: absolute;
+      z-index: -1;
+    }
+    .text-btn:hover::before {
+      background: var(--sez-gray-1);
+    }
+    .text-btn:focus-visible::before {
+      box-shadow: 0 0 0 2px var(--sez-gray-9), 0 0 0 4px var(--sez-white);
+      transition: box-shadow 0.2s ease;
+    }
+    /* Unfortunately, fight Bricks defaults having hight specificity */
+    body.bricks-is-frontend .text-btn:focus {
+      outline: none;
+    }
+  </style>
+</div>
+```
+
+### Unstyled
+
+```html title="text-button.html"
+<a class="text-btn text-btn--emphasis" href="#" sez="Text Button"
+  >Button Link</a
+>
+```
+
+## Nav
+
+Insert the nav in the header container Slot.
+
+### Styled
+
+```html title="nav.html"
+<nav class="nav" aria-label="Profile" sez="Profile Nav">
+  <style>
+    .nav {
+      position: relative;
+      display: flex;
+      flex: 1 0 auto;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 0.5rem;
+      block-size: 5rem;
+      z-index: 3;
+    }
+    .nav__left {
+      display: flex;
+      flex: auto;
+      justify-content: flex-end;
+    }
+    @media (min-width: 60em) {
+      .nav {
+        flex-basis: 8.75rem;
+      }
+    }
+  </style>
+  <div class="nav__left" sez="Slot Left"></div>
+  <div class="nav__right" sez="Slot Right"></div>
+</nav>
+```
+
+### Unstyled
+
+```html title="nav.html"
+<nav class="nav" aria-label="Profile" sez="Profile Nav">
+  <div class="nav__left" sez="Slot Left"></div>
+  <div class="nav__right" sez="Slot Right"></div>
+</nav>
+```
+
+## Icon Button
+
+Insert the icon button in the Nav Slot Left.
+
+### Styled
+
+```html title="icon-button.html"
+<div class="icon-btn" sez="Icon Button">
+  <button
+    type="button"
+    class="icon-btn__button"
+    aria-expanded="false"
+    aria-label="Choose a language and currency"
+    sez="Button Element"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 16 16"
+      aria-hidden="true"
+      role="presentation"
+      focusable="false"
+      class="icon-btn__icon"
+      sez="Icon SVG"
+    >
+      <path
+        d="M8 .25a7.77 7.77 0 0 1 7.75 7.78 7.75 7.75 0 0 1-7.52 7.72h-.25A7.75 7.75 0 0 1 .25 8.24v-.25A7.75 7.75 0 0 1 8 .25zm1.95 8.5h-3.9c.15 2.9 1.17 5.34 1.88 5.5H8c.68 0 1.72-2.37 1.93-5.23zm4.26 0h-2.76c-.09 1.96-.53 3.78-1.18 5.08A6.26 6.26 0 0 0 14.17 9zm-9.67 0H1.8a6.26 6.26 0 0 0 3.94 5.08 12.59 12.59 0 0 1-1.16-4.7l-.03-.38zm1.2-6.58-.12.05a6.26 6.26 0 0 0-3.83 5.03h2.75c.09-1.83.48-3.54 1.06-4.81zm2.25-.42c-.7 0-1.78 2.51-1.94 5.5h3.9c-.15-2.9-1.18-5.34-1.89-5.5h-.07zm2.28.43.03.05a12.95 12.95 0 0 1 1.15 5.02h2.75a6.28 6.28 0 0 0-3.93-5.07z"
+        sez="Icon Path"
+      />
+    </svg>
+  </button>
+  <style>
+    .icon-btn {
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      margin-block: auto;
+    }
+    .icon-btn__button {
+      display: inline-block;
+      font: inherit;
+      user-select: auto;
+      overflow: visible;
+      appearance: none;
+      white-space: nowrap;
+      letter-spacing: var(--sez-letterspacing);
+      color: var(--sez-gray-9, black);
+      z-index: 1;
+      text-decoration: none;
+      outline: none;
+      position: relative;
+      padding: 0.75rem;
+      transition: color 250ms var(--sez-ease-1, ease);
+      border: 0;
+      text-align: inherit;
+      background: transparent;
+      font-size: var(--sez-font-reduced, 80%);
+      line-height: var(--sez-lineheight-reduced);
+      margin: 0;
+      font-family: inherit;
+      font-weight: var(--sez-bold);
+      cursor: pointer;
+      isolation: isolate;
+    }
+    .icon-btn__button:hover {
+      color: var(--sez-gray-9);
+    }
+    .icon-btn__button::before {
+      content: "";
+      inset: 0;
+      border-radius: 1e5px;
+      position: absolute;
+      z-index: -1;
+    }
+    .icon-btn__button:hover::before {
+      background: var(--sez-gray-1);
+    }
+    .icon-btn__button:focus-visible::before {
+      box-shadow: 0 0 0 2px var(--sez-gray-9), 0 0 0 4px var(--sez-white);
+      transition: box-shadow 0.2s ease;
+    }
+    /* Unfortunately, fight Bricks defaults having hight specificity */
+    body.bricks-is-frontend .icon-btn__button:focus {
+        outline: none;
+    }
+    .icon-btn__icon {
+        display: block;
+        height: 16px;
+         width: 16px;
+         fill: currentcolor"
+    }
+  </style>
+</div>
+```
+
+### Unstyled
+
+```html title="icon-button.html"
+<div class="icon-btn" sez="Icon Button">
+  <button
+    type="button"
+    class="icon-btn__button"
+    aria-expanded="false"
+    aria-label="Choose a language and currency"
+    sez="Button Element"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 16 16"
+      aria-hidden="true"
+      role="presentation"
+      focusable="false"
+      class="icon-btn__icon"
+      sez="Icon SVG"
+    >
+      <path
+        d="M8 .25a7.77 7.77 0 0 1 7.75 7.78 7.75 7.75 0 0 1-7.52 7.72h-.25A7.75 7.75 0 0 1 .25 8.24v-.25A7.75 7.75 0 0 1 8 .25zm1.95 8.5h-3.9c.15 2.9 1.17 5.34 1.88 5.5H8c.68 0 1.72-2.37 1.93-5.23zm4.26 0h-2.76c-.09 1.96-.53 3.78-1.18 5.08A6.26 6.26 0 0 0 14.17 9zm-9.67 0H1.8a6.26 6.26 0 0 0 3.94 5.08 12.59 12.59 0 0 1-1.16-4.7l-.03-.38zm1.2-6.58-.12.05a6.26 6.26 0 0 0-3.83 5.03h2.75c.09-1.83.48-3.54 1.06-4.81zm2.25-.42c-.7 0-1.78 2.51-1.94 5.5h3.9c-.15-2.9-1.18-5.34-1.89-5.5h-.07zm2.28.43.03.05a12.95 12.95 0 0 1 1.15 5.02h2.75a6.28 6.28 0 0 0-3.93-5.07z"
+        sez="Icon Path"
+      />
+    </svg>
+  </button>
+</div>
+```
+
+## Profile menu
+
+Insert the profile menu in the Nav Slot Right.
+
+### Styled
+
+```html title="profile-menu.html"
+<div class="profile-menu" sez="Profile Menu" data-profile-menu-open="false">
+  <button
+    type="button"
+    aria-expanded="false"
+    aria-label="Main navigation menu"
+    class="profile-menu__button"
+    sez="Menu Button"
+  >
+    <svg
+      viewBox="0 0 32 32"
+      aria-hidden="true"
+      role="presentation"
+      focusable="false"
+      class="profile-menu__burger"
+      sez="Burger"
+    >
+      <path d="M2 16h28M2 24h28M2 8h28"></path>
+    </svg>
+    <div class="profile-menu__avatar" sez="Avatar">
+      <svg
+        viewBox="0 0 32 32"
+        aria-hidden="true"
+        role="presentation"
+        focusable="false"
+        class="profile-menu__avatarsvg"
+      >
+        <path
+          d="M16 .7C7.56.7.7 7.56.7 16S7.56 31.3 16 31.3 31.3 24.44 31.3 16 24.44.7 16 .7zm0 28c-4.02 0-7.6-1.88-9.93-4.81a12.43 12.43 0 0 1 6.45-4.4A6.5 6.5 0 0 1 9.5 14a6.5 6.5 0 0 1 13 0 6.51 6.51 0 0 1-3.02 5.5 12.42 12.42 0 0 1 6.45 4.4A12.67 12.67 0 0 1 16 28.7z"
+        ></path>
+      </svg>
+    </div>
+  </button>
+  <style>
+    .profile-menu {
+      display: inline;
+      position: relative;
+    }
+    .profile-menu__button {
+      block-size: 3rem;
+      user-select: auto;
+      overflow: visible;
+      appearance: none;
+      color: var(--sez-gray-9, black);
+      display: inline-flex;
+      vertical-align: middle;
+      z-index: 1;
+      text-decoration: none;
+      outline: none;
+      position: relative;
+      border-radius: 1e5px;
+      padding-block: 0.5rem;
+      padding-inline: 0.875rem 0.5rem;
+      line-height: 1.25rem;
+      transition: box-shadow 0.2s var(--sez-ease-1, ease);
+      text-align: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      background: transparent;
+      border: 1px solid var(--sez-gray-5);
+      align-items: center;
+      margin: 0;
+      font-family: inherit;
+      cursor: pointer;
+      background-color: var(--sez-white);
+    }
+    .profile-menu__button:hover {
+      box-shadow: var(--sez-shadow-1);
+    }
+    .profile-menu__button:focus-visible {
+      transition: box-shadow 0.2s ease;
+      box-shadow: 0 0 0 2px var(--sez-gray-9), 0 0 0 4px var(--sez-white);
+    }
+    /* Unfortunately, fight Bricks defaults having hight specificity */
+    body.bricks-is-frontend .profile-menu__button:focus {
+      outline: none;
+    }
+    .profile-menu__burger {
+      display: block;
+      fill: none;
+      height: 1rem;
+      width: 1rem;
+      stroke: currentcolor;
+      stroke-width: 3;
+      overflow: visible;
+    }
+    .profile-menu__avatar {
+      flex: 0 0 2rem;
+      block-size: 2rem;
+      inline-size: 2rem;
+      overflow: hidden;
+      color: var(--sez-gray-7);
+      z-index: 1;
+      position: relative;
+      margin-left: 0.875rem;
+    }
+    .profile-menu__avatarsvg {
+      display: block;
+      height: 100%;
+      width: 100%;
+      fill: currentcolor;
+    }
+  </style>
+</div>
+```

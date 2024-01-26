@@ -1,0 +1,220 @@
+---
+title: Structeezy Dynamic Fields
+sidebar:
+  label: Dynamic Fields
+  order: -10
+description: This page references Structeezy Dynamic Fields, allowing you to make you structures dynamic.
+head:
+  - tag: meta
+    attrs:
+      property: og:image
+      content: https://docs.structeezy.com/open-graph/reference/structeezy-dynamic-fields.png
+  - tag: meta
+    attrs:
+      property: og:image:width
+      content: "1200"
+  - tag: meta
+    attrs:
+      property: og:image:height
+      content: "630"
+  - tag: meta
+    attrs:
+      property: twitter:image
+      content: https://docs.structeezy.com/open-graph/reference/structeezy-dynamic-fields.png
+---
+
+import { Image } from "astro:assets";
+import insert from "~/assets/sez-uid-insert-id.png";
+
+Each time a structure is injected in your Structure Tree, the Structeezy engine will run a function to look for dynamic fields placeholders, and populate them dynamically at injection time.
+
+This is how Structeezy is able to inject elements with a unique ID, or a unique date, etc.
+
+Structeezy Dynamic Fields are written in the following format:
+
+```js title="Dynamic Field Format"
+{
+  {
+    DYNAMIC - FIELD - NAME;
+  }
+}
+```
+
+## Available Dynamic Fields
+
+| Template           | Description                                                     |
+| ------------------ | --------------------------------------------------------------- |
+| `{{UID}}`          | A unique 6 characters ID                                        |
+| `{{UID$$}}`        | Where `$$` reprents any number of digits. Additional unique IDs |
+| `{{DATETIME}}`     | A unique creation date in the ISO format                        |
+| `{{CURRENTDAY}}`   | A php snippet to output the current day                         |
+| `{{CURRENTMONTH}}` | A php snippet to output the current mont                        |
+| `{{CURRENTYEAR}}`  | A php snippet to output the current year                        |
+
+### CSS Values from your Structeezy dashboard
+
+| Template                  | Description                                                                          |
+| ------------------------- | ------------------------------------------------------------------------------------ |
+| `{{innerSpacing}}`        | Default spacing inside UI elements like cards paddings, gaps, etc.                   |
+| `{{outerSpacing}}`        | Default spacing between UI elements like sections margins, gaps, etc.                |
+| `{{h1Size}}`              | Defines the default font size for level 1 headings.                                  |
+| `{{h2Size}}`              | Defines the default font size for level 2 headings.                                  |
+| `{{h3Size}}`              | Defines the default font size for level 3 headings.                                  |
+| `{{h4Size}}`              | Defines the default font size for level 4 headings.                                  |
+| `{{h5Size}}`              | Defines the default font size for level 5 headings.                                  |
+| `{{h6Size}}`              | Defines the default font size for level 6 headings.                                  |
+| `{{textSize}}`            | Defines the default font size for body text.                                         |
+| `{{subtitleRatio}}`       | Used to set a subtitle font size from the associated heading size.                   |
+| `{{headingLineHeight}}`   | Default lineheight for headings and subheadings.                                     |
+| `{{textLineHeight}}`      | Default lineheight for body text.                                                    |
+| `{{accentColor}}`         | Color used sparingly for of the accent of action UI elements.                        |
+| `{{neutralColor}}`        | A neutral color used for some UI elements background.                                |
+| `{{uiBorderRadius}}`      | Defines the border radius of UI elements like panels or cards.                       |
+| `{{uiBorderWidth}}`       | Defines the border width of UI elements like panels or cards.                        |
+| `{{buttonsBorderRadius}}` | Defines the border radius of buttons.                                                |
+| `{{buttonsBorderWidth}}`  | Defines the border width of buttons.                                                 |
+| `{{maxTextsWidth}}`       | Defines the maximum width of text elements (55 to 65 characters is a best practice). |
+
+## `{{UID}}`: Unique ID
+
+The `{{UID}}` placeholder will be replaced by a unique ID.
+
+```js title="Dynamic Unique ID"
+{
+  {
+    UID;
+  }
+} // What you write in your structure
+```
+
+```js title="Output"
+a4LX5E; // A randomly generated string of 6 characters
+```
+
+This is convenient to make sure that each element in your html document has a unique ID, which is required by the [html standard](https://html.spec.whatwg.org/multipage/dom.html#global-attributes:the-id-attribute-2).
+
+To do so, you can use the `{{UID}}` placeholder in the `id` attribute of your elements, in 3 different ways:
+
+### When saving a custom structure
+
+If you created a custom structure, and want to make it dynamic before saving it as a custom structure, you can add the `{{UID}}` placeholder to the element ID.
+
+<Image src={insert} alt="" width="900" />
+
+:::caution
+Don’t keep the id under this form in production. If you want to keep your element after saving it, just delete it, and reinject the structure. The `{{UID}}` placeholder will be replaced by a unique ID.
+:::
+
+### In Structeezy Parser
+
+You can use the `{{UID}}` placeholder in the `id` attribute of your elements in the Structeezy Parser.
+
+```html title="Structeezy Parser"
+<div id="{{UID}}"></div>
+```
+
+### With Emmet
+
+You can use the `{{UID}}` placeholder in the `id` attribute of your elements in Emmet. But remember that for Emmet, the `{` and `}` characters have special meanings. So you need to handle them differently.
+
+:::caution
+
+```html title="Not Working"
+div#{{UID}}
+<!-- Not working with Emmet -->
+```
+
+:::
+
+The `#` short for `id` will not work in this case. You need to use the `id` attribute.
+
+```html title="Working"
+div[id="{{UID}}"]
+```
+
+If using it in your content, you need to escape the closing pair `}}` like this `\}}`.
+
+```html title="Working"
+p{This is some text including a unique {{UID\}} ID}
+```
+
+## `{{UID$$}}`: Additional Unique IDs
+
+When you need additional unique ids in your structure, each `{{UID$$}}` placeholder will be replaced by a unique ID.
+
+```html title="Multiple Unique IDs"
+<section id="{{UID1}}">
+  <div id="{{UID2}}">
+    <div id="{{UID3}}"></div>
+    <div id="{{UID4}}"></div>
+  </div>
+  <div id="{{UID5}}"></div>
+  <div id="{{UID6}}"></div>
+</section>
+```
+
+```html title="Output"
+<section id="a4LX5E">
+  <div id="a4LX5F">
+    <div id="a4LX5G"></div>
+    <div id="a4LX5H"></div>
+  </div>
+  <div id="a4LX5I"></div>
+  <div id="a4LX5J"></div>
+</section>
+```
+
+Use the same one if you need to reference elements in your structure.
+
+```html title="Multiple Unique IDs"
+<section id="{{UID1}}" aria-labelledby="{{UID3}}">
+  <div id="{{UID2}}">
+    <h2 id="{{UID3}}">My Section Heading</h2>
+    <p id="{{UID4}}">Some text here.</p>
+  </div>
+</section>
+```
+
+Thanks to the dynamic fields, each time you use the structure, elements will have unique ids, and the section and heading will be “linked” properly to generate a section landmark.
+
+:::tip
+There is no limit to the number of `{{UID$$}}` placeholders you can use in your structure.
+:::
+
+## `{{DATETIME}}`: Unique Creation Date
+
+The `{{DATETIME}}` placeholder will be replaced by a unique date.
+
+```html title="Datetime"
+<p>This post was created <time datetime="{{DATETIME}}">10days ago<time></p>
+```
+
+:::note
+The date is generated at injection time. I guarantees that each time you inject a structure, the date will be different. But once injected, the date becomes static in Bricks.
+:::
+
+## `{{CURRENTDAY}}` Current Day / Month / Year
+
+The `{{CURRENTDAY}}` placeholder will be replaced by the current day.
+
+```html title="Current Day"
+<p>Today is {{CURRENTDAY}}</p>
+```
+
+The `{{CURRENTMONTH}}` placeholder will be replaced by the current month.
+
+```html title="Current Month"
+<p>The current month is {{CURRENTMONTH}}</p>
+```
+
+The `{{CURRENTYEAR}}` placeholder will be replaced by the current year.
+
+```html title="Current Year"
+<p>Copyright - {{CURRENTYEAR}} {site_title}</p>
+```
+
+Or combined:
+
+```html title="Current Date"
+<p>Today is {{CURRENTDAY}}/{{CURRENTMONTH}}/{{CURRENTYEAR}}</p>
+```

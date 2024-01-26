@@ -13,6 +13,10 @@ export const sidebar = [
     autogenerate: { directory: 'guides' }
   },
   {
+    label: 'Tutorials',
+    autogenerate: { directory: 'tutorials' }
+  },
+  {
     label: 'Reference',
     autogenerate: { directory: 'reference' },
   },
