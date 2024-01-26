@@ -1,3 +1,17 @@
+## v0.4.0 (2024-01-27)
+
+### Feat
+
+- **tutorial**: airbnbricks tutorial
+- **emmet**: add list of Bricks Extras elements names
+- **docs**: emmet suntax for Bricks
+- **videos**: creat a youtube component and add videos to release notes
+
+### Fix
+
+- heading levels
+- **airbnbricks**: typo
+
 ## v0.3.1 (2024-01-23)
 
 ### Fix
