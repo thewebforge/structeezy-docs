@@ -21,6 +21,17 @@ head:
       property: twitter:image
       content: https://docs.structeezy.com/open-graph/history/changelog.png
 ---
+## v1.2.3 (2024-01-27)
+
+### Feat
+- **parser**: Add feature to clear code from the editor
+
+### Fix
+
+- **parser**: no random ID in label and on-demand label. now style and script tags are rendered as bricks code elements instead of plain text
+- **parser**: image parser when tag img not image element
+- **structures-processor**: no limits to the number of possible unique ids
+
 ## v1.2.2 (2024-01-24)
 
 ### Fix
