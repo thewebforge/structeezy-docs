@@ -21,6 +21,17 @@ head:
       property: twitter:image
       content: https://docs.structeezy.com/open-graph/history/changelog.png
 ---
+## v1.2.4 (2024-01-29)
+
+### Feat
+
+- **settings**: ability to update some options from the editor
+- **parser**: add option to automatically clear the parser code editor after parsing and injecting a structure
+- **style**: visual improvements.
+
+### Fix
+- **editor**: fix z-index priority with Advanced Themer when undocking the structure panel.
+
 ## v1.2.3 (2024-01-27)
 
 ### Feat
