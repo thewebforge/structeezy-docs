@@ -21,6 +21,21 @@ head:
       property: twitter:image
       content: https://docs.structeezy.com/open-graph/history/changelog.png
 ---
+## v1.3.0 (2024-02-09)
+
+### Feat
+
+- **CLI**: add CLI API to Structeezy and create license activation and deactivation commands. 
+
+### Fix
+
+- **Styles**: Fix notifications styles in admin and improve notifications styles in builder.
+
+### Refactor
+
+- minor performance improvements.
+- continue convergence with WordPress core dependencies.
+
 ## v1.2.4 (2024-01-29)
 
 ### Feat

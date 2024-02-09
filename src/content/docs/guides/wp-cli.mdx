@@ -1,0 +1,105 @@
+---
+title: WP CLI Integration
+description: This guide lists useful keyboard shortcuts and describes how to customize them to match your needs.
+sidebar:
+  order: 40
+  badge: new
+head:
+  - tag: meta
+    attrs:
+      property: og:image
+      content: https://docs.structeezy.com/open-graph/guides/iconify.png
+  - tag: meta
+    attrs:
+      property: og:image:width
+      content: "1200"
+  - tag: meta
+    attrs:
+      property: og:image:height
+      content: "630"
+  - tag: meta
+    attrs:
+      property: twitter:image
+      content: https://docs.structeezy.com/open-graph/guides/iconify.png
+---
+import { Image } from "astro:assets";
+import activate from "~/assets/sez-release-1-3-activate.png";
+import deactivate from "~/assets/sez-release-1-3-deactivate.png";
+
+Since v1.3, Structeezy integrates with WP CLI to help you save time in maintenance activities.
+
+## What is WP CLI?
+
+WP-CLI is the command-line interface for WordPress. It provides a command-line interface for many actions you would perform in the WordPress admin.
+
+- **Installation**: You can install wp cli by following the instructions on the [official website](https://wp-cli.org/).
+
+## Structeezy Commands
+
+For now, Structeezy adds 2 commands to WP CLI to easily activate and deactivate the plugin license. The list will grow with next versions depending on your feedback and needs.
+
+| Command | Description |
+| --- | --- 
+| `wp structeezy activate <license-key> <email>` | Activate your license. 
+| `wp structeezy deactivate` | Deactivate your license.
+
+
+### License Activation
+
+```sh
+  # activate your license from the cli
+  wp structeezy activate YOUR-LICENSE-KEY me@domain.com
+```
+- `YOUR-LICENSE-KEY` is your Structeezy license key that can be found in your [user account](https://structeezy.com/my-account/)
+- `me@domain.com` is the email address associated with your Structeezy license.
+
+<Image src={activate} alt="" width="900" />
+
+### License Deactivation
+
+```sh
+  # deactivate your license from the cli
+  wp structeezy deactivate
+```
+
+<Image src={deactivate} alt="" width="900" />
+
+## Combine with other commands
+
+You can combine these commands with other WP CLI commands to automate your maintenance tasks. For example, you can deactivate your license before updating the plugin and activate it again after the update.
+
+```sh
+  # deactivate your license
+  wp structeezy deactivate
+
+  # update the plugin
+  wp plugin update structeezy
+
+  # activate your license
+  wp structeezy activate YOUR-LICENSE-KEY me@domain.com
+```
+
+### Install from local `.zip` and activate
+
+```sh
+  # install the plugin
+  wp plugin install ./local/path/to/your/structeezy.zip --activate
+
+  # activate your license
+  wp structeezy activate YOUR-LICENSE-KEY me@domain.com
+```
+
+### Install from Structeezy server and activate
+
+```sh
+  # install the plugin
+  wp plugin install https://structeezy.com/?download_file=your-personal-download-query --activate
+
+  # activate your license
+  wp structeezy activate YOUR-LICENSE-KEY me@domain.com
+```
+
+:::tip
+You can find the download query in your [user account](https://structeezy.com/my-account/)  
+Right-click on the download button and copy the link.
+:::

@@ -1,0 +1,76 @@
+---
+title: Structeezy v1.3 Release Notes
+description: Short note about the main improvements brought by this new version.
+sidebar:
+  label: v1.3
+  badge: latest
+  order: -30
+head:
+  - tag: meta
+    attrs:
+      property: og:image
+      content: https://docs.structeezy.com/open-graph/release-notes/v-1-3.png
+  - tag: meta
+    attrs:
+      property: og:image:width
+      content: "1200"
+  - tag: meta
+    attrs:
+      property: og:image:height
+      content: "630"
+  - tag: meta
+    attrs:
+      property: twitter:image
+      content: https://docs.structeezy.com/open-graph/release-notes/v-1-3.png
+---
+
+import Youtube from "~/components/youtube/Youtube.astro";
+import { Image } from "astro:assets";
+import release from "~/assets/sez-release-1-3.jpg";
+import activate from "~/assets/sez-release-1-3-activate.png";
+import deactivate from "~/assets/sez-release-1-3-deactivate.png";
+
+<Image src={release} alt="" width="900" />
+
+Structeezy 1.3 is available, and brings new CLI commands to help you save time when deploying sites, as well as performance and and UI improvements.
+
+- [CLI](#cli)
+- [Other improvements](#other-improvements)
+
+To take advantage of the latest features, make sure you’re running the latest version of Structeezy. You can upgrade to Structeezy 1.3 by running an automatic plugin update from you WordPress plugins dashboard, of by downloading the `.zip` file from your [user account](https://structeezy.com/my-account/).
+
+## CLI
+
+WP-CLI is the command-line interface for WordPress. It provides a command-line interface for many actions you would perform in the WordPress admin.
+
+In this release, Structeezy integrates with WP CLI and adds 2 commands to WP CLI to easily activate and deactivate the plugin license.
+
+### License Activation
+
+```sh
+  # activate your license from the cli
+  wp structeezy activate YOUR-LICENSE-KEY me@domain.com
+```
+- `YOUR-LICENSE-KEY` is your Structeezy license key that can be found in your [user account](https://structeezy.com/my-account/)
+- `me@domain.com` is the email address associated with your Structeezy license.
+
+<Image src={activate} alt="" width="900" />
+
+### License Deactivation
+
+```sh
+  # deactivate your license from the cli
+  wp structeezy deactivate
+```
+
+<Image src={deactivate} alt="" width="900" />
+
+[Read more about WP CLI in Structeezy](/guides/wp-cli/)
+
+## Other improvements
+
+This release includes several style fixes and performance improvements.
+
+In particular Structeezy code base step by step converges to WordPress Editor components and dependencies.
+
+
