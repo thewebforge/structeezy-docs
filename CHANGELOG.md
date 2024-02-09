@@ -1,3 +1,18 @@
+## v0.5.0 (2024-02-09)
+
+### Feat
+
+- **cli**: add cli and v1.3 infos
+
+### Fix
+
+- **wp-cli**: fix bad og image url
+- v1.2.4
+- typos
+- **od**: description
+- **og**: fix missing og image
+- **airbnbricks**: fix code block
+
 ## v0.4.0 (2024-01-27)
 
 ### Feat
