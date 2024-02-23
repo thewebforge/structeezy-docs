@@ -21,6 +21,28 @@ head:
       property: twitter:image
       content: https://docs.structeezy.com/open-graph/history/changelog.png
 ---
+
+Update to the latest version:
+- Download the latest version from your [account](https://structeezy.com/my-account/)
+- Update via WP Admin (Plugins > Installed Plugins > Structeezy > Update Now)
+- Update via WP CLI
+
+```sh title="Update Structeezy via WP CLI"
+wp plugin update structeezy
+```
+
+## v1.3.1 (2024-02-23)
+
+### Fix
+
+- **patch**: update patch to fix compatibility issues with Bricks v1.9.6.1 preventing the attributes to be rendered in the editor canvas (For examples, SVGs structures were not visible in the editor).
+- **wp cli**: fix typo in success message when activating license.
+- **styles**: multiple style fixes including panel toolbar buttons.
+
+### Refactor
+
+- **chores**: code cleanup and minor performances improvements.
+
 ## v1.3.0 (2024-02-09)
 
 ### Feat
