@@ -31,6 +31,21 @@ Update to the latest version:
 wp plugin update structeezy
 ```
 
+## v1.4.0 (2024-02-29)
+
+### Feat
+
+- **hero**: new hero zero pattern (simple centered hero)
+
+### Fix
+
+- **parser**: fix code highlighting problems with @codemirror/view": 6.24.x
+- **loader**: more efficient app loader in admin area
+- **styles**: conflicting styles with bricks css in editor
+
+### Build
+- **deps**: bump dependencies and fix color highlighting in parser editor
+
 ## v1.3.1 (2024-02-23)
 
 ### Fix
