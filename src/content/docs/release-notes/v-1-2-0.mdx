@@ -24,15 +24,15 @@ head:
 ---
 import Youtube from "~/components/youtube/Youtube.astro";
 import { Image } from "astro:assets";
-import release from "~/assets/sez-release-1-2.jpg";
 import iconify from "~/assets/sez-release-1-2-iconify.png";
 import parser from "~/assets/sez-release-1-2-parser.png";
 import emmet from "~/assets/sez-release-1-2-emmet.png";
 import dock from "~/assets/sez-release-1-2-dock.png";
 import dockButton from "~/assets/sez-release-1-2-dock-button.png";
 import handle from "~/assets/sez-release-1-2-handle.png";
+import Release from "~/components/Release.astro";
 
-<Image src={release} alt="" width="900" />
+<Release version="1.2" />
 
 Structeezy 1.2 is available, and brings awesome new features to help you save plenty of time when creating your structures.
 

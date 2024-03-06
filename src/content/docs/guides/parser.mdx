@@ -194,6 +194,21 @@ And Structeezy will parse it for you, and get you the `HTML` document Structure.
 
 <Image src={parserCodeWebBrx} alt="" width="900" />
 
+### Add custom labels to your elements
+
+You can add custom labels to your elements. These will be registered as Bricks custom labels to the corresponding elements in your structure tree.
+
+To do so, Structeezy parser will look for a special `sez` attribute in your code, and use its value as the label.
+
+```html title="Code with labels"
+<section sez="My Section">
+  <div sez="My Container">
+    <h1 sez="My Heading">My Title</h1>
+    <p sez="My Paragraph">My paragraph</p>
+  </div>
+</section>
+```
+
 ## Advanced Usage - Emmet
 
 The parser code editor integrates [Emmet](https://emmet.io/), and you can use Emmet shortcuts to write your code. Emmet is a plugin for many popular text editors which greatly improves HTML & CSS workflow.

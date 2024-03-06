@@ -30,6 +30,17 @@ Update to the latest version:
 ```sh title="Update Structeezy via WP CLI"
 wp plugin update structeezy
 ```
+## v1.5.0 (2024-03-06)
+
+### Feat
+
+- **settings**: ability to change the default panel tab in the editor from the panel settings tab
+- **parser**: ability to strip element ids when parsing html code
+- **parser**: implements [#13](https://github.com/thewebforge/structeezy-docs/issues/13) ability to opt-out of including the tag when parsing html code
+
+### Fix
+
+- **admin**: fix [#9](https://github.com/thewebforge/structeezy-docs/issues/9) where after selecting a different CSS framework in the admin, the presets were updated in the database but not immediately visible on the page
 
 ## v1.4.0 (2024-02-29)
 

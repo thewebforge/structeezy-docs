@@ -24,18 +24,12 @@ head:
 ---
 import Youtube from "~/components/youtube/Youtube.astro";
 import { Image } from "astro:assets";
-import release from "~/assets/sez-release-1-0.jpg";
 import attributes from "~/assets/sez-renders-user-attributes.png";
 import patch from "~/assets/sez-patch-setting.png";
 import svg from "~/assets/sez-svg-builder.png";
+import Release from "~/components/Release.astro";
 
-<Image
-      src={release}
-      alt=""
-      format="avif"
-      quality="mid"
-      width="900"
-    />
+<Release version="1.0" />
 
 Structeezy 1.0 is out and features a long awaited Bricks editor patch, a full set of features and elements to build inline SVGs right from your structure tree, the first elements and patterns using the new CSS scroll-driven animations API, and more.
 

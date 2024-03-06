@@ -24,15 +24,9 @@ head:
 ---
 import Youtube from "~/components/youtube/Youtube.astro";
 import { Image } from "astro:assets";
-import release from "~/assets/sez-release-1-1.jpg";
+import Release from "~/components/Release.astro";
 
-<Image
-      src={release}
-      alt=""
-      format="avif"
-      quality="mid"
-      width="900"
-    />
+<Release version="1.1" />
 
 Structeezy 1.1 is out and improves and develops features introduced in v1.0 based on people's feedback.
 

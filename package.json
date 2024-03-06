@@ -11,18 +11,18 @@
   },
   "dependencies": {
     "@astrojs/react": "^3.0.10",
-    "@astrojs/starlight": "^0.18.0",
+    "@astrojs/starlight": "^0.21.1",
     "@docsearch/js": "^3.5.2",
-    "@fontsource/atkinson-hyperlegible": "5.0.18",
+    "@fontsource/atkinson-hyperlegible": "5.0.19",
     "@github/clipboard-copy-element": "^1.3.0",
     "@thewebforge/astro-og-images": "^3.0.0",
     "@thewebforge/o-props-tokens": "^1.4.4",
-    "astro": "4.3.5",
+    "astro": "4.4.12",
     "canvas-confetti": "^1.9.2",
     "sharp": "^0.33.2"
   },
   "devDependencies": {
-    "sass": "1.70.0"
+    "sass": "1.71.1"
   },
   "trustedDependencies": [
     "sharp"
