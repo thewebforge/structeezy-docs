@@ -1,0 +1,116 @@
+---
+title: MathML Script and Limit
+description: A reference for the Structeezy structures available in the MathML > Script and Limit category.
+sidebar:
+  label: Script and Limit
+  order: 30
+  badge: new
+head:
+  - tag: meta
+    attrs:
+      property: og:image
+      content: https://docs.structeezy.com/open-graph/reference/mathml/general-layout.png
+  - tag: meta
+    attrs:
+      property: og:image:width
+      content: "1200"
+  - tag: meta
+    attrs:
+      property: og:image:height
+      content: "630"
+  - tag: meta
+    attrs:
+      property: twitter:image
+      content: https://docs.structeezy.com/open-graph/reference/mathml/general-layout.png
+---
+
+This category contains the script and limit elements for MathML. These elements will allow you to achieve typical mathematical notations.
+
+## Multiscripts - `<mmultiscripts>` Element
+
+The `<mmultiscripts>` element in MathML is used to specify multiple superscripts and subscripts for a single base element. It allows for more complex notation involving multiple indices or exponents, commonly found in mathematical expressions involving tensors, matrices, or other mathematical structures. 
+
+### Syntax and Usage
+
+The `<mmultiscripts>` element can contain various child elements to specify the base, prescripts, and postscripts. Here's a basic structure:
+
+```xml
+<mmultiscripts>
+    <mi>base</mi>
+    <!-- Prescripts and postscripts go here -->
+</mmultiscripts>
+```
+
+Within the `<mmultiscripts>` element, you can specify the base element using any valid MathML element (such as `<mi>`, `<mo>`, etc.). Additionally, you can include `<mprescripts>` and `<msuperscript>`, `<msubscript>`, and `<mmultiscripts>` elements to define prescripts (superscripts before the base), superscripts, and subscripts, respectively.
+
+### Example Usage
+
+<p>
+<span>Here's an example of using `<mmultiscripts>` to represent a tensor: </span>
+<math class="not-content">
+    <mmultiscripts>
+        <mi>T</mi>
+        <mi>i</mi>
+    	<mrow></mrow>
+		<mi>k</mi>
+    	<mi>l</mi>
+        <mprescripts/>
+        <mrow></mrow>
+	    <mi>a</mi>
+        <mi>b</mi>
+        <mi>c</mi>
+    </mmultiscripts>
+</math>
+</p>
+
+```xml
+<math>
+    <mmultiscripts>
+        <mn>T<mn>       <!-- the base -->
+        
+        <mi>i</mi>      <!-- sub-script 1 -->
+        <mrow></mrow>   <!-- represent absent scripts -->
+        
+        <mi>k</mi>      <!-- sub-script 2 -->
+        <mi>l</mi>      <!-- super-script 2 -->
+        
+        <mprescripts />
+        
+        <mrow></mrow>   <!-- represent absent scripts -->
+        <mi>a</mi>      <!-- pre-super-script 1 -->
+        
+        <mi>b</mi>      <!-- pre-sub-script 2 -->
+        <mi>c</mi>      <!-- pre-super-script 2 -->
+    </mmultiscript>
+</math>
+```
+
+In this example, the `<mmultiscripts>` element is used to represent a tensor `T` with multiple subscripts and superscripts. The base element is represented by the `<mi>` element with the content `T`. The subscripts and superscripts are specified using the `<mi>` elements with the content `i`, `k`, and `l`. The `<mprescripts>` element is used to indicate that there are prescripts in this case.
+
+## Over - `<mover>` Element
+
+The `<mover>` element in MathML is used to represent expressions with a single overscript. This could be a variable with a bar (commonly used to represent a vector), a variable with a tilde (often used to represent a complex conjugate), or any other expression with an overscript.
+
+### Syntax and Usage
+
+The `<mover>` element has two child elements: the base and the overscript.
+
+```xml
+<mover>
+    <!-- Base element -->
+    <!-- Overscript element -->
+</mover>
+```
+
+Here's an example of how you might represent a vector <math class="not-content"><mover><mi>v</mi><mo>&rarr;</mo></mover></math> using the `<mover>` element:
+
+```xml
+<math>
+    <mover>
+        <mi>v</mi> <!-- Base element -->
+        <mo>&rarr;</mo> <!-- Overscript element (a right arrow) -->
+    </mover>
+</math>
+```
+
+In this example, `<mi>v</mi>` represents the base element (the variable <math class="not-content"><mrow><mi>v</mi></mrow></math>), and `<mo>&rarr;</mo>` represents the overscript (a right arrow <math class="not-content"><mrow><mo>&rarr;</mo></mrow></math>). Together, they represent the vector <math class="not-content"><mover><mi>v</mi><mo>&rarr;</mo></mover></math>.

@@ -1,0 +1,335 @@
+---
+title: MathML Base Tokens
+description: A reference for the Structeezy structures available in the MathML > Base Tokens category.
+sidebar:
+  label: Base Tokens
+  order: 10
+  badge: new
+head:
+  - tag: meta
+    attrs:
+      property: og:image
+      content: https://docs.structeezy.com/open-graph/reference/mathml/base.png
+  - tag: meta
+    attrs:
+      property: og:image:width
+      content: "1200"
+  - tag: meta
+    attrs:
+      property: og:image:height
+      content: "630"
+  - tag: meta
+    attrs:
+      property: twitter:image
+      content: https://docs.structeezy.com/open-graph/reference/mathml/base.png
+---
+
+This category contains the base elements for MathML: the top-level element and the token elements. These elements are the basic building blocks for MathML structures.
+
+## The `<math>` element
+
+The `<math>` element is the top-level building block of MathML, designed specifically to contain mathematical expressions within HTML documents. It acts as a container for defining and structuring mathematical content, allowing developers to seamlessly integrate complex equations, formulas, and mathematical symbols into their web pages.
+
+### Syntax and Structure
+
+In its simplest form, the `<math>` element is employed to encapsulate a single mathematical expression. Here's a basic example:
+
+```html
+<math>
+    <!-- Mathematical expression goes here -->
+</math>
+```
+
+Within the `<math>` element, developers can employ a variety of MathML elements and attributes to construct intricate mathematical structures. These elements represent different components of mathematical notation, including numbers, variables, operators, and functions.
+
+### Example Usage
+
+<p>Let's consider a basic mathematical expression, such as <math class="not-content"><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mi>y</mi><mo>=</mo><mn>10</mn></mrow></math>. Using the `<math>` element, we can encapsulate this expression as follows:</p>
+
+```html
+<math>
+    <mrow>
+        <msup>
+            <mi>x</mi>
+            <mn>2</mn>
+        </msup>
+        <mo>+</mo>
+        <mi>y</mi>
+        <mo>=</mo>
+        <mn>10</mn>
+    </mrow>
+</math>
+```
+
+## The `<mi>` Element
+
+The `<mi>` element in MathML is specifically designed to represent mathematical identifiers, such as variables, constants, and other symbols used in mathematical expressions. It stands for "mathematical identifier" and serves as a means to encapsulate individual elements of mathematical notation within MathML documents.
+
+### Syntax and Usage
+
+The syntax of the `<mi>` element is straightforward:
+
+```html
+<mi>identifier</mi>
+```
+
+Here, `identifier` represents the mathematical symbol or variable being denoted. It's important to note that the `<mi>` element is typically used within the context of a larger mathematical expression, encapsulated within a `<math>` element.
+
+### Example Usage
+
+<p>
+<span>Let's consider a simple mathematical expression such as </span>
+<math class="not-content">
+    <mrow>
+        <mi>f</mi>
+        <mo fence="false">(</mo>
+        <mi>x</mi>
+        <mo fence="false">)</mo>
+        <mo>=</mo>
+        <msup>
+            <mi>x</mi>
+            <mn>2</mn>
+        </msup>
+        <mo>+</mo>
+        <mn>3</mn>
+        <mi>x</mi>
+        <mo>+</mo>
+        <mn>2</mn>
+    </mrow>
+</math>
+<span>. In MathML, we can represent this expression using the `<mi>` element to denote the variables and function name:</span>
+</p>
+
+```html
+<math>
+    <mrow>
+        <mi>f</mi>
+        <mo>(</mo>
+        <mi>x</mi>
+        <mo>)</mo>
+        <mo>=</mo>
+        <msup>
+            <mi>x</mi>
+            <mn>2</mn>
+        </msup>
+        <mo>+</mo>
+        <mn>3</mn>
+        <mi>x</mi>
+        <mo>+</mo>
+        <mn>2</mn>
+    </mrow>
+</math>
+```
+
+In this example, `<mi>` elements are used to represent the variable <math class="not-content"><mi>x</mi></math>, as well as the function name <math class="not-content"><mi>f</mi></math>.
+
+## The `<mn>` Element
+
+The `<mn>` element in MathML is specifically designed to represent numerical constants and values within mathematical expressions. It stands for "mathematical number" and provides a means to encapsulate individual numerical elements of mathematical notation within MathML documents.
+
+### Syntax and Usage
+
+The syntax of the `<mn>` element is straightforward:
+
+```html
+<mn>number</mn>
+```
+
+Here, `number` represents the numerical constant or value being denoted. Similar to other MathML elements, the `<mn>` element is typically used within the context of a larger mathematical expression, encapsulated within a `<math>` element.
+
+### Example Usage
+
+<p>
+<span>Let's consider a simple mathematical expression such as </span>
+<math class="not-content">
+ <mrow>
+        <msup>
+            <mi>x</mi>
+            <mn>2</mn>
+        </msup>
+        <mo>+</mo>
+        <mn>3</mn>
+    </mrow>
+</math>
+<span>. In MathML, we can represent this expression using the `<mn>` element to denote the numerical constant:</span>
+</p>
+```html
+<math>
+    <mrow>
+        <msup>
+            <mi>x</mi>
+            <mn>2</mn>
+        </msup>
+        <mo>+</mo>
+        <mn>3</mn>
+    </mrow>
+</math>
+```
+
+In this example, `<mn>` elements are used to represent the numerical constants <math class="not-content"><mn>2</mn></math> and <math class="not-content"><mn>3</mn></math> within the mathematical expression.
+
+## the `<mo>` Element
+
+The `<mo>` element in MathML is specifically designed to represent mathematical operators, symbols, and special characters. It stands for "mathematical operator" and serves as a means to encapsulate individual elements of mathematical notation within MathML documents.
+
+### Syntax and Usage
+
+The syntax of the `<mo>` element is straightforward:
+
+```html
+<mo>operator</mo>
+```
+
+Here, `operator` represents the mathematical symbol or operator being denoted. The `<mo>` element is typically used within the context of a larger mathematical expression, encapsulated within a `<math>` element.
+
+### Example Usage
+
+<p>
+<span>Let's consider a simple mathematical expression such as </span>
+<math class="not-content">
+ <mrow>
+      <mi>x</mi>
+      <mo>+</mo>
+      <mi>y</mi>
+      <mo>=</mo>
+      <mi>z</mi>
+  </mrow>
+</math>
+<span>. In MathML, we can represent this expression using the `<mo>` element to denote the addition operator:</span>
+</p>
+
+```html
+<math>
+    <mrow>
+        <mi>x</mi>
+        <mo>+</mo>
+        <mi>y</mi>
+        <mo>=</mo>
+        <mi>z</mi>
+    </mrow>
+</math>
+```
+
+In this example, `<mo>` elements are used to represent the addition operator <math class="not-content"><mo>+</mo></math> and the equality sign <math class="not-content"><mo>=</mo></math>, which are essential components of the mathematical expression.
+
+### Special Characters and Symbols
+
+In addition to mathematical operators, the `<mo>` element can also be used to represent special characters and symbols commonly used in mathematical notation, such as:
+
+- Parentheses: <math class="not-content"><mo>(</mo></math> <math class="not-content"><mo>)</mo></math>
+- Brackets: <math class="not-content"><mo>[</mo></math> <math class="not-content"><mo>]</mo></math>, <math class="not-content"><mo>\{</mo></math> <math class="not-content"><mo>\}</mo></math>
+- Logical operators: <math class="not-content"><mo>∨</mo></math> (logical OR), <math class="not-content"><mo>∧</mo></math> (logical AND)
+- Separators: <math class="not-content"><mo>,</mo></math> (comma), <math class="not-content"><mo>;</mo></math> (semicolon)
+- Absolute value: <math class="not-content"><mo>|</mo></math> (vertical bar)
+
+## The `<ms>` Element
+
+The `<ms>` element in MathML represents a string literal, serving as a conduit for conveying textual information intended for computational interpretation. Unlike other MathML elements focused on mathematical notation, the `<ms>` element targets string literals, providing a means to embed textual data within MathML documents for processing by programming languages and computer algebra systems.
+
+### Syntax and Usage
+
+The syntax of the `<ms>` element is straightforward:
+
+```html
+<ms>text</ms>
+```
+
+Here, `text` represents the textual annotation or description being denoted. The `<ms>` element is typically used within the context of a larger mathematical expression, encapsulated within a `<math>` element.
+
+### Example Usage
+
+<p>
+<span>Let's consider a simple mathematical expression such as </span>
+<math class="not-content">
+  <ms>Hello World!</ms>
+</math>
+<span>. In MathML, we can represent this expression using the `<ms>` element to denote the function name:</span>
+</p>
+
+```html
+<math display="block">
+  <ms>Hello World!</ms>
+</math>
+```
+
+In this example, the `<ms>` element encapsulates the string "Hello World!", representing a string literal within a MathML context.
+
+### The `<mspace>` Element
+
+The `<mspace>` element in MathML is designed to represent space within mathematical expressions. It stands for "mathematical space" and allows developers to control the spacing between mathematical elements, such as numbers, variables, operators, and functions. This element is particularly useful for adjusting the layout and alignment of mathematical notation to improve readability and comprehension.
+
+### Syntax and Usage
+
+The syntax of the `<mspace>` element is straightforward:
+
+```html
+<mspace width="value" height="value"/>
+```
+
+Here, `width` and `height` are attributes that specify the horizontal and vertical dimensions of the space, respectively. The values for width and height can be expressed using different units, such as pixels (`px`), em units (`em`), or percentages (`%`), allowing for flexible control over spacing within mathematical expressions.
+
+### Example Usage
+
+Let's consider a simple mathematical expression where we want to insert space between the variables `x` and `y`. We can achieve this using the `<mspace>` element as follows:
+
+```html
+<math>
+    <mrow>
+        <mi>x</mi>
+        <mspace width="40px"/>
+        <mi>y</mi>
+    </mrow>
+</math>
+```
+
+<math>
+    <mrow>
+        <mi>x</mi>
+        <mspace width="40px"/>
+        <mi>y</mi>
+    </mrow>
+</math>
+
+In this example, a horizontal space of `40px` is inserted between the variables `x` and `y` using the `<mspace>` element, enhancing the visual separation between these elements within the mathematical expression.
+
+## The `<mtext>` Element
+
+The `<mtext>` element in MathML is designed to represent textual content within mathematical expressions. Unlike other MathML elements focused on mathematical notation, such as `<mi>` for identifiers or `<mo>` for operators, the `<mtext>` element targets plain text, allowing developers to include descriptive labels, annotations, or other textual information within mathematical structures.
+
+### Syntax and Usage
+
+The syntax of the `<mtext>` element is straightforward:
+
+```html
+<mtext>text content</mtext>
+```
+
+Here, `text content` represents the textual information to be included within the MathML document. The `<mtext>` element can contain any arbitrary text, allowing developers to insert descriptive labels, annotations, or other textual information relevant to the mathematical context.
+
+### Example Usage
+
+Let's consider a simple mathematical expression where we want to include a textual label for clarity. We can achieve this using the `<mtext>` element as follows:
+
+```html
+<math>
+    <mrow>
+        <mi>x</mi>
+        <mo>=</mo>
+        <mn>10</mn>
+        <mspace width="15px"/>
+        <mtext>(initial value)</mtext>
+    </mrow>
+</math>
+```
+
+<math>
+    <mrow>
+        <mi>x</mi>
+        <mo>=</mo>
+        <mn>10</mn>
+        <mspace width="15px"/>
+        <mtext>(initial value)</mtext>
+    </mrow>
+</math>
+
+In this example, the `<mtext>` element is used to include the textual label " (initial value)" following the numerical value `10`, providing additional context and clarification within the mathematical expression.

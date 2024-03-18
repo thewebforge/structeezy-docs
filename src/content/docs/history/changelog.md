@@ -30,6 +30,23 @@ Update to the latest version:
 ```sh title="Update Structeezy via WP CLI"
 wp plugin update structeezy
 ```
+
+## v1.6.0 (2024-03-18)
+
+### Feat
+
+- **math**: added support for MathML:
+  - specific Tab including MathML elements and examples
+  - code parser can convert MathML code to Bricks elements
+
+### Fix
+
+- Minor fixes and imrovements
+
+### Deps
+
+- Bump dependencies to latest versions
+
 ## v1.5.0 (2024-03-06)
 
 ### Feat

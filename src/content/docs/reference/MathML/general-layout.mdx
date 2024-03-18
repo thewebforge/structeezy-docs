@@ -1,0 +1,365 @@
+---
+title: MathML General Layout
+description: A reference for the Structeezy structures available in the MathML > General Layout category.
+sidebar:
+  label: General Layout
+  order: 20
+  badge: new
+head:
+  - tag: meta
+    attrs:
+      property: og:image
+      content: https://docs.structeezy.com/open-graph/reference/mathml/general-layout.png
+  - tag: meta
+    attrs:
+      property: og:image:width
+      content: "1200"
+  - tag: meta
+    attrs:
+      property: og:image:height
+      content: "630"
+  - tag: meta
+    attrs:
+      property: twitter:image
+      content: https://docs.structeezy.com/open-graph/reference/mathml/general-layout.png
+---
+
+This category contains the general layout elements for MathML. These elements will allow you to achieve typical mathematical structures.
+
+## Errors - `<merror>` Element
+
+The `<merror>` element in MathML is specifically designed to represent errors or invalid expressions within mathematical content. It serves as a container for enclosing erroneous mathematical expressions or providing feedback regarding incorrect input, enabling users to identify and rectify errors effectively.
+
+### Syntax and Usage
+
+The syntax of the `<merror>` element is straightforward:
+
+```html
+<merror>
+    <!-- Error message or erroneous expression goes here -->
+</merror>
+```
+
+Within the `<merror>` element, developers can include an error message or an erroneous expression to indicate the nature of the error. This facilitates clear communication of issues within mathematical notation, aiding users in understanding and addressing potential errors.
+
+**Example Usage**
+
+Let's consider an example where a mathematical expression contains an error, such as a division by zero. We can utilize the `<merror>` element to indicate this error within the MathML content:
+
+```html
+<math>
+    <mrow>
+        <mn>10</mn>
+        <mo>/</mo>
+        <mn>0</mn>
+        <merror>
+            <mtext>Division by zero is undefined</mtext>
+        </merror>
+    </mrow>
+</math>
+```
+
+<math>
+    <mrow>
+        <mn>10</mn>
+        <mo>/</mo>
+        <mn>0</mn>
+        <mspace width="20px"/>
+        <merror>
+            <mtext style="color: black">Division by zero is undefined</mtext>
+        </merror>
+    </mrow>
+</math>
+
+In this example, the `<merror>` element encapsulates an error message stating "Division by zero is undefined," providing clear feedback to users regarding the invalid expression.
+
+## Fractions - `<mfrac>` Element
+
+The `<mfrac>` element in MathML is specifically designed to represent fractions. It enables developers to create fractions by specifying both the numerator and the denominator, allowing for precise rendering of fractional expressions within mathematical content.
+
+### Syntax and Usage
+
+The syntax of the `<mfrac>` element is structured as follows:
+
+```html
+<mfrac>
+    <!-- Numerator goes here -->
+    <!-- Denominator goes here -->
+</mfrac>
+```
+
+Within the `<mfrac>` element, developers can include the numerator and denominator components of the fraction. These components can consist of any valid MathML elements, such as numbers, variables, operators, or even nested fractions, allowing for complex fractional expressions to be accurately represented.
+
+**Example Usage**
+
+<p>
+<span>Let's consider a simple example where we want to represent the fraction </span>
+<math class="not-content">
+    <mfrac>
+        <mn>3</mn>
+        <mn>4</mn>
+    </mfrac>
+</math>
+<span> within MathML. We can achieve this using the `<mfrac>` element as follows:</span>
+</p>
+
+```html
+<math>
+    <mfrac>
+        <mn>3</mn> <!-- Numerator -->
+        <mn>4</mn> <!-- Denominator -->
+    </mfrac>
+</math>
+```
+
+In this example, the `<mfrac>` element encapsulates the numerator \( 3 \) and the denominator \( 4 \), creating a fraction representing <math class="not-content"><mfrac><mn>3</mn><mn>4</mn></mfrac></math>.
+
+### More complex example
+
+<math class="not-content">
+    <mfrac>
+        <mrow>
+            <mi>x</mi>
+            <mo>+</mo>
+            <mn>3</mn>
+        </mrow>
+        <mrow>
+            <mi>y</mi>
+            <mo>-</mo>
+            <mn>2</mn>
+        </mrow>
+    </mfrac>
+</math>
+
+```html
+<math>
+    <mfrac>
+        <!-- Numerator -->
+        <mrow>
+            <mi>x</mi>
+            <mo>+</mo>
+            <mn>3</mn>
+        </mrow>
+        <!-- Denominator -->
+        <mrow>
+            <mi>y</mi>
+            <mo>-</mo>
+            <mn>2</mn>
+        </mrow>
+    </mfrac>
+</math>
+```
+
+## Spacing - `<mpadded>` Element
+
+The `<mpadded>` element in MathML is designed to provide additional spacing and alignment adjustments for mathematical expressions. It allows developers to specify padding, margins, and alignment for mathematical elements, ensuring optimal layout and presentation of mathematical content within MathML documents.
+
+### Syntax and Usage
+
+The syntax of the `<mpadded>` element is structured as follows:
+
+```xml
+<mpadded width="..." height="..." depth="..." lspace="..." voffset="...">
+    <!-- Mathematical expression goes here -->
+</mpadded>
+```
+
+The attributes of the `<mpadded>` element enable developers to control various aspects of spacing and alignment:
+
+- `width`: Specifies the additional width to be added to the mathematical expression.
+- `height`: Specifies the additional height to be added to the mathematical expression.
+- `depth`: Specifies the additional depth to be added to the mathematical expression.
+- `lspace`: Specifies the left spacing of the mathematical expression.
+- `voffset`: Specifies the vertical offset of the mathematical expression.
+
+### Example Usage
+
+Let's consider an example where we want to adjust the padding and alignment of a mathematical expression within MathML. We can achieve this using the `<mpadded>` element as follows:
+
+```xml
+<math>
+    <mpadded width="10px" lspace="20px">
+        <mrow>
+            <mi>x</mi>
+            <mo>+</mo>
+            <mi>y</mi>
+            <mo>=</mo>
+            <mi>z</mi>
+        </mrow>
+    </mpadded>
+</math>
+```
+
+<math class="not-content">
+    <mpadded width="10px" lspace="20px">
+        <mrow>
+            <mi>x</mi>
+            <mo>+</mo>
+            <mi>y</mi>
+            <mo>=</mo>
+            <mi>z</mi>
+        </mrow>
+    </mpadded>
+</math>
+
+In this example, the `<mpadded>` element is used to adjust the width and left spacing of the mathematical expression \( x + y = z \). The expression is padded with an additional width of `10px` and left spaced with `20px`, ensuring proper alignment and spacing within the MathML document.
+
+### Styling and Presentation
+
+The `<mpadded>` element provides developers with fine-grained control over the spacing and alignment of mathematical expressions. By utilizing attributes such as `width`, `height`, `lspace`, and `voffset`, developers can customize the presentation of mathematical content to suit specific design requirements while maintaining the integrity of mathematical notation.
+
+## Placeholder - `<mphantom>` Element
+
+The `<mphantom>` element in MathML is designed to create invisible placeholders for mathematical elements. Unlike other MathML elements that directly render visible content, the `<mphantom>` element generates empty space with the same dimensions as its contents, preserving the spacing and alignment of adjacent mathematical elements without displaying any visible content.
+
+### Syntax and Usage
+
+The syntax of the `<mphantom>` element is straightforward:
+
+```xml
+<mphantom>
+    <!-- Mathematical expression goes here -->
+</mphantom>
+```
+
+The `<mphantom>` element can contain any valid MathML content, such as numbers, variables, operators, or other mathematical expressions. However, the content within the `<mphantom>` element is not rendered visually, serving solely as a placeholder to maintain spacing and alignment within MathML documents.
+
+### Example Usage
+
+Let's consider an example where we want to align two mathematical expressions vertically. We can achieve this using the `<mphantom>` element as follows:
+
+```xml
+<math>
+    <mrow>
+        <mi>x</mi>
+        <mo>=</mo>
+        <mphantom>
+            <mn>10</mn>
+        </mphantom>
+        <mn>5</mn>
+    </mrow>
+</math>
+```
+
+<math class="not-content">
+    <mrow>
+        <mi>x</mi>
+        <mo>=</mo>
+        <mphantom>
+            <mn>10</mn>
+        </mphantom>
+        <mn>5</mn>
+    </mrow>
+</math>
+
+In this example, the `<mphantom>` element is used as a placeholder to align the expression \( x = 5 \) with the expression \( 10 \). Although the content within the `<mphantom>` element (i.e., \( 10 \)) is not rendered visually, it preserves the spacing and alignment of the adjacent expression \( 5 \), ensuring proper vertical alignment within the MathML document.
+
+## Root - `<mroot>` Element
+
+The `<mroot>` element in MathML is specifically designed to represent roots, including square roots, cube roots, and other nth roots. It enables developers to create root expressions by specifying both the index and the radicand, allowing for precise rendering of radical notation within mathematical content.
+
+### Syntax and Usage
+
+The syntax of the `<mroot>` element is structured as follows:
+
+```xml
+<mroot>
+    <!-- Index goes here -->
+    <!-- Radicand goes here -->
+</mroot>
+```
+
+Within the `<mroot>` element, developers can include both the index and the radicand components of the root expression. These components can consist of any valid MathML elements, such as numbers, variables, operators, or even nested expressions, allowing for complex root expressions to be accurately represented.
+
+### Example Usage
+
+Let's consider a simple example where we want to represent the square root of `x` within MathML. We can achieve this using the `<mroot>` element as follows:
+
+```xml
+<math>
+    <mroot>
+        <mi>x</mi> <!-- Radicand -->
+        <mn>2</mn> <!-- Index -->
+    </mroot>
+</math>
+```
+<math class="not-content">
+    <mroot>
+        <mi>x</mi>
+        <mn>2</mn>
+    </mroot>
+</math>
+
+In this example, the `<mroot>` element encapsulates the radicand \( x \) and the index \( 2 \), creating a square root expression representing <math class="not-content"><mroot><mi>x</mi><mn>2</mn></mroot></math>.
+
+## Row - `<mrow>` Element
+
+The `<mrow>` element in MathML is designed to represent a row or sequence of mathematical elements. It serves as a container for grouping together multiple MathML elements, such as numbers, variables, operators, and other mathematical expressions, into a coherent sequence or structure. The `<mrow>` element is versatile and can be used to organize mathematical content in a hierarchical manner.
+
+### Syntax and Usage
+
+The syntax of the `<mrow>` element is straightforward:
+
+```xml
+<mrow>
+    <!-- Mathematical elements go here -->
+</mrow>
+```
+
+Within the `<mrow>` element, developers can include any valid MathML elements to construct mathematical expressions. These elements can be arranged in a linear sequence or nested within each other to create more complex structures.
+
+### Example Usage
+
+Let's consider a simple mathematical expression <math class="not-content"><mrow><mi>x</mi><mo>+</mo><mi>y</mi><mo>=</mo><mi>z</mi></mrow></math>. We can represent this expression using the `<mrow>` element as follows:
+
+```xml
+<math>
+    <mrow>
+        <mi>x</mi>
+        <mo>+</mo>
+        <mi>y</mi>
+        <mo>=</mo>
+        <mi>z</mi>
+    </mrow>
+</math>
+```
+
+In this example, the `<mrow>` element encapsulates the sequence of mathematical elements \( x, +, y, =, \) and \( z \), organizing them into a coherent expression.
+
+## Square Root - `<msqrt>` Element
+
+The `<msqrt>` element in MathML is specifically designed to represent square roots. It enables developers to create square root expressions by specifying the radicand, which is the expression under the square root symbol. The `<msqrt>` element simplifies the representation of square roots within mathematical content, ensuring precision and clarity in conveying mathematical concepts.
+
+### Syntax and Usage
+
+The syntax of the `<msqrt>` element is structured as follows:
+
+```xml
+<msqrt>
+    <!-- Radicand goes here -->
+</msqrt>
+```
+
+Within the `<msqrt>` element, developers can include the radicand, which represents the expression under the square root symbol. The radicand can consist of any valid MathML elements, such as numbers, variables, operators, or even nested expressions, allowing for complex square root expressions to be accurately represented.
+
+### Example Usage
+
+Let's consider a simple example where we want to represent the square root of <math class="not-content"><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup></mrow></math> within MathML. We can achieve this using the `<msqrt>` element as follows:
+
+```xml
+<math>
+    <msqrt>
+        <msup>
+            <mi>x</mi>
+            <mn>2</mn>
+        </msup>
+        <mo>+</mo>
+        <msup>
+            <mi>y</mi>
+            <mn>2</mn>
+        </msup>
+    </msqrt>
+</math>
+```
+
+In this example, the `<msqrt>` element encapsulates the radicand \( x^2 + y^2 \), creating a square root expression representing <math class="not-content"><msqrt><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup></msqrt></math>.
