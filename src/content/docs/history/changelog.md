@@ -157,7 +157,7 @@ wp plugin update structeezy
 ### Feat
 
 - **Iconify Integration**: Integrates with the [Iconify](https://iconify.design/) API to allow searching and inserting icons from a huge list of icon sets.
-- **Iconify Parser**: add abiliStructeezy can parse the `svg` code received from the Iconify API and create a Bricks structure from it.
+- **Iconify Parser**: Structeezy can parse the `svg` code received from the Iconify API and create a Bricks structure from it.
 - **Structeezy Window**: Refactor of the structure menu window.
   - **Docking**: Add ability to dock the structure menu at the bottom right angle of the editor.
   - **Dragging**: The dragging handle is now at the top with a better behavior.
@@ -224,7 +224,7 @@ wp plugin update structeezy
 
 ### Feat
 
-- OxyProps (BricksProps) user get a specific group when OxyProps is active ans set as the dfault Framework to use OP custom elements
+- OxyProps (BricksProps) user get a specific group when OxyProps is active ans set as the default Framework to use OP custom elements
 - New structure manager in the plugin dashboard to manage custom structures categories and structures (show, hide, renale, delete, modify tooltip.)
 - Add ability to [modify default UI keyboard shortcuts](/guides/customize-shortcuts/) for opening and expanding panels
 - Add [keyboard shortcuts](/guides/customize-shortcuts/) for saving structures or the whole tree
