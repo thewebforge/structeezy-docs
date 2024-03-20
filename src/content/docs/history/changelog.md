@@ -30,6 +30,15 @@ Update to the latest version:
 ```sh title="Update Structeezy via WP CLI"
 wp plugin update structeezy
 ```
+## v1.6.1 (2024-03-20)
+
+### Improvement
+
+- **MathML**: improves the formula building experience by including pre-defined tokens for the most common variables, constants, separators and operators.
+
+### Fix
+
+- **MathML**: Corrected improper custom tag when inserting a mtable MathML element
 
 ## v1.6.0 (2024-03-18)
 
