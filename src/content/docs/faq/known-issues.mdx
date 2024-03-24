@@ -72,7 +72,7 @@ You only need to allow the web application to access your clipboard once. If you
 
 Firefox is even more restrictive than other browsers and doesn't allow any javascript application to read from your clipboard.
 
-You can still use the structure context menu in Firefox by explicitely activating the feature. To do so, follow these steps :
+You can still use the structure context menu in Firefox by explicitly activating the feature. To do so, follow these steps :
 
 1. type `about:config` in your address bar and press enter.
 2. search for `dom.events.asyncClipboard.readText` and set it to `true`.
@@ -81,9 +81,9 @@ You can still use the structure context menu in Firefox by explicitely activatin
 
 [[↑ Back to Top]](#top)
 
-## I want to know Structeezy compatibility with localwp? Not working on loca dev (Is SSL the problem?)
+## I want to know Structeezy compatibility with localwp? Not working on local dev (Is SSL the problem?)
 
-Yes, this is actualy Bricks compatibility, not Structeezy, with local dev. Bricks uses the clipboard API for the structure tree. Using this API is security sensitive, so any browser will only allow it in "secure context:
+Yes, this is actually Bricks compatibility, not Structeezy, with local dev. Bricks uses the clipboard API for the structure tree. Using this API is security sensitive, so any browser will only allow it in "secure context:
 
 - if accessed from http://localhost
 - if accessed over https
