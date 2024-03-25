@@ -25,7 +25,7 @@ head:
 ### Done
 - [x] **Keyboard Shortcuts**: Add keyboard shortcuts for instant addition of the most common elements.
 - [x] **Dashboard**: Manage custom structures.
-- [x] **Dashboard**: Automativally dismiss OxyProps Lite suggestion if a known framework is detected.
+- [x] **Dashboard**: Automatically dismiss OxyProps Lite suggestion if a known framework is detected.
 - [x] **Icons set**: Big modal window with 100k+ icons set ( for other framework users )🤓
 - [x] **Code Parser**: Generate Bricks elements structure from raw html.
 

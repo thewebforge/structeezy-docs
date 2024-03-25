@@ -26,10 +26,10 @@ head:
 
 It will be except for 2 things :
 
-1. Structeezy adds a little inline css to map css variables to your own choices (the ones you set under the css framework preferences). If you delete the plugin, this css will not be inlined anymore and you should do it manually, maybe by xopy. /pasting it to your bricks custom css code.
-2. Structeezy adds 2 lines of javascript to read your html font size, as some people or some css frameworks set it to 62.5% instead of 100%. And then it creates a css variable with this value : --sez-root-fsr (fsr stands dor font size ratio). If you delete the plugin, this calculation won't be made and will default to 1, which may result in dimensions variations. So you should add this value also to your Bricks css.
+1. Structeezy adds a little inline css to map css variables to your own choices (the ones you set under the css framework preferences). If you delete the plugin, this css will not be inlined anymore and you should do it manually, maybe by copy / pasting it to your bricks custom css code.
+2. Structeezy adds 2 lines of javascript to read your html font size, as some people or some css frameworks set it to 62.5% instead of 100%. And then it creates a css variable with this value : `--sez-root-fsr` (fsr stands for font size ratio). If you delete the plugin, this calculation won't be made and will default to 1, which may result in dimensions variations. So you should add this value also to your Bricks css.
 
-**CSS to map Structeezy localy scoped variables to your framework**
+**CSS to map Structeezy locally scoped variables to your framework**
 
 ```css
 :where(html) {
