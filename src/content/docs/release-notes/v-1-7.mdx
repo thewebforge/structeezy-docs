@@ -1,0 +1,68 @@
+---
+title: Structeezy v1.7 Release Notes
+description: Short note about the main improvements brought by this new version.
+sidebar:
+  label: v1.7
+  badge: latest
+  order: -70
+head:
+  - tag: meta
+    attrs:
+      property: og:image
+      content: https://docs.structeezy.com/open-graph/release-notes/v-1-7.png
+  - tag: meta
+    attrs:
+      property: og:image:width
+      content: "1200"
+  - tag: meta
+    attrs:
+      property: og:image:height
+      content: "630"
+  - tag: meta
+    attrs:
+      property: twitter:image
+      content: https://docs.structeezy.com/open-graph/release-notes/v-1-7.png
+---
+import Figure from "~/components/Figure.astro";
+import Release from "~/components/Release.astro";
+import panel from "~/assets/sez-release-1-7-panel.png";
+import parser from "~/assets/sez-release-1-7-parser.png";
+import groups from "~/assets/sez-release-1-7-groups.png";
+
+
+<Release version="1.7" />
+
+Structeezy 1.7 is available, and brings a few helpful features, as well as performance and UI improvements.
+
+- [Support for Alpine.js](#support-for-alpinejs)
+- [Other improvements](#other-improvements)
+
+To take advantage of the latest features, make sure you’re running the latest version of Structeezy. You can upgrade to Structeezy 1.7 by running an automatic plugin update from you WordPress plugins dashboard, of by downloading the `.zip` file from your [user account](https://structeezy.com/my-account/).
+
+## Support for Alpine.js
+
+Looking to add dynamic, interactive functionality to your web projects with ease? Look no further! Structeezy now proudly supports Alpine.js, empowering you to bring your web applications to life with minimal effort.
+
+### The Structeezy Panel Evolves.
+
+<Figure src={panel} alt="" width="900" caption="The Structeezy panel showing available Alpine.js imports, elements and examples"/>
+
+With the latest update, the Structeezy panel has been enhanced to seamlessly integrate Alpine.js support. Now, within the Structeezy panel, you'll find a selection of Alpine.js imports, elements, and examples at your fingertips. Whether you're toggling visibility, handling user input, or managing state, Structeezy has you covered with a curated collection of Alpine.js resources to streamline your development workflow.
+
+### Alpine.js Parsing Power
+
+<Figure src={parser} alt="" width="900" caption="Structeezy parser parsing Alpine.js code into Bricks elements" />
+
+But that's not all! The Structeezy parser has been meticulously updated to fully support Alpine.js syntax. This means you can now write Alpine.js directly within the editor, or effortlessly copy and paste Alpine.js code snippets from the web, confident that Structeezy will accurately parse and display them on the front-end.
+
+### Why Alpine.js?
+
+Alpine.js offers a lightweight yet powerful solution for adding interactivity to your web projects, allowing you to enhance user experiences without the overhead of heavier frameworks. With Structeezy's Alpine.js support, you can leverage the full potential of this dynamic JavaScript framework within your Bricks-powered websites thanks to Structeezy, unlocking a world of possibilities for creating engaging, responsive web applications.
+
+## Other improvements
+
+With this update, you can now choose to disable specific structure groups on the Structeezy panel, keeping only the ones you actually use.
+
+<Figure src={groups} alt="" width="900" caption="Structeezy admin to select active groups" />
+
+The update also includes various performance enhancements and bug fixes to ensure a smoother, more efficient editing experience. You can check the [changelog](/history/changelog/) for more information.

@@ -30,6 +30,30 @@ Update to the latest version:
 ```sh title="Update Structeezy via WP CLI"
 wp plugin update structeezy
 ```
+
+## v1.7.0 (2024-04-26)
+
+### Feat
+
+- **alpine**: Add Alpinejs support to Structeezy
+- **parser**: Alpinejs directives and magics attributes are parsed and converted to attributes on Bricks elements
+- **alpine**: A new tab in the panel to insert Alpinejs elements.
+- **admin**: Ability to disable specific groups so they are not loaded in Structeezy panel
+
+### Fix
+
+- **nav**: fix typos
+- **structures**: Update default button classes
+- **state**: Update bricks element model to latest
+- **parser**: the code html element was treated as an inline element, therefore it needed a parent otherwise an error was triggered. It now generates its own Bricks element when parsed
+- **math**: improper custom tag for the mtable element is fixed
+- **math**: add f and d as primitives
+
+### Deps
+
+- **all**: bump all dependencies to latest version
+
+
 ## v1.6.1 (2024-03-20)
 
 ### Improvement
