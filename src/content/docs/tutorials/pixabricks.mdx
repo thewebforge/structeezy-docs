@@ -1,0 +1,834 @@
+---
+title: Tutorial - Pixabricks
+description: Let’s learn how to generate Bricks elements from html by creating pixabricks with Structeezy.
+sidebar:
+  order: 1
+  label: Pixabricks
+head:
+- tag: meta
+  attrs:
+    property: og:image
+    content: https://docs.structeezy.com/open-graph/tutorials/pixabricks.png
+- tag: meta
+  attrs:
+    property: og:image:width
+    content: "1200"
+- tag: meta
+  attrs:
+    property: og:image:height
+    content: "630"
+- tag: meta
+  attrs:
+    property: twitter:image
+    content: https://docs.structeezy.com/open-graph/tutorials/pixabricks.png
+---
+
+import BuilderTabs from "~/components/tabs/BuilderTabs.astro";
+import Box from "~/components/tutorial/Box.astro";
+import MultipleChoice from "~/components/tutorial/MultipleChoice.astro";
+import Option from "~/components/tutorial/Option.astro";
+import Spoiler from "~/components/Spoiler.astro";
+import PreCheck from "~/components/tutorial/PreCheck.astro";
+import { Image } from "astro:assets";
+import Figure from "~/components/Figure.astro";
+import pixabricks from "~/assets/pixabricks.jpg";
+import pixabricksWip from "~/assets/pixabricks-wip.jpg";
+import Youtube from "~/components/youtube/Youtube.astro";
+
+<Youtube id="yZyhGxkjGMM" />
+
+**Pixabricks** is an educational Bricks development project.
+
+Welcome to our comprehensive guide on building PixaBricks, a private stock image repository inspired by Pixabay. In this tutorial, we'll walk you through the process of creating PixaBricks using the Structeezy and OxyProps libraries, along with the lightweight JavaScript framework Alpine.js. By the end of this tutorial, you'll have a dynamic client-side application that queries the Pixabay API for high-quality stock images.
+
+<PreCheck>
+  - Create a reactive application in Bricks with Structeezy and Alpine.js.
+  - Use the Structeezy parser to convert HTML to Bricks elements.
+  - Use Apline.js to fetch data from the Pixabay API.
+  - Use o-props to style elements.
+</PreCheck>
+
+## Target Result
+
+<Figure
+  src={pixabricks}
+  width="900"
+  formats={["avif", "webp"]}
+  alt=""
+  caption="Screenshot of the project front-end."
+/>
+
+<Figure
+  src={pixabricksWip}
+  width="900"
+  formats={["avif", "webp"]}
+  alt=""
+  caption="Work in progress in Bricks."
+/>
+
+## Prerequisites
+Before we begin, make sure you have the following:
+
+- A Pixabay API key (You can obtain one for free from the Pixabay website)
+- Basic knowledge of HTML, CSS, and JavaScript
+
+<Box icon="question-mark">
+
+### Test your knowledge
+
+1. Structeezy is...
+
+   <MultipleChoice>
+     <Option>A design templates library</Option>
+     <Option isCorrect>
+       A powerful plugin to inject pre-configured Bricks elements into your structure tree.
+     </Option>
+     <Option>
+        A tool to convert your Bricks structure tree to HTML, CSS, and JavaScript.
+     </Option>
+   </MultipleChoice>
+
+2. Alpine.js is...
+
+   <MultipleChoice>
+     <Option isCorrect>
+        A minimal framework for composing JavaScript behavior in your HTML.
+     </Option>
+     <Option>
+        A powerful CSS framework.
+     </Option>
+     <Option>
+        A tool to convert your Bricks structure tree to HTML, CSS, and JavaScript.
+     </Option>
+   </MultipleChoice>
+
+3. o-props is...
+   <MultipleChoice>
+     <Option>
+        A tool to convert your Bricks structure tree to HTML, CSS, and JavaScript.
+     </Option>
+     <Option isCorrect>
+        A powerful CSS framework including productivity tools for the builder.
+     </Option>
+     <Option>
+        A powerful plugin to tweak Bricks builder features and UI.
+     </Option>
+   </MultipleChoice>
+
+</Box>
+
+## Setting Up
+1. Obtain your Pixabay API key from the Pixabay website.
+2. Set up a new WordPress website or use an existing one.
+3. Install the required plugins and activate the necessary licenses.
+4. Create a new page for PixaBricks on your WordPress website.
+
+## Creating the Alpine.js Application
+1. Import the Alpine.js library into your webpage.
+2. Define your API key as a constant.
+3. Set up the root element for your Alpine.js application.
+4. Initialize the application state, including an empty array for images.
+5. Fetch images from the Pixabay API using the `fetch` function.
+6. Update the application state with the fetched images.
+
+## Building the User Interface
+1. Design the layout using Structeezy components.
+2. Display the fetched images in a grid layout.
+3. Implement image hover effects and entrance transitions.
+4. Create a modal dialog to display larger images on click.
+
+## Adding Search Functionality
+1. Design and implement a search bar using HTML and CSS.
+2. Bind search input and select options to application state properties.
+3. Implement search functionality to query images based on user input.
+4. Update the UI dynamically with search results.
+
+## Resources
+- [Pixabay API Documentation](https://pixabay.com/api/docs/)
+- [Alpine.js Documentation](https://alpinejs.dev/)
+- [Structeezy Documentation](https://docs.structeezy.com/)
+- [OxyProps Documentation](https://docs.oxyprops.com/)
+
+## Full Structure
+
+You can copy the following JSON structure and paste it into your Bricks editor to create the Pixabricks project.
+
+Don‘t forget to replace the placeholder value in the `code` element with your own Pixabay API key.
+
+```json title="pixabricks.json"
+{
+  "content": [
+    {
+      "id": "wihuaf",
+      "name": "code",
+      "parent": 0,
+      "children": [],
+      "settings": {
+        "code": "<script>\n  // Your Pixabay API key.\n\t// Find your API key here: https://pixabay.com/api/docs/\n  // Replace the placeholder value by your own key\n  \n  const API_KEY = \"99999999-99999a999aa9aaa9aa999aa9\";\n</script>",
+        "executeCode": true,
+        "noRoot": true,
+        "signature": "d0e8bd2808e04dcf963a8888497dad3a",
+        "user_id": 1,
+        "time": 1714592829
+      },
+      "label": "Paste your API KEY here"
+    },
+    {
+      "name": "div",
+      "parent": 0,
+      "children": [],
+      "settings": {
+        "tag": "custom",
+        "customTag": "script",
+        "_cssId": "alpine-O1US0k",
+        "_attributes": [
+          {
+            "id": "0IJz20",
+            "name": "src",
+            "value": "https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+          }
+        ]
+      },
+      "label": "<script> Alpine.js Core",
+      "id": "qqpxdk"
+    },
+    {
+      "id": "dvgnxb",
+      "name": "code",
+      "parent": 0,
+      "children": [],
+      "settings": {
+        "code": "<script>\n  const pixaBricks = () => {\n    return {\n      images: [],\n      currentImage: {},\n      q: \"\",\n      image_type: \"\",\n      page: \"\",\n      per_page: 200,\n      queryImages: async function() {\n        const response = await fetch(`https://pixabay.com/api/?key=${API_KEY}&q=${this.q}&image_type=${this.image_type}&per_page=${this.per_page}`);\n        const data = await response.json();\n        this.images = data.hits;\n      }\n    }\n  };\n</script>",
+        "executeCode": true,
+        "noRoot": true,
+        "signature": "9f98f34ccafb13607897defbd1fad5f0",
+        "user_id": 1,
+        "time": 1714574739
+      },
+      "label": "<script> App Logic",
+      "themeStyles": []
+    },
+    {
+      "id": "egygtl",
+      "name": "div",
+      "parent": 0,
+      "children": ["lnmifm", "ptxrjf", "vbjcyl"],
+      "settings": {
+        "tag": "div",
+        "_attributes": [
+          { "id": "4SnJ2y", "name": "x-data", "value": "pixaBricks()" },
+          { "id": "hzufrb", "name": "x-init", "value": "queryImages()" }
+        ],
+        "_cssGlobalClasses": ["occonc"]
+      },
+      "label": "<div> Alpine Root"
+    },
+    {
+      "id": "vbjcyl",
+      "name": "div",
+      "parent": "egygtl",
+      "children": ["whrjyk"],
+      "settings": {
+        "tag": "custom",
+        "customTag": "dialog",
+        "_attributes": [
+          { "id": "kzbrkq", "name": "x-ref", "value": "modal" },
+          {
+            "id": "fhpega",
+            "name": "x-on:click",
+            "value": "$refs.modal.close()"
+          }
+        ],
+        "_width": "90vi",
+        "_height": "90dvb",
+        "_position": "fixed",
+        "_top": "5dvb"
+      },
+      "label": "<dialog>"
+    },
+    {
+      "id": "whrjyk",
+      "name": "div",
+      "parent": "vbjcyl",
+      "children": ["hpnrxh"],
+      "settings": { "_cssGlobalClasses": ["codzsw"] },
+      "label": "<div>"
+    },
+    {
+      "id": "hpnrxh",
+      "name": "div",
+      "parent": "whrjyk",
+      "children": [],
+      "settings": {
+        "codeTag": "img",
+        "tag": "custom",
+        "customTag": "img",
+        "_attributes": [
+          {
+            "id": "gzU0DA",
+            "name": ":src",
+            "value": "currentImage. largeImageURL"
+          },
+          { "id": "O172Ss", "name": ":alt", "value": "currentImage.tags" }
+        ],
+        "_cssGlobalClasses": ["vzdsvb"]
+      },
+      "label": "<img>"
+    },
+    {
+      "parent": "egygtl",
+      "children": ["nrdvdx", "tuagdf"],
+      "name": "section",
+      "label": "<section> Section",
+      "settings": {
+        "tag": "custom",
+        "customTag": "section",
+        "_cssId": "section-i7fBlR",
+        "_attributes": [
+          {
+            "id": "aria-i7fBlR",
+            "name": "aria-labelledby",
+            "value": "heading-i7fBlR"
+          },
+          {
+            "id": "uumler",
+            "name": ":style",
+            "value": "`background: linear-gradient(to top, var(--o-surface-1), transparent), center / cover url(${images[0].largeImageURL})`"
+          }
+        ],
+        "_cssGlobalClasses": ["sez-section"]
+      },
+      "id": "lnmifm"
+    },
+    {
+      "id": "tuagdf",
+      "name": "container",
+      "parent": "lnmifm",
+      "children": ["rsrqry", "bfjuvl", "gkcvjv"],
+      "settings": {
+        "tag": "custom",
+        "customTag": "div",
+        "_cssGlobalClasses": ["Se6YaN", "atqkgh"]
+      },
+      "label": "<div> Search Bar"
+    },
+    {
+      "id": "rsrqry",
+      "name": "div",
+      "parent": "tuagdf",
+      "children": ["krbdam"],
+      "settings": {
+        "tag": "custom",
+        "customTag": "button",
+        "_cssGlobalClasses": ["dwiaau"],
+        "_background": { "color": { "raw": "transparent" } },
+        "_attributes": [
+          { "id": "rumxom", "name": "x-on:click", "value": "queryImages()" }
+        ]
+      },
+      "label": "<button>"
+    },
+    {
+      "id": "krbdam",
+      "name": "div",
+      "parent": "rsrqry",
+      "children": ["nryxfm"],
+      "settings": {
+        "tag": "custom",
+        "customTag": "svg",
+        "_attributes": [
+          {
+            "id": "LEQKLJ",
+            "name": "xmlns",
+            "value": "http://www.w3.org/2000/svg"
+          },
+          { "id": "b5MbOB", "name": "width", "value": "1em" },
+          { "id": "XI3KFG", "name": "height", "value": "1em" },
+          { "id": "tWW2O7", "name": "viewBox", "value": "0 0 32 32" }
+        ]
+      },
+      "label": "<svg>"
+    },
+    {
+      "id": "nryxfm",
+      "name": "div",
+      "parent": "krbdam",
+      "children": [],
+      "settings": {
+        "codeTag": "path",
+        "tag": "custom",
+        "customTag": "path",
+        "_attributes": [
+          { "id": "cifzsI", "name": "fill", "value": "currentColor" },
+          {
+            "id": "ZuwcIt",
+            "name": "d",
+            "value": "m29 27.586l-7.552-7.552a11.018 11.018 0 1 0-1.414 1.414L27.586 29ZM4 13a9 9 0 1 1 9 9a9.01 9.01 0 0 1-9-9"
+          }
+        ]
+      },
+      "label": "<path>"
+    },
+    {
+      "id": "bfjuvl",
+      "name": "div",
+      "parent": "tuagdf",
+      "children": [],
+      "settings": {
+        "codeTag": "input",
+        "tag": "custom",
+        "customTag": "input",
+        "_attributes": [
+          { "id": "aMGjAG", "name": "type", "value": "search" },
+          {
+            "id": "xdsqcw",
+            "name": "placeholder",
+            "value": "Search for pretty images..."
+          },
+          { "id": "pthcmh", "name": "name", "value": "search" },
+          { "id": "vhefov", "name": "x-model", "value": "q" },
+          {
+            "id": "zctbfn",
+            "name": "x-on:keydown.enter",
+            "value": "queryImages()"
+          }
+        ],
+        "_cssGlobalClasses": ["wmlrdq"],
+        "_cssCustom": "#brxe-bfjuvl::placeholder{\n  color: grey;\n}"
+      },
+      "label": "<input>"
+    },
+    {
+      "id": "gkcvjv",
+      "name": "div",
+      "parent": "tuagdf",
+      "children": ["govrhq", "limrwx", "bkhsca", "ehlrse"],
+      "settings": {
+        "tag": "custom",
+        "customTag": "select",
+        "_attributes": [
+          { "id": "ExuTaf", "name": "name", "value": "select" },
+          { "id": "bfsrmj", "name": "x-model", "value": "image_type" }
+        ],
+        "_cssId": "",
+        "_cssGlobalClasses": ["imgoil"]
+      },
+      "label": "<select>"
+    },
+    {
+      "id": "govrhq",
+      "name": "text-basic",
+      "parent": "gkcvjv",
+      "children": [],
+      "settings": {
+        "tag": "custom",
+        "customTag": "option",
+        "_attributes": [{ "id": "govMeW", "name": "value", "value": "all" }],
+        "text": "All"
+      },
+      "label": "<option>"
+    },
+    {
+      "id": "limrwx",
+      "name": "text-basic",
+      "parent": "gkcvjv",
+      "children": [],
+      "settings": {
+        "tag": "custom",
+        "customTag": "option",
+        "_attributes": [{ "id": "9XP28H", "name": "value", "value": "photo" }],
+        "text": "Photo"
+      },
+      "label": "<option>"
+    },
+    {
+      "id": "bkhsca",
+      "name": "text-basic",
+      "parent": "gkcvjv",
+      "children": [],
+      "settings": {
+        "tag": "custom",
+        "customTag": "option",
+        "_attributes": [
+          { "id": "rO4fjR", "name": "value", "value": "illustration" }
+        ],
+        "text": "Illustration"
+      },
+      "label": "<option>"
+    },
+    {
+      "id": "ehlrse",
+      "name": "text-basic",
+      "parent": "gkcvjv",
+      "children": [],
+      "settings": {
+        "tag": "custom",
+        "customTag": "option",
+        "_attributes": [{ "id": "e3zW93", "name": "value", "value": "vector" }],
+        "text": "vector"
+      },
+      "label": "<option>"
+    },
+    {
+      "id": "nrdvdx",
+      "name": "container",
+      "parent": "lnmifm",
+      "children": ["nnicir", "kfrikp"],
+      "settings": {
+        "tag": "custom",
+        "customTag": "header",
+        "_cssGlobalClasses": [
+          "sez-section__header",
+          "sez-section__header--center"
+        ]
+      },
+      "label": "<header> Section Header"
+    },
+    {
+      "id": "nnicir",
+      "name": "div",
+      "parent": "nrdvdx",
+      "children": ["wusfly", "colhbj", "holdzb"],
+      "settings": {
+        "_display": "flex",
+        "_direction": "column",
+        "_justifyContent": "flex-start",
+        "_rowGap": "0.5em",
+        "_cssGlobalClasses": ["sez-section__hgroup"]
+      },
+      "label": "<hgroup> Div"
+    },
+    {
+      "id": "wusfly",
+      "name": "heading",
+      "parent": "nnicir",
+      "children": [],
+      "settings": {
+        "text": "PixaBricks",
+        "tag": "h1",
+        "_cssId": "heading-i7fBlR",
+        "_cssGlobalClasses": ["kxeedq", "nzfyqy"]
+      },
+      "label": "<h1> Section Title"
+    },
+    {
+      "id": "colhbj",
+      "name": "text-basic",
+      "parent": "nnicir",
+      "children": [],
+      "settings": {
+        "text": "Stunning royalty-free images &amp; royalty-free stock",
+        "tag": "p",
+        "_cssGlobalClasses": ["sez-section__h2-title", "kxeedq"]
+      },
+      "label": "<p> Section Subtitle"
+    },
+    {
+      "id": "kfrikp",
+      "name": "text-basic",
+      "parent": "nrdvdx",
+      "children": [],
+      "settings": {
+        "tag": "p",
+        "text": "Pixabay : over 4.5 million+ high quality stock images, videos and music shared by our talented community.",
+        "_cssGlobalClasses": ["sez-section__intro", "udznqo"]
+      },
+      "label": "<p> Basic Text"
+    },
+    {
+      "parent": "egygtl",
+      "children": ["uhruhu"],
+      "name": "section",
+      "label": "<section> Section",
+      "settings": {
+        "tag": "custom",
+        "customTag": "section",
+        "_cssGlobalClasses": ["sez-section"]
+      },
+      "id": "ptxrjf"
+    },
+    {
+      "id": "uhruhu",
+      "name": "container",
+      "parent": "ptxrjf",
+      "children": ["vyvynf"],
+      "settings": { "_cssGlobalClasses": ["Se6YaN", "mAkHL2"] },
+      "label": "<div> Responsive Grid 4 Container"
+    },
+    {
+      "id": "vyvynf",
+      "name": "div",
+      "parent": "uhruhu",
+      "children": ["fflvkl"],
+      "settings": {
+        "tag": "custom",
+        "customTag": "template",
+        "_attributes": [
+          { "id": "p49a0x", "name": "x-for", "value": "image in images" },
+          { "id": "49Pt7A", "name": ":key", "value": "image.id" }
+        ]
+      },
+      "label": "<template> Alpine x-for"
+    },
+    {
+      "id": "fflvkl",
+      "name": "div",
+      "parent": "vyvynf",
+      "children": ["zvefgb"],
+      "settings": {
+        "tag": "custom",
+        "_attributes": [
+          {
+            "id": "nMN6cG",
+            "name": "x-on:click",
+            "value": "currentImage = image, $nextTick($refs.modal.showModal())"
+          }
+        ],
+        "customTag": "button",
+        "_cssGlobalClasses": ["cukesp", "oxyprops-o-pulse-hover"]
+      },
+      "label": "<button> Image Button"
+    },
+    {
+      "id": "zvefgb",
+      "name": "div",
+      "parent": "fflvkl",
+      "children": [],
+      "settings": {
+        "tag": "custom",
+        "_attributes": [
+          { "id": "tG5Tiv", "value": "image. largeImageURL", "name": ":src" },
+          { "id": "x3DqCg", "name": ":alt", "value": "image.tags" }
+        ],
+        "customTag": "img",
+        "_cssGlobalClasses": ["vksrnq", "oxyprops-o-square", "zndvin"]
+      },
+      "label": "<img> Thumb"
+    },
+    {
+      "id": "holdzb",
+      "name": "text-basic",
+      "parent": "nnicir",
+      "children": [],
+      "settings": {
+        "text": "Stock Images from Pixabay - Powered by Structeezy and Alpine.js in Bricks",
+        "tag": "p",
+        "_cssGlobalClasses": ["sez-section__h2-subtitle"]
+      },
+      "label": "<p> Section Subtitle"
+    }
+  ],
+  "source": "bricksCopiedElements",
+  "sourceUrl": "https://brx-pixabay-clone.test",
+  "version": "1.9.7.1",
+  "globalClasses": [
+    { "id": "occonc", "name": "c-pixabricks", "settings": [] },
+    {
+      "id": "codzsw",
+      "name": "c-pixabricks__wrapper",
+      "settings": {
+        "_width": "100%",
+        "_height": "100%",
+        "_display": "grid",
+        "_justifyItemsGrid": "center",
+        "_alignItemsGrid": "center"
+      }
+    },
+    {
+      "id": "vzdsvb",
+      "name": "c-pixabricks__image",
+      "settings": { "_heightMax": "80dvb", "_widthMax": "80vi" }
+    },
+    {
+      "id": "sez-section",
+      "name": "sez-section",
+      "settings": {
+        "_padding": {
+          "top": "var(--_sez-outer-spacing)",
+          "bottom": "var(--_sez-outer-spacing)",
+          "left": "var(--_sez-inner-spacing)",
+          "right": "var(--_sez-inner-spacing)"
+        },
+        "_display": "flex",
+        "_direction": "column",
+        "_rowGap": "var(--_sez-outer-spacing)"
+      }
+    },
+    { "id": "Se6YaN", "name": "sez-section__body", "settings": [] },
+    {
+      "id": "atqkgh",
+      "name": "c-pixabricks__searchbar",
+      "settings": {
+        "_display": "grid",
+        "_gridTemplateColumns": "auto 1fr auto",
+        "_background": { "color": { "raw": "var(--o-bw)" } },
+        "_border": {
+          "radius": {
+            "top": "var(--o-radius-round)",
+            "right": "var(--o-radius-round)",
+            "bottom": "var(--o-radius-round)",
+            "left": "var(--o-radius-round)"
+          }
+        },
+        "_typography": { "font-size": "var(--o-font-size-4)" },
+        "_cssCustom": ".c-pixabricks__searchbar:focus-within{\n\toutline: 2px solid var(--o-brand);\n  outline-offset: 5px;\n}"
+      }
+    },
+    {
+      "id": "dwiaau",
+      "name": "c-pixabricks__search-icon",
+      "settings": {
+        "_aspectRatio": "1",
+        "_display": "grid",
+        "_justifyItemsGrid": "center",
+        "_alignItemsGrid": "center",
+        "_border": {
+          "radius": {
+            "top": "var(--o-radius-round)",
+            "right": "var(--o-radius-round)",
+            "bottom": "var(--o-radius-round)",
+            "left": "var(--o-radius-round)"
+          }
+        }
+      }
+    },
+    {
+      "id": "wmlrdq",
+      "name": "c-pixabticks__searchinput",
+      "settings": {
+        "_cssCustom": ":is(.c-pixabticks__searchinput, #fake-id){\n\tborder: none;\n  &:focus-visible{\n  \toutline: none;\n  }\n}"
+      }
+    },
+    {
+      "id": "imgoil",
+      "name": "c-pixabricks__select",
+      "settings": {
+        "_cssCustom": ":is(.c-pixabricks__select, #fake-id){\n\tborder: none;\n  &:focus-visible{\n  \toutline: none;\n  }\n}"
+      }
+    },
+    {
+      "id": "sez-section__header",
+      "name": "sez-section__header",
+      "settings": {
+        "_display": "flex",
+        "_direction": "column",
+        "_alignItems": "flex-start",
+        "_rowGap": "var(--_sez-outer-spacing)"
+      }
+    },
+    {
+      "id": "sez-section__header--center",
+      "name": "sez-section__header--center",
+      "settings": {
+        "_display": "flex",
+        "_alignItems": "center",
+        "_cssCustom": ":where(.sez-section__header--center) > :where(.sez-section__hgroup) {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n:where(.sez-section__header--center) > :where(.sez-section__intro) {\n  text-align: center;\n  text-wrap: balance;\n}"
+      }
+    },
+    {
+      "id": "sez-section__hgroup",
+      "name": "sez-section__hgroup",
+      "settings": {
+        "_display": "flex",
+        "_direction": "column",
+        "_justifyContent": "flex-start",
+        "_rowGap": "0.5em"
+      }
+    },
+    {
+      "id": "kxeedq",
+      "name": "c-pixabricks__title",
+      "settings": {
+        "_widthMax": "initial",
+        "_typography": { "font-weight": "900" },
+        "_margin": { "bottom": "initial" }
+      }
+    },
+    {
+      "id": "nzfyqy",
+      "name": "sez-section__h1-title",
+      "settings": {
+        "_typography": {
+          "font-size": "var(--_sez-h1-size)",
+          "line-height": "var(--_sez-heading-line-height)"
+        },
+        "_cssCustom": ".sez-section__h1{\n  text-wrap: balance;\n}"
+      }
+    },
+    {
+      "id": "sez-section__h2-title",
+      "name": "sez-section__h2-title",
+      "settings": {
+        "_typography": {
+          "font-size": "var(--_sez-h2-size)",
+          "line-height": "var(--_sez-heading-line-height)"
+        },
+        "_cssCustom": ".sez-section__h2{\n  text-wrap: balance;\n}"
+      }
+    },
+    {
+      "id": "sez-section__intro",
+      "name": "sez-section__intro",
+      "settings": {
+        "_typography": {
+          "font-size": "var(--_sez-text-size)",
+          "line-height": "var(--_sez-text-line-height)"
+        },
+        "_widthMax": "var(--_sez-max-text-width)",
+        "_cssCustom": ".sez-section__intro{\n  text-wrap: pretty;\n}"
+      }
+    },
+    {
+      "id": "udznqo",
+      "name": "c-pixabricks__intro",
+      "settings": { "_typography": { "font-size": "var(--o-font-size-5)" } }
+    },
+    {
+      "id": "mAkHL2",
+      "name": "sez-section__body--grid-4",
+      "settings": {
+        "_display": "grid",
+        "_gridGap": "var(--_sez-inner-spacing)",
+        "_gridTemplateColumns": "repeat(4, 1fr)",
+        "_gridTemplateColumns:tablet_portrait": "repeat(3, 1fr)",
+        "_gridTemplateColumns:mobile_landscape": "repeat(2, 1fr)",
+        "_gridTemplateColumns:mobile_portrait": "1fr"
+      }
+    },
+    {
+      "id": "cukesp",
+      "name": "c-pixabricks__button",
+      "settings": { "_background": { "color": { "raw": "transparent" } } }
+    },
+    { "id": "oxyprops-o-pulse-hover", "name": "o-pulse-hover", "settings": [] },
+    {
+      "id": "vksrnq",
+      "name": "c-pixabricks__thumb",
+      "settings": {
+        "_border": {
+          "radius": {
+            "top": "var(--o-radius-3)",
+            "right": "var(--o-radius-3)",
+            "bottom": "var(--o-radius-3)",
+            "left": "var(--o-radius-3)"
+          }
+        }
+      }
+    },
+    { "id": "oxyprops-o-square", "name": "o-square", "settings": [] },
+    { "id": "zndvin", "name": "o-appear-enter", "settings": [] },
+    {
+      "id": "sez-section__h2-subtitle",
+      "name": "sez-section__h2-subtitle",
+      "settings": {
+        "_typography": {
+          "font-size": "calc(var(--_sez-h2-size) * var(--_sez-subtitle-ratio))",
+          "line-height": "var(--_sez-heading-line-height)"
+        },
+        "_cssCustom": ".sez-section__h2-subtitle{\n  text-wrap: balance;\n}"
+      }
+    }
+  ],
+  "globalElements": []
+}
+```
