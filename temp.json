@@ -1,0 +1,19 @@
+{
+  "content": [
+    {
+      "id": "wihuaf",
+      "name": "code",
+      "parent": 0,
+      "children": [],
+      "settings": {
+        "code": "<script>\n\t// WARNING: This way of using an API key is not secure.\n\t// Use only for educational purpose in local dev environments.\n\t// Find your API key here: https://pixabay.com/api/docs/\n\t// Replace the placeholder value by your own key\n\n\tconst API_KEY = \"99999999-99999a999aa9aaa9aa999aa9\";\n</script>",
+        "executeCode": true,
+        "noRoot": true
+      },
+      "label": "Paste your API KEY here"
+    }
+  ],
+  "source": "bricksCopiedElements",
+  "sourceUrl": "https://docs.structeezy.com/tutorials/pixabricks/",
+  "version": "1.9.7.1"
+}

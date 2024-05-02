@@ -5,22 +5,22 @@ sidebar:
   order: 1
   label: Pixabricks
 head:
-- tag: meta
-  attrs:
-    property: og:image
-    content: https://docs.structeezy.com/open-graph/tutorials/pixabricks.png
-- tag: meta
-  attrs:
-    property: og:image:width
-    content: "1200"
-- tag: meta
-  attrs:
-    property: og:image:height
-    content: "630"
-- tag: meta
-  attrs:
-    property: twitter:image
-    content: https://docs.structeezy.com/open-graph/tutorials/pixabricks.png
+  - tag: meta
+    attrs:
+      property: og:image
+      content: https://docs.structeezy.com/open-graph/tutorials/pixabricks.png
+  - tag: meta
+    attrs:
+      property: og:image:width
+      content: "1200"
+  - tag: meta
+    attrs:
+      property: og:image:height
+      content: "630"
+  - tag: meta
+    attrs:
+      property: twitter:image
+      content: https://docs.structeezy.com/open-graph/tutorials/pixabricks.png
 ---
 
 import BuilderTabs from "~/components/tabs/BuilderTabs.astro";
@@ -38,7 +38,7 @@ import Youtube from "~/components/youtube/Youtube.astro";
 <Youtube id="yZyhGxkjGMM" />
 
 :::caution[Securing Your API key]
-This tutorial for educational purposes only, and the way we store the API key in a script is not secure as it is clearly visible in the code client side.  
+This tutorial is for educational purposes only, and the way we store the API key in a script is convenient for the demo, but not secure as it is clearly visible in the code client side.  
 When working with APIs, it's important to keep your API key secure and not expose it in public repositories or client-side code. Always store your API keys in a secure location and use environment variables or server-side code to access them.
 :::
 
@@ -47,10 +47,9 @@ When working with APIs, it's important to keep your API key secure and not expos
 Welcome to our comprehensive guide on building PixaBricks, a private stock image repository inspired by Pixabay. In this tutorial, we'll walk you through the process of creating PixaBricks using the Structeezy and OxyProps libraries, along with the lightweight JavaScript framework Alpine.js. By the end of this tutorial, you'll have a dynamic client-side application that queries the Pixabay API for high-quality stock images.
 
 <PreCheck>
-  - Create a reactive application in Bricks with Structeezy and Alpine.js.
-  - Use the Structeezy parser to convert HTML to Bricks elements.
-  - Use Apline.js to fetch data from the Pixabay API.
-  - Use o-props to style elements.
+  - Create a reactive application in Bricks with Structeezy and Alpine.js. - Use
+  the Structeezy parser to convert HTML to Bricks elements. - Use Apline.js to
+  fetch data from the Pixabay API. - Use o-props to style elements.
 </PreCheck>
 
 ## Target Result
@@ -72,6 +71,7 @@ Welcome to our comprehensive guide on building PixaBricks, a private stock image
 />
 
 ## Prerequisites
+
 Before we begin, make sure you have the following:
 
 - A Pixabay API key (You can obtain one for free from the Pixabay website)
@@ -86,10 +86,12 @@ Before we begin, make sure you have the following:
    <MultipleChoice>
      <Option>A design templates library</Option>
      <Option isCorrect>
-       A powerful plugin to inject pre-configured Bricks elements into your structure tree.
+       A powerful plugin to inject pre-configured Bricks elements into your
+       structure tree.
      </Option>
      <Option>
-        A tool to convert your Bricks structure tree to HTML, CSS, and JavaScript.
+       A tool to convert your Bricks structure tree to HTML, CSS, and
+       JavaScript.
      </Option>
    </MultipleChoice>
 
@@ -97,38 +99,38 @@ Before we begin, make sure you have the following:
 
    <MultipleChoice>
      <Option isCorrect>
-        A minimal framework for composing JavaScript behavior in your HTML.
+       A minimal framework for composing JavaScript behavior in your HTML.
      </Option>
+     <Option>A powerful CSS framework.</Option>
      <Option>
-        A powerful CSS framework.
-     </Option>
-     <Option>
-        A tool to convert your Bricks structure tree to HTML, CSS, and JavaScript.
+       A tool to convert your Bricks structure tree to HTML, CSS, and
+       JavaScript.
      </Option>
    </MultipleChoice>
 
 3. o-props is...
    <MultipleChoice>
      <Option>
-        A tool to convert your Bricks structure tree to HTML, CSS, and JavaScript.
+       A tool to convert your Bricks structure tree to HTML, CSS, and
+       JavaScript.
      </Option>
      <Option isCorrect>
-        A powerful CSS framework including productivity tools for the builder.
+       A powerful CSS framework including productivity tools for the builder.
      </Option>
-     <Option>
-        A powerful plugin to tweak Bricks builder features and UI.
-     </Option>
+     <Option>A powerful plugin to tweak Bricks builder features and UI.</Option>
    </MultipleChoice>
 
 </Box>
 
 ## Setting Up
+
 1. Obtain your Pixabay API key from the Pixabay website.
 2. Set up a new WordPress website or use an existing one.
 3. Install the required plugins and activate the necessary licenses.
 4. Create a new page for PixaBricks on your WordPress website.
 
 ## Creating the Alpine.js Application
+
 1. Import the Alpine.js library into your webpage.
 2. Define your API key as a constant.
 3. Set up the root element for your Alpine.js application.
@@ -137,18 +139,21 @@ Before we begin, make sure you have the following:
 6. Update the application state with the fetched images.
 
 ## Building the User Interface
+
 1. Design the layout using Structeezy components.
 2. Display the fetched images in a grid layout.
 3. Implement image hover effects and entrance transitions.
 4. Create a modal dialog to display larger images on click.
 
 ## Adding Search Functionality
+
 1. Design and implement a search bar using HTML and CSS.
 2. Bind search input and select options to application state properties.
 3. Implement search functionality to query images based on user input.
 4. Update the UI dynamically with search results.
 
 ## Resources
+
 - [Pixabay API Documentation](https://pixabay.com/api/docs/)
 - [Alpine.js Documentation](https://alpinejs.dev/)
 - [Structeezy Documentation](https://docs.structeezy.com/)
@@ -169,12 +174,9 @@ Don‘t forget to replace the placeholder value in the `code` element with your 
       "parent": 0,
       "children": [],
       "settings": {
-        "code": "<script>\n  // WARNING: This way of using an API key is not secure. Only for eductional purpose in local dev environments.\n  // Your Pixabay API key.\n\t// Find your API key here: https://pixabay.com/api/docs/\n  // Replace the placeholder value by your own key\n  \n  const API_KEY = \"99999999-99999a999aa9aaa9aa999aa9\";\n</script>",
+        "code": "<script>\n\t// WARNING: This way of using an API key is not secure.\n\t// Use only for demo purpose in local dev environments.\n\t// Find your API key here: https://pixabay.com/api/docs/\n\t// Replace the placeholder value by your own key\n\n\tconst API_KEY = \"99999999-99999a999aa9aaa9aa999aa9\";\n</script>",
         "executeCode": true,
-        "noRoot": true,
-        "signature": "d0e8bd2808e04dcf963a8888497dad3a",
-        "user_id": 1,
-        "time": 1714592829
+        "noRoot": true
       },
       "label": "Paste your API KEY here"
     },
@@ -203,12 +205,9 @@ Don‘t forget to replace the placeholder value in the `code` element with your 
       "parent": 0,
       "children": [],
       "settings": {
-        "code": "<script>\n  const pixaBricks = () => {\n    return {\n      images: [],\n      currentImage: {},\n      q: \"\",\n      image_type: \"\",\n      page: \"\",\n      per_page: 200,\n      queryImages: async function() {\n        const response = await fetch(`https://pixabay.com/api/?key=${API_KEY}&q=${this.q}&image_type=${this.image_type}&per_page=${this.per_page}`);\n        const data = await response.json();\n        this.images = data.hits;\n      }\n    }\n  };\n</script>",
+        "code": "<script>\n\tconst pixaBricks = () => {\n\t\treturn {\n\t\timages: [],\n\t\tcurrentImage: {},\n\t\tq: \"\",\n\t\timage_type: \"\",\n\t\tpage: \"\",\n\t\tper_page: 200,\n\t\tqueryImages: async function() {\n\t\t\tconst response = await fetch(`https://pixabay.com/api/?key=${API_KEY}&q=${this.q}&image_type=${this.image_type}&per_page=${this.per_page}`);\n\t\t\tconst data = await response.json();\n\t\t\tthis.images = data.hits;\n\t\t}\n\t}\n};\n</script>",
         "executeCode": true,
-        "noRoot": true,
-        "signature": "9f98f34ccafb13607897defbd1fad5f0",
-        "user_id": 1,
-        "time": 1714574739
+        "noRoot": true
       },
       "label": "<script> App Logic",
       "themeStyles": []
@@ -224,7 +223,7 @@ Don‘t forget to replace the placeholder value in the `code` element with your 
           { "id": "4SnJ2y", "name": "x-data", "value": "pixaBricks()" },
           { "id": "hzufrb", "name": "x-init", "value": "queryImages()" }
         ],
-        "_cssGlobalClasses": ["occonc"]
+        "_cssGlobalClasses": ["twf-c-pixabricks"]
       },
       "label": "<div> Alpine Root"
     },
@@ -244,10 +243,7 @@ Don‘t forget to replace the placeholder value in the `code` element with your 
             "value": "$refs.modal.close()"
           }
         ],
-        "_width": "90vi",
-        "_height": "90dvb",
-        "_position": "fixed",
-        "_top": "5dvb"
+        "_cssGlobalClasses": ["twf-c-pixabricks__modal"]
       },
       "label": "<dialog>"
     },
@@ -256,7 +252,7 @@ Don‘t forget to replace the placeholder value in the `code` element with your 
       "name": "div",
       "parent": "vbjcyl",
       "children": ["hpnrxh"],
-      "settings": { "_cssGlobalClasses": ["codzsw"] },
+      "settings": { "_cssGlobalClasses": ["twf-c-pixabricks__wrapper"] },
       "label": "<div>"
     },
     {
@@ -276,7 +272,7 @@ Don‘t forget to replace the placeholder value in the `code` element with your 
           },
           { "id": "O172Ss", "name": ":alt", "value": "currentImage.tags" }
         ],
-        "_cssGlobalClasses": ["vzdsvb"]
+        "_cssGlobalClasses": ["twf-c-pixabricks__image"]
       },
       "label": "<img>"
     },
@@ -313,7 +309,7 @@ Don‘t forget to replace the placeholder value in the `code` element with your 
       "settings": {
         "tag": "custom",
         "customTag": "div",
-        "_cssGlobalClasses": ["Se6YaN", "atqkgh"]
+        "_cssGlobalClasses": ["sez-section__body", "twf-c-pixabricks__searchbar"]
       },
       "label": "<div> Search Bar"
     },
@@ -325,7 +321,7 @@ Don‘t forget to replace the placeholder value in the `code` element with your 
       "settings": {
         "tag": "custom",
         "customTag": "button",
-        "_cssGlobalClasses": ["dwiaau"],
+        "_cssGlobalClasses": ["twf-c-pixabricks__search-icon"],
         "_background": { "color": { "raw": "transparent" } },
         "_attributes": [
           { "id": "rumxom", "name": "x-on:click", "value": "queryImages()" }
@@ -398,7 +394,7 @@ Don‘t forget to replace the placeholder value in the `code` element with your 
             "value": "queryImages()"
           }
         ],
-        "_cssGlobalClasses": ["wmlrdq"],
+        "_cssGlobalClasses": ["twf-c-pixabricks__search-input"],
         "_cssCustom": "#brxe-bfjuvl::placeholder{\n  color: grey;\n}"
       },
       "label": "<input>"
@@ -416,7 +412,7 @@ Don‘t forget to replace the placeholder value in the `code` element with your 
           { "id": "bfsrmj", "name": "x-model", "value": "image_type" }
         ],
         "_cssId": "",
-        "_cssGlobalClasses": ["imgoil"]
+        "_cssGlobalClasses": ["twf-c-pixabricks__select"]
       },
       "label": "<select>"
     },
@@ -512,7 +508,7 @@ Don‘t forget to replace the placeholder value in the `code` element with your 
         "text": "PixaBricks",
         "tag": "h1",
         "_cssId": "heading-i7fBlR",
-        "_cssGlobalClasses": ["kxeedq", "nzfyqy"]
+        "_cssGlobalClasses": ["twf-c-pixabricks__title", "sez-section__h1-title"]
       },
       "label": "<h1> Section Title"
     },
@@ -524,7 +520,7 @@ Don‘t forget to replace the placeholder value in the `code` element with your 
       "settings": {
         "text": "Stunning royalty-free images &amp; royalty-free stock",
         "tag": "p",
-        "_cssGlobalClasses": ["sez-section__h2-title", "kxeedq"]
+        "_cssGlobalClasses": ["sez-section__h2-title", "twf-c-pixabricks__title"]
       },
       "label": "<p> Section Subtitle"
     },
@@ -536,7 +532,7 @@ Don‘t forget to replace the placeholder value in the `code` element with your 
       "settings": {
         "tag": "p",
         "text": "Pixabay : over 4.5 million+ high quality stock images, videos and music shared by our talented community.",
-        "_cssGlobalClasses": ["sez-section__intro", "udznqo"]
+        "_cssGlobalClasses": ["sez-section__intro", "twf-c-pixabricks__intro"]
       },
       "label": "<p> Basic Text"
     },
@@ -557,7 +553,9 @@ Don‘t forget to replace the placeholder value in the `code` element with your 
       "name": "container",
       "parent": "ptxrjf",
       "children": ["vyvynf"],
-      "settings": { "_cssGlobalClasses": ["Se6YaN", "mAkHL2"] },
+      "settings": {
+        "_cssGlobalClasses": ["sez-section__body", "sez-section__body--grid-4"]
+      },
       "label": "<div> Responsive Grid 4 Container"
     },
     {
@@ -590,7 +588,10 @@ Don‘t forget to replace the placeholder value in the `code` element with your 
           }
         ],
         "customTag": "button",
-        "_cssGlobalClasses": ["cukesp", "oxyprops-o-pulse-hover"]
+        "_cssGlobalClasses": [
+          "twf-c-pixabricks__button",
+          "oxyprops-o-pulse-hover"
+        ]
       },
       "label": "<button> Image Button"
     },
@@ -606,7 +607,11 @@ Don‘t forget to replace the placeholder value in the `code` element with your 
           { "id": "x3DqCg", "name": ":alt", "value": "image.tags" }
         ],
         "customTag": "img",
-        "_cssGlobalClasses": ["vksrnq", "oxyprops-o-square", "zndvin"]
+        "_cssGlobalClasses": [
+          "twf-c-pixabricks__thumb",
+          "oxyprops-o-square",
+          "oxyprops-o-appear-enter"
+        ]
       },
       "label": "<img> Thumb"
     },
@@ -624,12 +629,12 @@ Don‘t forget to replace the placeholder value in the `code` element with your 
     }
   ],
   "source": "bricksCopiedElements",
-  "sourceUrl": "https://brx-pixabay-clone.test",
+  "sourceUrl": "https://docs.structeezy.com/tutorials/pixabricks/",
   "version": "1.9.7.1",
   "globalClasses": [
-    { "id": "occonc", "name": "c-pixabricks", "settings": [] },
+    { "id": "twf-c-pixabricks", "name": "c-pixabricks", "settings": [] },
     {
-      "id": "codzsw",
+      "id": "twf-c-pixabricks__wrapper",
       "name": "c-pixabricks__wrapper",
       "settings": {
         "_width": "100%",
@@ -640,7 +645,7 @@ Don‘t forget to replace the placeholder value in the `code` element with your 
       }
     },
     {
-      "id": "vzdsvb",
+      "id": "twf-c-pixabricks__image",
       "name": "c-pixabricks__image",
       "settings": { "_heightMax": "80dvb", "_widthMax": "80vi" }
     },
@@ -659,9 +664,9 @@ Don‘t forget to replace the placeholder value in the `code` element with your 
         "_rowGap": "var(--_sez-outer-spacing)"
       }
     },
-    { "id": "Se6YaN", "name": "sez-section__body", "settings": [] },
+    { "id": "sez-section__body", "name": "sez-section__body", "settings": [] },
     {
-      "id": "atqkgh",
+      "id": "twf-c-pixabricks__searchbar",
       "name": "c-pixabricks__searchbar",
       "settings": {
         "_display": "grid",
@@ -680,7 +685,7 @@ Don‘t forget to replace the placeholder value in the `code` element with your 
       }
     },
     {
-      "id": "dwiaau",
+      "id": "twf-c-pixabricks__search-icon",
       "name": "c-pixabricks__search-icon",
       "settings": {
         "_aspectRatio": "1",
@@ -698,14 +703,14 @@ Don‘t forget to replace the placeholder value in the `code` element with your 
       }
     },
     {
-      "id": "wmlrdq",
-      "name": "c-pixabticks__searchinput",
+      "id": "twf-c-pixabricks__search-input",
+      "name": "c-pixabricks__search-input",
       "settings": {
-        "_cssCustom": ":is(.c-pixabticks__searchinput, #fake-id){\n\tborder: none;\n  &:focus-visible{\n  \toutline: none;\n  }\n}"
+        "_cssCustom": ":is(.c-pixabricks__search-input, #fake-id){\n\tborder: none;\n  &:focus-visible{\n  \toutline: none;\n  }\n}"
       }
     },
     {
-      "id": "imgoil",
+      "id": "twf-c-pixabricks__select",
       "name": "c-pixabricks__select",
       "settings": {
         "_cssCustom": ":is(.c-pixabricks__select, #fake-id){\n\tborder: none;\n  &:focus-visible{\n  \toutline: none;\n  }\n}"
@@ -741,7 +746,7 @@ Don‘t forget to replace the placeholder value in the `code` element with your 
       }
     },
     {
-      "id": "kxeedq",
+      "id": "twf-c-pixabricks__title",
       "name": "c-pixabricks__title",
       "settings": {
         "_widthMax": "initial",
@@ -750,7 +755,7 @@ Don‘t forget to replace the placeholder value in the `code` element with your 
       }
     },
     {
-      "id": "nzfyqy",
+      "id": "sez-section__h1-title",
       "name": "sez-section__h1-title",
       "settings": {
         "_typography": {
@@ -784,12 +789,12 @@ Don‘t forget to replace the placeholder value in the `code` element with your 
       }
     },
     {
-      "id": "udznqo",
+      "id": "twf-c-pixabricks__intro",
       "name": "c-pixabricks__intro",
       "settings": { "_typography": { "font-size": "var(--o-font-size-5)" } }
     },
     {
-      "id": "mAkHL2",
+      "id": "sez-section__body--grid-4",
       "name": "sez-section__body--grid-4",
       "settings": {
         "_display": "grid",
@@ -801,13 +806,13 @@ Don‘t forget to replace the placeholder value in the `code` element with your 
       }
     },
     {
-      "id": "cukesp",
+      "id": "twf-c-pixabricks__button",
       "name": "c-pixabricks__button",
       "settings": { "_background": { "color": { "raw": "transparent" } } }
     },
     { "id": "oxyprops-o-pulse-hover", "name": "o-pulse-hover", "settings": [] },
     {
-      "id": "vksrnq",
+      "id": "twf-c-pixabricks__thumb",
       "name": "c-pixabricks__thumb",
       "settings": {
         "_border": {
@@ -821,7 +826,21 @@ Don‘t forget to replace the placeholder value in the `code` element with your 
       }
     },
     { "id": "oxyprops-o-square", "name": "o-square", "settings": [] },
-    { "id": "zndvin", "name": "o-appear-enter", "settings": [] },
+    {
+      "id": "oxyprops-o-appear-enter",
+      "name": "o-appear-enter",
+      "settings": []
+    },
+    {
+      "id": "twf-c-pixabricks__modal",
+      "name": "c-pixabricks__modal",
+      "settings": {
+        "_width": "90vi",
+        "_height": "90dvb",
+        "_position": "fixed",
+        "_top": "5dvb"
+      }
+    },
     {
       "id": "sez-section__h2-subtitle",
       "name": "sez-section__h2-subtitle",
