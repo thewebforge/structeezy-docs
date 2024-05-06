@@ -31,6 +31,20 @@ Update to the latest version:
 wp plugin update structeezy
 ```
 
+## v1.8.0 (2024-05-06)
+
+### Feat
+
+- **alpine**: New Alpine PM packages manager custom element
+- **alpine**: New Alpine multipurpose custom element
+- **parser**: You can parse html cote to the new alpine custom element by prefixing html tags with `x-`
+  - `<div>` will create a Bricks div element
+  - `<x-div>` will create a Custom Alpine element with a rendered tag of `div`
+
+### Fix
+
+- **parser**: Color highlighting problems appeared in v1.7
+
 ## v1.7.0 (2024-04-26)
 
 ### Feat
