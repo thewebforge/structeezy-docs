@@ -1,0 +1,112 @@
+---
+title: Packages Manager Element
+description: Learn how to use the Alpine.js Packages Manager element in Structeezy.
+sidebar:
+  label: Packages Manager
+  order: 10
+  badge: new
+head:
+  - tag: meta
+    attrs:
+      property: og:image
+      content: https://docs.structeezy.com/open-graph/reference/alpinejs/packages-manager-element.png
+  - tag: meta
+    attrs:
+      property: og:image:width
+      content: "1200"
+  - tag: meta
+    attrs:
+      property: og:image:height
+      content: "630"
+  - tag: meta
+    attrs:
+      property: twitter:image
+      content: https://docs.structeezy.com/open-graph/reference/alpinejs/packages-manager-element.png
+---
+import Figure from "~/components/Figure.astro";
+import location from "~/assets/alpine.pm-element-location.png";
+import base from "~/assets/alpine.pm-element-base.png";
+import fixed from "~/assets/alpine.pm-element-fixed-version.png";
+import serve from "~/assets/alpine.pm-element-serve.png";
+import plugins from "~/assets/alpine.pm-element-plugins.png";
+
+Introduced in Structeezy 1.8, the **Packages Manager** element is a powerful tool that allows you to easily manage your Alpine.js packages directly within the Bricks elements panel. With the Packages Manager, you can quickly link Alpine.js packages from the CDN, or import them if you prefer to serve scripts from your own server.
+
+## Adding the Packages Manager Element
+
+To access the Packages Manager element, simply open the Bricks elements panel in the Structeezy editor. From there, navigate to the **Structeezy** category, where you'll find the **Alpine PM** element listed alongside other Structeezy custom elements.
+
+You can also inject the **Alpine PM** element directly into your structure tree by clicking the **Alpine PM** element from the Structeezy panel **Alpine.js** tab. This will add the element to your structure tree, allowing you to configure and manage your Alpine.js packages with ease.
+
+:::caution
+Always make sure that you insert only one **Alpine PM** element per page to avoid conflicts.  
+If you want Alpine.js to be available on all pages, you can add the **Alpine PM** element to your global header or footer template.
+:::
+
+<Figure src={location} alt="" width="900" caption="Different ways to insert the Alpine PM element in Bricks editor."/>
+
+## Configuring the Packages Manager Element
+
+Once you've added the **Alpine PM** element to your structure tree, it will automatically link the latest v3 version of Alpine.js core from the CDN. No further configuration is required to start using Alpine.js in your Bricks-powered websites.
+
+The latest v3 version of Alpine.js core means that the link will always point to the latest stable release of Alpine.js, ensuring that you benefit from the latest features and improvements, but without the need to manually update the script link.
+
+<Figure src={base} alt="" width="900" caption="The Alpine PM element with no specific configuration"/>
+
+:::tip
+The info message will display to most recent version of Alpine.js core available on the CDN.
+:::
+
+If Alpine.js releases a new major version (version 4, for example), the **Alpine PM** element will **NOT** automatically update the link to the new version, allowing you to maintain compatibility with your existing projects.
+
+In this case, you can manually update the Alpine.js version (se below) if you want to.
+
+### Fixing the Alpine.js Version
+
+If you need to fix the Alpine.js version to a specific version (recommended in production), you can do so by entering the desired version number in the **Version** field of the **Alpine PM** element settings. This will override the default behavior and link to the specified version of Alpine.js core.
+
+<Figure src={fixed} alt="" width="900" caption="This fixes the link to v3.13.9"/>
+
+### Serve from your own server
+
+If you prefer to serve the Alpine.js script from your own server, you can activate this option in the **Alpine PM** element settings. This will create a local version of the library in your WordPress `uploads/structeezy` folder. The script will be served from this location, allowing you to manage the script version and updates independently from the CDN.
+
+<Figure src={serve} alt="" width="900" caption="The “Serve from own server” option active"/>
+
+:::tip
+When serving the script from your own server, you can also fix the version to a specific release, ensuring that your website remains stable and consistent.
+:::
+
+With this option enabled:
+- If you did not set a specific version, the latest version of Alpine.js core will be downloaded from the CDN and saved to your server each time a new one is available. And the script will be served from your server using the latest version.
+- If you set a specific version, the script will be downloaded from the CDN and saved to your server only if the version does not already exist locally. Then, the script will be served from your server using the specified version.
+
+:::note
+When you activate the **Serve from own server** option, It applies to all scripts linked by the **Alpine PM** element, including the Alpine.js core and any additional plugins you may link.
+:::
+
+## Plugins
+
+Alpine.js plugins are a great way to extend the functionality of Alpine.js and add new features to your web projects.
+
+The **Alpine PM** element also allows you to link additional Alpine.js plugins to your Bricks-powered websites. Structeezy gives you acces to all official plugins, and a selection of third-party plugins, directly from the **Alpine PM** element settings.
+
+<Figure src={plugins} alt="" width="900" caption="The Collapse and Mask official plugins are active"/>
+
+To add a plugin, simply toggle the switch in front of the plugin’s name. The plugin will be linked to your website, and you can start using it in your Bricks elements right away. Structeezy will take care of loading the plugins script and dependencies in the correct order, so you can focus on building your web projects.
+
+The **Alpine PM** element provides access to a selection of official Alpine.js plugins, as well as a curated collection of third-party plugins that have been tested and verified to work with Bricks.
+
+### Official plugins
+- [Mask](https://alpinejs.dev/plugins/mask): Automatically format a text input field as a user types.
+- [Intersect](https://alpinejs.dev/plugins/intersect): Easily react when an element enters the viewport.
+- [Persist](https://alpinejs.dev/plugins/persist): Persist Alpine state across page loads.
+- [Focus](https://alpinejs.dev/plugins/focus): Manage focus on a page.
+- [Collapse](https://alpinejs.dev/plugins/collapse): Expand and collapse elements using smooth animations.
+- [Anchor](https://alpinejs.dev/plugins/anchor): Anchor an element’s positioning to another element on the page.
+- [Morph](https://alpinejs.dev/plugins/morph): Morph an element on the page into the provided HTML template.
+- [Sort](https://alpinejs.dev/plugins/sort): Morph an element on the page into the provided HTML template.
+
+### Third-party plugins
+- [Ajax](https://alpine-ajax.js.org/): Request remote content from your server.
+- [Timeout](https://github.com/thewebforge/alpinejs-timeout): Add a timeout to your Alpine.js components.

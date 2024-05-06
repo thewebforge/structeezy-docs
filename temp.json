@@ -1,17 +1,18 @@
 {
   "content": [
     {
-      "id": "wihuaf",
-      "name": "code",
-      "parent": 0,
-      "children": [],
-      "settings": {
-        "code": "<script>\n\t// WARNING: This way of using an API key is not secure.\n\t// Use only for educational purpose in local dev environments.\n\t// Find your API key here: https://pixabay.com/api/docs/\n\t// Replace the placeholder value by your own key\n\n\tconst API_KEY = \"99999999-99999a999aa9aaa9aa999aa9\";\n</script>",
-        "executeCode": true,
-        "noRoot": true
-      },
-      "label": "Paste your API KEY here"
-    }
+        "id": "dvgnxb",
+        "name": "code",
+        "parent": 0,
+        "children": [],
+        "settings": {
+          "code": "<script>\n\tconst pixaBricks = () => {\n\t\treturn {\n\t\timages: [],\n\t\tcurrentImage: {},\n\t\tq: \"\",\n\t\timage_type: \"\",\n\t\tpage: \"\",\n\t\tper_page: 200,\n\t\tqueryImages: async function() {\n\t\t\tconst response = await fetch(`https://pixabay.com/api/?key=${API_KEY}&q=${this.q}&image_type=${this.image_type}&per_page=${this.per_page}`);\n\t\t\tconst data = await response.json();\n\t\t\tthis.images = data.hits;\n\t\t}\n\t}\n};\n</script>",
+          "executeCode": true,
+          "noRoot": true
+        },
+        "label": "<script> App Logic",
+        "themeStyles": []
+      }
   ],
   "source": "bricksCopiedElements",
   "sourceUrl": "https://docs.structeezy.com/tutorials/pixabricks/",

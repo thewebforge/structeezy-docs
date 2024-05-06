@@ -1,0 +1,82 @@
+---
+title: Structeezy v1.8 Release Notes
+description: Short note about the main improvements brought by this new version.
+sidebar:
+  label: v1.8
+  badge: latest
+  order: -80
+head:
+  - tag: meta
+    attrs:
+      property: og:image
+      content: https://docs.structeezy.com/open-graph/release-notes/v-1-8.png
+  - tag: meta
+    attrs:
+      property: og:image:width
+      content: "1200"
+  - tag: meta
+    attrs:
+      property: og:image:height
+      content: "630"
+  - tag: meta
+    attrs:
+      property: twitter:image
+      content: https://docs.structeezy.com/open-graph/release-notes/v-1-8.png
+---
+
+import Figure from "~/components/Figure.astro";
+import Release from "~/components/Release.astro";
+import location from "~/assets/alpine-element-location.png";
+import base from "~/assets/alpine.pm-element-base.png";
+import directive from "~/assets/alpine-element-directive.png";
+
+<Release version="1.8" />
+
+Structeezy 1.8 is available, and brings a few helpful features, as well as performance and UI improvements.
+
+- [Alpine.js custom elements](#alpinejs-custom-elements)
+- [Other improvements](#other-improvements)
+
+To take advantage of the latest features, make sure you’re running the latest version of Structeezy. You can upgrade to Structeezy 1.8 by running an automatic plugin update from you WordPress plugins dashboard, of by downloading the `.zip` file from your [user account](https://structeezy.com/my-account/).
+
+## Alpine.js custom elements
+
+Starting in v1.8, Structeezy now includes two new custom elements to help you work with Alpine.js in your Bricks-powered websites.
+
+<Figure
+  src={location}
+  alt=""
+  width="900"
+  caption="The Structeezy Custom elements in Bricks"
+/>
+
+These custom elements will help you define and manage Alpine.js elements and packages directly within the Bricks editor, making it easier to create dynamic, interactive elements in your Bricks-powered websites.
+
+### Alpine Package Manager Element
+
+The **Packages Manager** element is a powerful tool that allows you to easily manage your Alpine.js packages directly within the Bricks elements panel. With the Packages Manager, you can quickly link Alpine.js packages from the CDN, or import them if you prefer to serve scripts from your own server.
+
+<Figure src={base} alt="" width="900" caption="The Package Manager Element" />
+
+Check the dedicated [Packages Manager Element](/reference/alpinejs/packages-manager-element/) documentation for more details.
+
+### Alpine Element
+
+The **Alpine** element is a multi-purpose element that allows you to easily create Alpine.js powered elements in Bricks.
+
+<Figure src={directive} alt="" width="900" caption="The Alpine Element" />
+
+Check the dedicated [Alpine Element](/reference/alpinejs/alpine-element/) documentation for more details.
+
+## Parsing Alpine.js code
+
+When parsing Alpine.js code, Structeezy can now create structures from standard Bricks elements, or from the new custom elements.
+
+To parse code to alpine.js custom elements, you simply need to prefix your tags with `x-`. For example, to create an Alpine.js element, you can use the following code:
+
+```html
+<x-div x-data="{ open: false }">
+  <x-button @click="open = !open">Toggle</x-button>
+  <x-div x-show="open">Content</x-div>
+</x-div>
+```

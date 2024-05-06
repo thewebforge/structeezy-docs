@@ -1,0 +1,80 @@
+---
+title: Alpine Element
+description: Learn how to use the Alpine.js Packages Manager element in Structeezy.
+sidebar:
+  label: Alpine Element
+  order: 20
+  badge: new
+head:
+  - tag: meta
+    attrs:
+      property: og:image
+      content: https://docs.structeezy.com/open-graph/reference/alpinejs/alpine-element.png
+  - tag: meta
+    attrs:
+      property: og:image:width
+      content: "1200"
+  - tag: meta
+    attrs:
+      property: og:image:height
+      content: "630"
+  - tag: meta
+    attrs:
+      property: twitter:image
+      content: https://docs.structeezy.com/open-graph/reference/alpinejs/alpine-element.png
+---
+import Figure from "~/components/Figure.astro";
+import location from "~/assets/alpine-element-location.png";
+import input from "~/assets/alpine-element-input.png";
+import directive from "~/assets/alpine-element-directive.png";
+import text from "~/assets/alpine-element-text.png";
+
+Introduced in Structeezy 1.8, the **Alpine** element is a multi-purpose element that allows you to easily create Alpine.js powered elements in Bricks.
+
+## Adding the Alpine Element
+
+To access the Alpine element, simply open the Bricks elements panel in the Structeezy editor. From there, navigate to the **Structeezy** category, where you'll find the **Alpine** element listed alongside other Structeezy custom elements.
+
+You can also inject the **Alpine** element directly into your structure tree by clicking the **Alpine** element from the Structeezy panel **Alpine.js** tab. This will add the element to your structure tree, allowing you to configure and manage your Alpine.js elements with ease.
+
+<Figure src={location} alt="" width="900" caption="Different ways to insert the Alpine element in Bricks editor."/>
+
+## Configuring the Alpine Element
+
+Once you've added the **Alpine** element to your structure tree, you can start configuring it to create dynamic, interactive elements powered by Alpine.js.
+
+### Rendered tag
+
+The **Rendered tag** option allows you to define the HTML tag that will be rendered by the Alpine element. By default, the Alpine element will render a `div` tag, but you can easily change this to any other HTML tag, such as `section`, `p`, or `ol`.
+
+In case the tag you want to use is not available in the dropdown list, select “Custom” and you can manually type the tag name in the “Custom tag” input field tha will appear.
+
+### The `<input>` element
+
+When you select to render an `<input>` element, you can further configure the Alpine element to render a specific type of input, such as `text`, `email`, `password`, or `number`. This allows you to create custom input fields with ease, and configure them to suit your specific requirements.
+
+<Figure src={input} alt="" width="900" caption="Configuring an input element of type “range”"/>
+
+### Attributes
+
+For convenience when working with Alpine.js, the Bricks Attributes control usually placed at the bottom of the Style tab is moved to the Content tab when the Alpine element is selected. This allows you to easily configure the attributes of the Alpine element directly within the Content tab.
+
+### Directives
+
+The Alpine element also includes a Directives tab, where you can add Alpine.js directives to the element. This allows you to easily add dynamic functionality to your Alpine elements, such as `x-show`, `x-bind`, or `x-model`.
+
+Alpine directives are special attributes that you can add to your HTML elements to add interactivity and dynamic functionality to your web projects. They follow a specific syntax and the Alpine Element helps you follow the syntax.
+
+<Figure src={directive} alt="" width="900" caption="A directive to log to the console when the user clicks outside of the element"/>
+
+the directives repeater control includes a code editor for convenient editing of the Alpine.js directives expressions.
+
+### Text content
+
+By default, the Alpine element will behave as a container and can nest other elements. However, you can also configure the Alpine element to render text content by activating the option and entering the desired text in the Text content field.
+
+<Figure src={text} alt="" width="900" caption="A directive to log to the console when the user clicks outside of the element"/>
+
+:::tip
+This text content can also include html tags.
+:::
