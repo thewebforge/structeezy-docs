@@ -1,3 +1,24 @@
+## v0.6.0 (2024-05-06)
+
+### Feat
+
+- create alpine custom elements docs pages and new release notes
+- **tutorials**: add pixabricks tutorial
+- **all**: v1.7 update
+- **bump**: bump sez version and changelog
+- bump version
+- bump sez version
+- **bump**: bump to v1.4
+- **bump**: release v1.3.1
+
+### Fix
+
+- fix version and link on index page
+- **pixabricks**: improve json structure
+- add note in the inlined script for api key
+- add note for API key security
+- useless files cause build fail
+
 ## v0.5.0 (2024-02-09)
 
 ### Feat
