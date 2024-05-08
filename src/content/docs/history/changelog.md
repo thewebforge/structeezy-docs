@@ -30,6 +30,26 @@ Update to the latest version:
 ```sh title="Update Structeezy via WP CLI"
 wp plugin update structeezy
 ```
+## v1.8.1 (2024-05-08)
+
+### Fix
+
+- compatibility with Bricks 1.9.8
+- **patch**: compatibility with Bricks 1.9.8 new key attribute value syntax
+- **styles**: aspect of the settings tab icon
+- **elements**: php warning when reading empty text content for the element
+- **parser**: add feedback message when an error occurs during parsing and the structure is not generated
+- **react**: adjust props on select element to avoid console warning
+- **panel**: minor cosmetic adjustments to the panel tab button styles (consistent radius and padding)
+
+### Refactor
+
+- **builder**: code cleanup
+
+### Perf
+
+- **builder-app**: refactor reading from the store for enhanced React performance
+- **state**: better interaction between sez and brx apps
 
 ## v1.8.0 (2024-05-06)
 
