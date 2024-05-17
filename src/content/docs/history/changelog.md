@@ -30,6 +30,18 @@ Update to the latest version:
 ```sh title="Update Structeezy via WP CLI"
 wp plugin update structeezy
 ```
+
+## v1.8.2 (2024-05-17)
+
+### improvements
+
+- **alpine**: new alpine components
+    - **Back To Top**: Appears when the user scrolls down the page, scrolls smoothly to the top of the page when clicked.
+    - **Context Menu**: A context menu that appears when right-clicking on a target area.
+    - **Slider**: A clean and simple slider with a few slides.
+    - **Tooltip**: A simple tooltip that appears when hovering over an element.
+- **editor**: Extend Bricks repeater ccontrol logic to label Directives repeater items with a `directive + value + modifiers` string for enhanced clarity
+
 ## v1.8.1 (2024-05-08)
 
 ### Fix
