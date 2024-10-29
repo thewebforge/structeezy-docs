@@ -31,6 +31,16 @@ Update to the latest version:
 wp plugin update structeezy
 ```
 
+## v1.8.3 (2024-10-29)
+
+### Fix
+
+- **core**: Fix a structure injection problem caused by a modification of the structure panel menu in Bricks 1.11
+
+### Build
+
+- **deps**: Update dependencies to latest stable versions. This includes Iconify latest library updates, all @wordpress packages, emmet, and other minor dependencies.
+
 ## v1.8.2 (2024-05-17)
 
 ### improvements

@@ -89,11 +89,14 @@ Yes, this is actually Bricks compatibility, not Structeezy, with local dev. Bric
 - if accessed over https
   For details, see : https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts
 
-[[↑ Back to Top]](#top)
 
 ## Fresh install of v1.1.0 shows “sorry, you are not allowed to access this page“
 
 Make sure the plugin `.zip`file you try to install ends with `02f.zip`. If not, it is probably a broken file.
 You need to download the plugin from your account page. Delete the plugin from your WordPress installation and install the plugin again with the correct file.
 
-[[↑ Back to Top]](#top)
+## Unable to paste structures in Bricks v1.11
+
+Bricks modified the way the context menu is built in version 1.11. This change broke the way Structeezy injects structures in the structure tree, resulting in the inability to paste structures.
+
+This issue is fixed in Structeezy v1.8.3 which handles both Bricks versions under 1.10 and version 1.11. Please update to the latest version of Structeezy to solve this issue.
